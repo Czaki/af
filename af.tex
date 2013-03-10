@@ -1,0 +1,330 @@
+\documentclass[10pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage[MeX]{polski}
+\usepackage{geometry}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{stackrel}
+\usepackage{index}
+\usepackage{bbding}
+\usepackage[pdftex]{graphicx}
+\usepackage[pdftex]{hyperref}
+\hypersetup{colorlinks}
+\setlength{\parindent}{0pt}
+\geometry{verbose,a4paper,tmargin=2.5cm,bmargin=2.5cm,lmargin=3.0cm,rmargin=3.0cm}
+\newcommand{\zad}[1]{{\par\bf Zadanie #1\par}}
+\renewcommand{\[}{\begin{equation}}
+\renewcommand{\]}{\end{equation}}
+\newcommand{\Z}{{\ensuremath{\mathbb Z}}}
+\newcommand{\N}{{\ensuremath{\mathbb N}}}
+\newcommand{\C}{{\ensuremath{\mathbb C}}}
+\newcommand{\Q}{{\ensuremath{\mathbb Q}}}
+\newcommand{\R}{{\ensuremath{\mathbb R}}}
+\newcommand{\PP}{\ensuremath{\mathbb{P}}}
+\newcommand{\K}{\ensuremath{\mathbb{K}}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\mA}{\mathrm{\bf A}}
+\newcommand{\mB}{\mathrm{\bf B}}
+\newcommand{\mX}{\mathrm{\bf X}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\lin}{\operatorname{lin}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\ddx}{\mathrm{d}x}
+\newcommand{\ddy}{\mathrm{d}y}
+\newcommand{\ddz}{\mathrm{d}z}
+\newcommand{\vx}{\textbf{\emph{x}}}
+\newcommand{\norm}{\|\cdot\|}
+\newindex{tw}{twd}{twx}{Twierdzenia i~Lematy}
+\title{Analiza funkcjonalna wykład}
+\author{Roman Pol}
+\newtheorem{twr}[subsubsection]{Twierdzenie}%[section]
+\newtheorem{lem}[subsubsection]{Lemat}
+\newtheorem{wn}[subsubsection]{Wniosek}
+\newtheorem{uw}[subsubsection]{Uwaga}
+\newcounter{numer}
+\setcounter{numer}{1}
+\newenvironment{tresc}[1]
+[\arabic{numer}]
+{\zad{#1} \addtocounter{numer}{1}\sf}{\par}
+\linespread{1.1}
+\begin{document}
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}
+\rhead{Analiza funkcjonalana wykład}
+\lhead{Grzegorz Bokota}
+\maketitle
+\emph{Notatki Grzegorza Bokoty}\\
+Jeśli ktoś uważa, że czegoś brakuje (np rysunków, nie umiem ich szybko texować) to proszę o~informacje. 
+Największą szansę na uwzględnienie mają gotowe kawałki kodu. W~wypadku rysunku wystarczy on w~jakiejś formie. Postaram się wtedy stexować.
+\tableofcontents
+\addtocontents{toc}{\protect\pdfbookmark[1]{Spis treści}{Tableofcont}}
+\newpage
+\section{Przestrzenie Banacha i~ograniczone operatory liniowe}
+\subsection{Rzeczywiste i~zespolone przestrzenie liniowe}
+Niech $\K$ oznacza ciało liczb rzeczywistych $\R$ lub $\C$ liczb zespolonych.\par
+Niech $X$ będzie  przestrzenią liniowa nad $\R$ lub $\C$. Niech $A,B \subset  X$, $s,t \in K$ wtedy:
+$$sA+tB = \{su + tv: u \in A, v\in B\}$$
+$u_1,\ldots ,u_n \in X $. $\lin\{u_1,\ldots, u_n\} = \K u_1 + \ldots + \K u_n $ gdzie $\K u = \{ t u: t \in \K\} $ 
+
+Niech $g: X_\R \to \R $ funkcjonał liniowy. Wówczas $f: X \to \C$, $f(x) =g(x) - ig(ix)$, $f$ jest liniowe ($f(\alpha x) = \alpha f(x)$). 
+Wówczas $\textrm{Ker}f = \textrm{Ker} g \cap i \textrm{Ker}g$
+
+\subsection{Przestrzenie unormowane}
+$X$ -- przestrzeń liniowa nad $\K$. Normą nazywamy funkcję  $\|\cdot \| : X \to [0, +\infty )$ taką, że:
+	\begin{enumerate}[i.]
+	\item $\|x\| = 0 \Leftrightarrow x=0$ 
+	\item $\|\alpha x \| = |\alpha| \| x\|$, $\alpha \in \K$,$x\in X$ 
+	\item $\|x+y\| \le \|x\| + \|y\|$  
+\end{enumerate}
+$(X,\|\cdot\|)$ -- przestrzeń unormowana jest przestrzenią liniową nad $X$ z~normą $\|\cdot\|$\\
+\subsubsection{Przykłady przestrzeni unormowanych} 
+%\begin{enumerate}[(A)]
+\begin{description}
+ 	 \item[$( l_\infty(S,K), \|\cdot \|_\infty)$:] Niech $S$ będzie zbiorem. Wtedy $l_\infty (S,K)$ jest zbiorem funkcji ograniczonych $X:S\to K$ 
+		z~dodawaniem i~mnożeniem przez skalary po współrzędnych.\\
+		Niech $\|X\|_\infty = \sup \{|x(s): s\in S\} < \infty$.\\
+		Przyjmujemy $(l_\infty, \|\cdot\|_\infty) = ( l_\infty(\N,\C), \|\cdot\|_\infty )$ 
+		-- przestrzeń ciągów zespolonych z~normą ,,supremum''.
+	  \item[$(c_0, \|\cdot\|)$:] podprzestrzeń $(l_\infty, \|\cdot \| )$ złożona z~ciągów zespolonych zbieżnych do zera.
+	  \item[$(l_1, \|\cdot\|_1)$:]  przestrzeń ciągów zespolonych $x= (x_1,x_2,\ldots)$, że szereg $\sum_n x _n$ jest zbieżny  
+		bezwzględnie. $\|x\| _1 = \sum_n |x_n|$
+\end{description}
+%\end{enumerate}
+ \subsubsection{Metryka generowana przez normę }
+ Niech  $(X,\|\cdot\|)$ będzie przestrzenią z~normą. Metrykę w~tej przestrzeni definiujemy  wzorem: $d(x,y) = \|x-y\|$.\\
+Mówiąc o~tolopogii w~$(X,\|\cdot\|)$ mamy na myśli topologię wyznaczoną przez metrykę.\\
+Zdefiniujmy dwa przydatne oznaczenia:
+\begin{description}
+  \item[$B_X = \{ x\in X: \|x\|\le 1\} $] -- Kula jednostkowa domknięta
+  \item[$S_X = \{ x \in X : \|x\| = 1 \}$] -- Sfera jednostkowa 
+\end{description}
+Oczywiście można przesuwać je w~przestrzeni. Dla $x\in X$ i~$r\in \K$ 
+$x+rB_X = \{ y \in X: d(x,y) \le r\}$ jest domkniętą kulą o~promieniu $r$ i~środku w~$x$. 
+%$B_X = \{ x\in : \|x\|\le 1\} $ -- Kula jednostkowa domknięta\\
+%$S_X = \{ x \in X : \|x\| \}$ -- Sfera jednostkowa\\ 
+\subsubsection{Przestrzeń funkcji ciągłych}
+$(C_b (S, \K), \|\cdot\|_\infty )$ \\
+Niech $S$ będzie przestrzenią topologiczną, $C_b(S,\K) = \{ x \in l_\infty(S,\K): x\textrm{ jest ciągła}\}$\\
+$C_b(S,\K)$ jest domknięta w~$l_\infty(S,\K)$. Jeśli $S$ zwarta, to $(C(S), \|\cdot\|_\infty) := (C_b (S,\R) , \|\cdot\|_\infty)$
+
+W~unormowanej przestrzeni $(X,\|\cdot\|)$ odległość wektora $x\in X$ i~zbioru $A\subset X$ dana jest wzorem $\dist(x,A) = \inf \{\|x-y\|: y \in A\}$
+\begin{lem}
+  \label{lem1}
+	$(X,\|\cdot\|)$ -- unormowana nad ciałem $\K$. $Y\subset X$ podprzestrzeń liniowa domknięta. $u\in X\setminus Y$ 
+	\begin{enumerate}[(i)]
+		\item $\|y+\lambda u \| \ge |\lambda| \cdot \dist(u,Y), \; y\in Y, \lambda \in \K$
+		\item $y_n \in Y$, $\lambda_n \in \K$ 
+			$\left(\exists z \in X: y_n + \lambda_n u \to z \right) \Leftrightarrow 
+			\left( \exists y\in Y \exists \lambda \in \K: y_n \to y, \lambda_n \to \lambda  \right)$
+		\item $Y+\K u$ przestrzeń domknięta w~$X$
+	\end{enumerate}
+
+\end{lem}
+\begin{proof}
+	\begin{enumerate}[(i)]
+	  \item $y\in Y$ i~$\lambda \in \K\setminus \{0\}$ mamy $\|y+\lambda u\|= |\lambda|\cdot \left\| u - \frac{-y}{\lambda}\right\|\ge |\lambda| \cdot \dist(u,Y)$.
+		\item $\Rightarrow$. Niech $y_n + \lambda_n u \to z$ wtedy  $(y_n + \lambda_n u )_n $ jest ciągiem Cauchego. 
+			Z~\textit{(i)} wynika, że $(\lambda_n)_n$ też jest ciągiem Cauchego.
+			($\|(y_n +\lambda_n u ) - (y_m +\lambda_m u)\| = \|(y_n-y_m) - (\lambda_m-\lambda_n)u\| \ge |\lambda_n-\lambda_m| \dist(u,Y)$)
+			Z~zupełności $\K: \lambda_n \to \lambda$.
+			Zatem: $\lambda_n u \to \lambda u$ co oznacza $y_n \to z - \lambda u$. Ponieważ $Y$ jest domkniętą podprzestrzenią to $y = z - \lambda u \in Y$
+		\item Wynika natychmiast z~\textit{(ii)}. 
+	\end{enumerate}
+\end{proof}
+\begin{twr}
+	$(X,\|\cdot\|)$ -- przestrzeń unormowana nad ciałem $\K$.
+	\begin{enumerate}[(i)]
+		\item Jeśli $Y\subset X$ - domknięta, linowa, $Z\subset X$ skończenie wymiarowa to $Y+ Z$ jest domknieta.
+		\item Jeśli $X$ jest $n$-wymiarowa, to $(X,\|\cdot\|)$ jest linowo\dywiz homeomorficzna z~$(\K^n, \|\cdot\|_{max})$.
+			
+	\end{enumerate}
+\end{twr}
+\begin{proof}
+	\begin{enumerate}[(i)]
+	  \item $Z= \K u_1 + \ldots + K u_n$, $Y+Z = (Y+\K u_1) +(\K _u2 \ldots + \K u_n)$ wynika przez indukcję z~lematu~\ref{lem1}.  
+		\item $u_1 , \ldots, u_n$ -- baza w~przestrzeni linowej $X$, $X_i = \lin\{ u_1, \ldots, u_i\}$ \\
+			$X_i+\K u_{i+1}$, to z~Lematu: jeśli $y_n \in X_i$ to 
+			$ y_n + \lambda_n u_{i+1}  \to z \Leftrightarrow y_n \to y_0, \lambda_n \to \lambda_0$
+			Zatem przez indukcję (po $m$ - to są indeksy) 
+			$(\lambda_1^m u_1 + \ldots + \lambda_k^m u_k\to z \textrm{ w } X_k) \Leftrightarrow \Lambda_j^m \to \lambda_j,\forall j \le k$\\
+			Zatem: jeśli $T:X  \to \K^n$ jest izomorfizmem 
+			$T\left( \lambda_1 u_1 + \ldots + \lambda_n u_n  \right) = \left( \lambda_1,\ldots,\lambda_n \right)$
+			to $T$ jest homeomorfizmem.
+	\end{enumerate}
+\end{proof}
+\begin{twr}[Lemat Riesza]
+	$Y$ -- domknięta podprzestrzeń przestrzeni unormowanej $(X,\|\cdot\|)$ $Y \not = X$, $\varepsilon>0$. 
+	Wówczas istnieje $x\in S_X$ taki, że $\dist(x,Y)\ge 1 -\varepsilon$
+\end{twr}
+\begin{proof}
+	Niech $u \in X\setminus Y$. $dist(u,Y) = \delta>0$. $\varepsilon>0$ ustalony, $\varepsilon\in (0,1)$, wybieramy $\eta>0$ takie, że 
+	$\dfrac{\delta}{\delta+\eta}=1- \varepsilon$. Istnieje $v\in Y$ takie, że:
+	$\delta\le \|u-v\| \le \delta+\eta$.
+	Niech $x= \dfrac{u-v}{\|u-v\|} \in S_X$ 
+	Niech $y\in Y$, $\|x-y\|= \left\|\dfrac{u-v}{\|u-v\|} - y\right\|= \dfrac{1}{\|u-v\|} \left\|u-v-\left\|u-v\right\|y\right\|= 
+	\dfrac{1}{\|u-v\|} \left\|u- \left( v+ \|u-v\| y \right)\right\| \ge \dfrac{\dist(u,Y)}{\|u-v\|} \ge \dfrac{\delta}{\delta+\eta} = 1 -\varepsilon$
+\end{proof}
+\begin{wn}
+  W~każdej nieskończenie wymiarowej przestrzeni unormowanej $(X,\|\cdot\|)$ istnieją wektory $x_1, x_2, \ldots  \in S_X$ 
+  takie, że $\|x_i-x_j\|\ge \frac{1}{2}$ dla $i\not= j$.
+\end{wn}
+\begin{proof}
+	Niech $y_1, y_2, \ldots$ będą  liniowo niezależne. Wtedy $Y_i = \lin\{y_1,\ldots, y_i \}$ są domknięte.
+	Z~lematu Riesza istnieje $x_{i+1}  \in Y_{i+1} \cap S_X$ takie, że $\dist (x_{i+1}, Y_i) \ge \frac{1}{2}$. Jednocześnie $Y_i \subset Y_{i+1}$
+	Czyli dla $x_1, x_2, \ldots $ mamy $\|x_i-x_j\|\ge \frac{1}{2}$ gdy $ j<i$
+\end{proof}
+\subsection{Twierdzenie Hahna\dywiz Banacha} 
+Twierdzenie Hahna\dywiz Banacha mówi o~przedłużaniu ciągłych funkcji liniowych z~podprzestrzeni na całe przestrzenie.
+%Twierdzenie które mówi, że jeśli mamy przestrzeń unormowaną i~\ldots
+\begin{twr}
+	$(X,\|\cdot\|)$ -- przestrzeń unormowana nad \K.~Funkcjonał liniowy $f:X\to\K$ jest ciągły wtedy i~tylko wtedy, gdy
+	$\ker f$ jest domkniętą podprzestrzenią $X$.
+\end{twr}
+\begin{proof}
+	$\Rightarrow$ $\ker f = f^{-1}(\{0\})$ - domknięte\\
+	$\Leftarrow$ Jeśli $f=0$ -- trywialne. Dla $f \not =0$ weźmy $u\in X \setminus \ker f$, $f(u)=1$. $\ker f \oplus \K u = X$ 
+	Niech $x_n \to x_0$ w $X$. Wtedy $x_n =y_n + \lambda_n u$ dla $y_n \in \ker f$.
+	Wiemy, że $\exists y_0 \in \ker f, x_0 \in \K$ takie, że $y_n \to y_0$, $\lambda_n \to \lambda_0$ i
+	$x_0= y_0 +\lambda_0 u$ wtedy  $f(x_n) = \lambda_n\to \lambda_0 = f(x_0)$ co pokazuje, ze $f$ jest ciągła.
+\end{proof}
+\textit{Przypominienie definicji:}
+$(X,\|\cdot\|)$ - przestrzeń unormowana. Zbiór  $C\subset X$ jest wypukły  wtedy i~tylko wtedy gdy 
+$\forall x_1,\ldots, x_n \in C$, $t_1, \ldots t_n \in [0,1]$ takich, że $\sum_i t_i = 1$ to $\sum_i t_i x_i \in C$
+\begin{uw}
+  \label{uw1_r}
+	$(\R^2,\|\cdot\|_{max})$. Niech $B\subset \R^2$ -- otwarty, wypukły zbiór taki, że zero nie należy do $B$.
+	Wtedy, w~$\R^2$ istnieje prosta przechodząca przez zero i~omijająca $B$
+\end{uw}
+\begin{proof}
+	Rzeczywiście. Niech $S= \{ (t_1, t_2) \in \R^2; t_1^2+t_2^2=1\}$ \\
+	$p:\R^2\setminus\{0\} \to S$ $p(t_1,t_2) = \frac{(t_1,t_2)}{\sqrt{t_1^2+t_2^2}}$:
+	$p(B)$ -- jest zbiorem otwartym, spójny zbiór w~$S$ otwarty łuk bez żadnych punktów antypodalnych.
+Niech $z$ będzie na brzegu $p(B)$ wtedy prosta $\R z$ jest rozłączna z~$B$.\\
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=.7]{rys1}
+  \caption{Przykład do uwagi \ref{uw1_r}}
+  \scriptsize{ $p(B)$ jest reprezentowane przez czerwoną przerywaną linię.}
+\end{figure}
+\end{proof}
+\begin{uw}
+  Hiperpłaszczyzna $\left(\textrm{\textit{ang.} hyper\Plane}\right)$ $H$ w~przestrzeni unormowanej $(X,\|\cdot\|)$ jest zbiorem $H= x+Y$. Gdzie $Y$ jest podprzestrzenią liniową $X$ kowymiaru 1.
+	Jeśli $Y$ jest linowe, to $\overline{Y}$ też. Zatem $H$ jest domknięta lub gęsta w~$X$. 
+	Skoro $\overline{H}=x+\overline{Y}$ i kowymiar $Y=1$, to albo $\overline{Y} = Y$ albo $\overline{Y} = X$.
+\end{uw}
+\begin{twr}[S.~Mazur]
+  \label{maz}
+	Niech $(X,\|\cdot\|)$ przestrzeń unormowana. $L\subset X$ -- podprzestrzeń liniowa. 
+	$C\subset X$ otwarty wypukły zbiór w~$X$ rozdzielny z~$L$. Wtedy istnieje zamknięta hiperpłaszczyzna $H$ zawierająca $L$ rozdzielna z~$C$.
+\end{twr}
+%	\emph{W~$(\mathcal{L},\subseteq)$  jest  porządek częściowy, więc działa lemat Kuratowskiego--Zorna}
+\begin{proof}
+	Niech $\mathcal{L}$ będzie rodziną wszystkich podprzestrzeni liniowych $X$ zawierających $L$ i~rozłącznych z~$C$.
+	Wtedy $L \in \mathcal{L}$. Jeśli $\varphi \subset \mathcal{L}$ jest łańcuchem w~$(\mathcal{L},\subseteq)$, wtedy $\bigcup \varphi\in \mathcal{L}$.
+	Z Lematu Kuratowskiego--Zorna istnieje element maksymalny $M$ w~$(\mathcal{L}, \subseteq)$.
+	\begin{enumerate}[(A)]
+		\item Jeśli $(X,\|\cdot\|)$ jest nad \R. Wtedy $M$ jest domkniętą hiperpłaszczyzną.
+			Domkniętość $M$: $M\in \mathcal{L}$ więc $\overline{M} \in \mathcal{L}$ więc z maksymalności $M=\overline{M}$.
+			Kowymiar $M=1$ przypuśćmy przeciwnie. Wówczas istnieje przestrzeń liniowa $E\subset X$ taka, że $\dim E =2$ i~$E\cap M=\{0\}$
+			Wtedy $B=(C+M)\cap E$ nie zawiera 0.
+			$B$ jest zbiorem wypukłym i~otwartym w~$E$ (z~konstrukcji $B$ w~powyższym wierszu).
+			Więc istnieje $F\subset E$ -- jednowymiarowa podprzestrzeń taka, że $B\cap F = \emptyset$.
+			Wtedy $(M+F)\cap C= \emptyset $ ($m+f=c$, $c-m=f$, $c-m \in M+C$ nie możliwe).
+			Zatem $M+F \in \mathcal{L}$ i~$M+F$ jest ściśle większe od $M$ w~sensie inkluzji.
+		\item $(X,\norm)$ jest nad \C.~Rozważmy $X_\R$ opisaną w~(A), wtedy $M$ jest hiperpłaszczyzną w~$X_{\R}$.
+			Zatem $H=M\cap iM$ jest hiperpłaszczyzną w~$X$, rozdzielną z~$C$. $L\subset H$ ponieważ $iL=L$.
+	\end{enumerate}
+\end{proof}
+\begin{twr}[Hahn--Banach]
+	$(X,\norm)$ -- przestrzeń unormowana nad \K.~Niech $Y\subset X$ będzie podprzestrzenią liniową i 
+	$f:Y\to \K$ będzie odwzorowaniem liniowym takim, że $|f(y)| \le \|y\|$ dla $y\in Y$.
+	Wtedy istnieje funkcjonał liniowy $\tilde{f} :X \to \K$ taki, że $\tilde{f}|_Y = f$ i~$|\tilde{f}(x)|\le \|x\|$
+\end{twr}
+\begin{proof}
+  Jeśli $f=0$ to $\tilde{f} = 0$. Jeśli $f\not =0$ to weźmy $u \in Y$  takie, że $f(u)=1$.\par
+	Niech $C =\{ x \in X: \|x - u\|<1\}$. Pokażemy, że $C\cap \ker f = \emptyset$.\par
+	Weźmy $y\in Y$.
+	$|f(y)-f(u)|=|f(y-u)|\le \|y - u\|$. Jeśli $y\in C$ to  $f(y) \not =0$.
+	Z~{twierdzenia Mazura(\ref{maz})} istnieje w~$X$ hiperpłaszczyzna $H$ taka, że $\ker f\subset H$ i $H\cap C = \emptyset$.
+	Kontynuując dowód, ponieważ $u\in C$ to $u \not \in H$ więc $X=H\oplus \K u$.
+	Niech $\tilde{f}(x+\lambda u) = \lambda$ dla $x\in H$ i~$\lambda \in \K$. Wtedy $\tilde{f}$ jest  przedłużeniem $f$.\\
+	Ponadto, wiemy, że $\|x +\lambda u\|\ge |\lambda| = |\tilde{f} (x+\lambda u)|$ Co znaczy, że $\|x\| \ge |f(x)|$ dla $x\in X$
+\end{proof}
+\begin{uw}
+	Niech $(X,\norm)$ -- unormowana przestrzeń rzeczywista. Niech $Y\subset X$ będzie podprzestrzenią liniową.
+	$C\subset X$ -- otwarty wypukły podzbiór $X$ taki że $C \cap Y not = \emptyset $ Niech $f:Y\to \R$ funkcjonał liniowy taki, ze  
+	$f$ jest dodatni na $C\cap Y$. Wtedy istnieje $\tilde{f} : X \to \R$ który jest przedłużeniem $f$ i~$\tilde{f}$ jest ściśle dodatni na $C$.
+\end{uw}
+\begin{proof}
+	Będziemy używać twierdzenia Mazura: Niech $L= Y \cap \ker f$ wtedy $L\cap C = \emptyset$. 
+	Istnieje hiperpłaszczyzna $H$ w~$X$ taka, że $L\subset H$ i~$H\cap C = \emptyset$.
+	Weźmy $u \in C \cap Y$. Wtedy $Y = \ker f \oplus \R u$ i~$X = H\oplus \R u$.
+	Zdefiniujmy $\tilde{f} = (h+\lambda u) = \lambda f(u)$. I~jest dobrze. 
+\end{proof}
+% Ja nie wiem jakie tu powinien być dokładnie tytuł.
+\subsection{Twierdzenie o~reprezentacji  Riesza dla nieujemnych funkcjonałów liniowych na C[a,b]}
+$C[a,b]$ -- przestrzeń funkcji ciągłych na $[a,b]$ w~$\R$.\par
+Liniowy funkcjonał $\varphi:C[a,b]\to \R$ jest nieujemny jeśli $\varphi(f)\ge 0$ dla $f \ge 0)$
+\begin{twr}[F.~Riesz]
+Niech $\varphi:C[a,b]\to \R$ liniowy, nieujemny  funkcjonał.
+Istnieje wtedy miara Borelowska $\mu$ na $[a,b]$ taka, że $\varphi(f) = \int_{[a,b]} f \dd \mu$ dla $f\in C[a,b]$
+\end{twr}
+Dla ułatwienia skupimy się teraz na $[a,b]=[0,1]$
+\begin{lem} \label{lem:Riesz1}
+  Niech $F\colon[0,1]\to [0,+\infty)$ będzie funkcją niemalejącą. Niech $F_l(t) = \lim_{s\to t^-} F(s)$ dla $t\in[0,1]$. Istnieje wtedy miara Borelowska $\mu$ na $[0,1]i$
+	taka, że $\mu\left( [0,t) \right) = F_{l}(t)$ i $\mu\left( [0,1) \right) = F(1)$
+\end{lem}
+\begin{proof}
+	%	\texttt{rysunek} \\ tu miał być rysunek  f jako funkcji schodkowej.
+			Niech $G\colon[0,F(1)] \to [0,1]$ będzie funkcją zdefiniowaną wzorem: $G(y) = \inf\{x: F(x) \ge y\}$.
+			Jak łatwo zauważyć funkcja $G$ jest niemalejąca oraz  $[0,F_l(t)) \subset G^{-1}[0,t)\subset [0,F_l(t)]$.
+			Zdefiniujmy $\mu$ na $[0,1]$ przez $\mu(A) = \lambda(G^{-1}(A))$ gdzie $\lambda$ jest miarą Lebesgua.
+
+\end{proof}
+\begin{uw}
+	Niech $I=[0,1]$, $\psi: l_\infty (I,\R)\to \R$ liniowy, nieujemny  funkcjonał. 
+	Istnieje wtedy  przeliczalny zbiór $J\subset I$ i~miara Borelowska $\mu$ na $I$ taka, że $\psi\left(\chi_{[0,t)} \right) = \mu[0,t)$ 
+	$\psi \left( \chi_{[s,t)}  \right)  = \mu[s,t)$ i~$\psi(\chi_{[0,1]} = \psi(1) = \mu(0,1)$
+\end{uw}
+\begin{proof}
+	Niech $F(t) = \psi\left( \chi_{[0,t)} \right)$ dla $t<1$ i~$F(1) = \psi(1)$.
+	Jeśli $s<t$ to $\chi_{[0,s)} \le \chi_{[0,t]}$ więc $\phi\left( \chi_{0,s)} \right) \le \phi \left( \chi_{[0,t)} \right)$
+	  Ponieważ $\psi$ jest nieujemne to $F$ jest niemalejące i~mamy $\mu$ jak w~poprzednim lemacie (\ref{lem:Riesz1}).\\
+	Niech $J= \{t: F_l (t) < F(t)\}$ -- zbiór punktów skoku jest przeliczalny. 
+	Wtedy $\mu$ i $J$ mają takie własności jakie chcieliśmy. 
+\end{proof}
+\begin{uw}
+	Niech $\varphi:C[0,1] \to \R$ jest liniowym, nieujemnym funkcjonałem i~$\varphi \not = 0$ wtedy  $\varphi(f) >0 $ dla każdego $f>0$ 
+\end{uw}
+\begin{proof}
+	Każdą funkcję $u \in C[0,1]$ można przedstawić jako różnicę $u=u^+-u^-$ nieujemnych funkcji ciągłych $u^+ = \max(u,0)$ i~$u^- = \max(-u,0)$.
+	Dlatego, jeśli $\varphi\not = 0$ istnieje $v\ge 0$ dla którego $\varphi(v)>0$.
+	Weźmy $f>0$ gdzie $\inf f = \delta >0$. Mamy $\frac{\delta}{\|v\|}v\le f$. Z~liniowości $\varphi$ mamy $\varphi(f)\ge \frac{\delta}{\|v\|}\varphi(v)>0$
+\end{proof}
+\begin{proof}[Dowód twierdzenia Riesza]
+	$\varphi: C[0,1] \to \R$, nieujemny, linowy funkcjonał.
+	$\left( C[0,1],\norm_\infty \right) \subset\left( l_\infty (I,\R),\norm_\infty \right)$
+	$C=\{ u\in l_\infty (I,\R): \inf_{t \in I} u(t) >0$ -- zbiór wypukły i~otwarty. 
+	$C\cap C[0,1] = \{ f \in C[0,1]: f>0\}$.\par
+	$\varphi:C[0,1] \to \R$ liniowy nieujemny wtedy $\varphi$ jest dodatnie na $C\cap C[0,1]$. Z~Uwagi 1.3.6.
+	istnieje ciągłe liniowe rozszerzenie $\psi:\l_\infty(I,\R) \to R$ dodatni na C. \par
+	\emph{Zauważmy: jeśli $v\ge 0$ $(v \in l_\infty (I,\R)$  wtedy $\psi(v)>0$. Niech $\mu$ będzie miarą jak w~Lemacie 1.4.3.}\par
+	Musimy sprawdzić dla $f\in C[0,1]$, ze $\varphi(f) = \int_{[0,1]}f \dd \mu$.
+	Ustalmy $\varepsilon>0$. Dopóki $f$ jest jednostajnie ciągła możemy zastąpić $[0,1]$ przez punkty $0<t_1<\ldots<t_n<1$\texttt{[\dots]}\par
+	$g$  jest funkcją schodkową 
+	$$g= f(0)\cdot \chi_{[0,t_1)} + \sum_{i=1}^{n-1}f(t_i) \chi_{[t_i,t_{i+1}} + f(t_n) \chi_{[t_n,1]}$$
+	Wtedy $\left|\varphi(f) - \int_{[0,1]} f \dd \mu\right| = \left| \psi(f) - \psi(g) +\psi(g) - \int_{[0,1]} \right|
+	\le \left| \psi(f-g)\right| + \left| \int_{[0,1]} g \dd \mu - \int_{[0,1]}\right|$ \texttt{\dots}
+\end{proof}
+
+\subsection{Ograniczone operatory liniowe}
+
+\end{document}
