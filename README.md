@@ -1,0 +1,4 @@
+af
+==
+
+Analiza Funkcjonalna - Skrypt
