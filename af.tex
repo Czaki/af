@@ -276,29 +276,31 @@ $C[a,b]$ -- przestrzeń funkcji ciągłych na $[a,b]$ w~$\R$.\par
 Liniowy funkcjonał $\varphi:C[a,b]\to \R$ jest nieujemny jeśli $\varphi(f)\ge 0$ dla $f \ge 0)$
 \begin{twr}[F.~Riesz]
 Niech $\varphi:C[a,b]\to \R$ liniowy, nieujemny  funkcjonał.
-Istnieje wtedy miara Borelowska $\mu$ na $[a,b]$ taka, że $\varphi(f) = \int_{[a,b]} f \dd \mu$ dla $f\in C[a,b]$
+Istnieje wtedy miara Borelowska $\mu$ na $[a,b]$ taka, że $\varphi(f) = \int_{[a,b]} f \dd \mu$ dla $f\in C[a,b]$.
 \end{twr}
-Dla ułatwienia skupimy się teraz na $[a,b]=[0,1]$
+Dla ułatwienia skupimy się teraz na $[a,b]=[0,1]$.
 \begin{lem} \label{lem:Riesz1}
-  Niech $F\colon[0,1]\to [0,+\infty)$ będzie funkcją niemalejącą. Niech $F_l(t) = \lim_{s\to t^-} F(s)$ dla $t\in[0,1]$. Istnieje wtedy miara Borelowska $\mu$ na $[0,1]i$
-	taka, że $\mu\left( [0,t) \right) = F_{l}(t)$ i $\mu\left( [0,1) \right) = F(1)$
+  Niech $F\colon[0,1]\to [0,+\infty)$ będzie funkcją niemalejącą. Niech $F_l(t) = \lim_{s\to t^-} F(s)$ dla $t\in[0,1]$. 
+  Istnieje wtedy miara Borelowska $\mu$ na $[0,1]$
+  taka, że $\mu\left( [0,t) \right) = F_{l}(t)$ i $\mu\left( [0,1) \right) = F(1)$.
 \end{lem}
 \begin{proof}
 	%	\texttt{rysunek} \\ tu miał być rysunek  f jako funkcji schodkowej.
 			Niech $G\colon[0,F(1)] \to [0,1]$ będzie funkcją zdefiniowaną wzorem: $G(y) = \inf\{x: F(x) \ge y\}$.
 			Jak łatwo zauważyć funkcja $G$ jest niemalejąca oraz  $[0,F_l(t)) \subset G^{-1}[0,t)\subset [0,F_l(t)]$.
 			Zdefiniujmy $\mu$ na $[0,1]$ przez $\mu(A) = \lambda(G^{-1}(A))$ gdzie $\lambda$ jest miarą Lebesgue'a.
-
 \end{proof}
 \begin{uw}
 	Niech $I=[0,1]$, $\psi: l_\infty (I,\R)\to \R$ liniowy, nieujemny  funkcjonał. 
 	Istnieje wtedy  przeliczalny zbiór $J\subset I$ i~miara Borelowska $\mu$ na $I$ taka, że $\psi\left(\chi_{[0,t)} \right) = \mu[0,t)$ 
-	$\psi \left( \chi_{[s,t)}  \right)  = \mu[s,t)$ i~$\psi(\chi_{[0,1]}) = \psi(1) = \mu(0,1)$
+		$\psi \left( \chi_{[s,t)}  \right)  = \mu[s,t)$ i~$\psi(\chi_{[0,1]}) = \psi(1) = \mu[0,1]$.
 \end{uw}
 \begin{proof}
 	Niech $F(t) = \psi\left( \chi_{[0,t)} \right)$ dla $t<1$ i~$F(1) = \psi(1)$.
-	Jeśli $s<t$ to $\chi_{[0,s)} \le \chi_{[0,t]}$ więc $\phi\left( \chi_{0,s)} \right) \le \phi \left( \chi_{[0,t)} \right)$
-	  Ponieważ $\psi$ jest nieujemne to $F$ jest niemalejące i~mamy $\mu$ jak w~poprzednim lemacie (\ref{lem:Riesz1}).\\
+	Jeśli $s<t$ to $\chi_{[0,s)} \le \chi_{[0,t)}$ więc $\psi\left( \chi_{0,s)} \right) \le \psi \left( \chi_{[0,t)} \right)$
+		bo $\psi (\chi_{[0,t)} ) - \psi (\chi_{[0,s)}) = \psi(\chi_{[s,t)}) >0$.
+	%  Ponieważ $\psi$ jest nieujemne to 
+	Czyli $F$ jest niemalejące i~mamy $\mu$ jak w~poprzednim lemacie (\ref{lem:Riesz1}).\\
 	Niech $J= \{t: F_l (t) < F(t)\}$ -- zbiór punktów skoku jest przeliczalny. 
 	Wtedy $\mu$ i $J$ mają takie własności jakie chcieliśmy. 
 \end{proof}
@@ -324,7 +326,8 @@ Dla ułatwienia skupimy się teraz na $[a,b]=[0,1]$
 	takie, że oscylacja $f$ na przedziałach $[0,t_1),\ldots [t_{n-1},t_{n}), [t_n 1]$ jest mniejsza niż $\varepsilon$\par
 	Niech $g$  będzie funkcją schodkową zdefiniowaną: 
 	$$g= f(0)\cdot \chi_{[0,t_1)} + \sum_{i=1}^{n-1}f(t_i) \chi_{[t_i,t_{i+1}} + f(t_n) \chi_{[t_n,1]}$$
-	Wtedy $\|f-g\|_\infty<\varepsilon$
+	Wtedy $|f-g| \le \|f-g\|_\infty<\varepsilon$ więc $-\mathbf{1} \varepsilon < f-g < \mathbf{1} \varepsilon$, 
+	czyli $\psi(f-g) <\varepsilon \psi(\mathbf{1})$
  	\begin{multline}
 	\left|\varphi(f) - \int_{[0,1]} f \dd \mu\right| = \left| \psi(f) - \psi(g) +\psi(g) - \int_{[0,1]} f \dd \mu \right|
 	\le \left| \psi(f-g)\right| + \int_{[0,1]} \left| g - f \right| \dd\mu
@@ -338,4 +341,5 @@ Dla ułatwienia skupimy się teraz na $[a,b]=[0,1]$
 \begin{de}
 Niech $(X,\norm)$ i~$(Y,\norm)$ będą unormowanymi przestrzeniami liniowymi nad tym samym ciałem.
 \end{de}
+
 \end{document}
