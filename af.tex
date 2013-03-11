@@ -70,12 +70,12 @@ Największą szansę na uwzględnienie mają gotowe kawałki kodu. W~wypadku rys
 \newpage
 \section{Przestrzenie Banacha i~ograniczone operatory liniowe}
 \subsection{Rzeczywiste i~zespolone przestrzenie liniowe}
-Niech $\K$ oznacza ciało liczb rzeczywistych $\R$ lub $\C$ liczb zespolonych.\par
-Niech $X$ będzie  przestrzenią liniowa nad $\R$ lub $\C$. Niech $A,B \subset  X$, $s,t \in K$ wtedy:
+Niech $\K$ oznacza ciało liczb rzeczywistych $\R$ lub $\C$ liczb zespolonych,\par
+$X$ przestrzenią liniowa nad $\R$ lub $\C$ oraz niech $A,B \subset  X$, $s,t \in K$ wtedy:
 $$sA+tB = \{su + tv: u \in A, v\in B\}$$
 $u_1,\ldots ,u_n \in X $. $\lin\{u_1,\ldots, u_n\} = \K u_1 + \ldots + \K u_n $ gdzie $\K u = \{ t u: t \in \K\} $ 
 
-Niech $g: X_\R \to \R $ funkcjonał liniowy. Wówczas $f: X \to \C$, $f(x) =g(x) - ig(ix)$, $f$ jest liniowe ($f(\alpha x) = \alpha f(x)$). 
+Niech $g: X_\R \to \R $ to funkcjonał liniowy. Wówczas $f: X \to \C$, $f(x) =g(x) - ig(ix)$, $f$ jest liniowe ($f(\alpha x) = \alpha f(x)$). 
 Wówczas $\textrm{Ker}f = \textrm{Ker} g \cap i \textrm{Ker}g$
 
 \subsection{Przestrzenie unormowane}
@@ -85,27 +85,27 @@ $X$ -- przestrzeń liniowa nad $\K$. Normą nazywamy funkcję  $\|\cdot \| : X \
 	\item $\|\alpha x \| = |\alpha| \| x\|$, $\alpha \in \K$,$x\in X$ 
 	\item $\|x+y\| \le \|x\| + \|y\|$  
 \end{enumerate}
-$(X,\|\cdot\|)$ -- przestrzeń unormowana jest przestrzenią liniową nad $X$ z~normą $\|\cdot\|$\\
+$(X,\|\cdot\|)$ -- przestrzeń unormowana to przestrzeń liniowa nad $X$ z~normą $\|\cdot\|$\\
 \subsubsection{Przykłady przestrzeni unormowanych} 
 %\begin{enumerate}[(A)]
 \begin{description}
- 	 \item[$( l_\infty(S,K), \|\cdot \|_\infty)$:] Niech $S$ będzie zbiorem. Wtedy $l_\infty (S,K)$ jest zbiorem funkcji ograniczonych $X:S\to K$ 
+ 	 \item[$( l_\infty(S,K), \|\cdot \|_\infty)$] -- Niech $S$ będzie zbiorem. Wtedy $l_\infty (S,K)$ jest zbiorem funkcji ograniczonych $X:S\to K$ 
 		z~dodawaniem i~mnożeniem przez skalary po współrzędnych.\\
-		Niech $\|X\|_\infty = \sup \{|x(s): s\in S\} < \infty$.\\
+		Niech $\|X\|_\infty = \sup \{|x(s)\colon s\in S\} < \infty$.\\
 		Przyjmujemy $(l_\infty, \|\cdot\|_\infty) = ( l_\infty(\N,\C), \|\cdot\|_\infty )$ 
 		-- przestrzeń ciągów zespolonych z~normą ,,supremum''.
-	  \item[$(c_0, \|\cdot\|)$:] podprzestrzeń $(l_\infty, \|\cdot \| )$ złożona z~ciągów zespolonych zbieżnych do zera.
-	  \item[$(l_1, \|\cdot\|_1)$:]  przestrzeń ciągów zespolonych $x= (x_1,x_2,\ldots)$, że szereg $\sum_n x _n$ jest zbieżny  
+	  \item[$(c_0, \|\cdot\|)$] -- podprzestrzeń $(l_\infty, \|\cdot \| )$ złożona z~ciągów zespolonych zbieżnych do zera.
+	  \item[$(l_1, \|\cdot\|_1)$] -- przestrzeń ciągów zespolonych $x= (x_1,x_2,\ldots)$, że szereg $\sum_n x _n$ jest zbieżny  
 		bezwzględnie. $\|x\| _1 = \sum_n |x_n|$
 \end{description}
 %\end{enumerate}
  \subsubsection{Metryka generowana przez normę }
  Niech  $(X,\|\cdot\|)$ będzie przestrzenią z~normą. Metrykę w~tej przestrzeni definiujemy  wzorem: $d(x,y) = \|x-y\|$.\\
-Mówiąc o~tolopogii w~$(X,\|\cdot\|)$ mamy na myśli topologię wyznaczoną przez metrykę.\\
+Mówiąc o~topologii w~$(X,\|\cdot\|)$ mamy na myśli topologię wyznaczoną przez metrykę.\\
 Zdefiniujmy dwa przydatne oznaczenia:
 \begin{description}
-  \item[$B_X = \{ x\in X: \|x\|\le 1\} $] -- Kula jednostkowa domknięta
-  \item[$S_X = \{ x \in X : \|x\| = 1 \}$] -- Sfera jednostkowa 
+  \item[$B_X = \{ x\in X: \|x\|\le 1\} $] -- kula jednostkowa domknięta
+  \item[$S_X = \{ x \in X : \|x\| = 1 \}$] -- sfera jednostkowa 
 \end{description}
 Oczywiście można przesuwać je w~przestrzeni. Dla $x\in X$ i~$r\in \K$ 
 $x+rB_X = \{ y \in X: d(x,y) \le r\}$ jest domkniętą kulą o~promieniu $r$ i~środku w~$x$. 
@@ -119,7 +119,7 @@ $C_b(S,\K)$ jest domknięta w~$l_\infty(S,\K)$. Jeśli $S$ zwarta, to $(C(S), \|
 W~unormowanej przestrzeni $(X,\|\cdot\|)$ odległość wektora $x\in X$ i~zbioru $A\subset X$ dana jest wzorem $\dist(x,A) = \inf \{\|x-y\|: y \in A\}$
 \begin{lem}
   \label{lem1}
-	$(X,\|\cdot\|)$ -- unormowana nad ciałem $\K$. $Y\subset X$ podprzestrzeń liniowa domknięta. $u\in X\setminus Y$ 
+	$(X,\|\cdot\|)$ -- unormowana nad ciałem $\K$. $Y\subset X$ podprzestrzeń liniowa domknięta oraz $u\in X\setminus Y$. 
 	\begin{enumerate}[(i)]
 		\item $\|y+\lambda u \| \ge |\lambda| \cdot \dist(u,Y), \; y\in Y, \lambda \in \K$
 		\item $y_n \in Y$, $\lambda_n \in \K$ 
@@ -132,8 +132,8 @@ W~unormowanej przestrzeni $(X,\|\cdot\|)$ odległość wektora $x\in X$ i~zbioru
 \begin{proof}
 	\begin{enumerate}[(i)]
 	  \item $y\in Y$ i~$\lambda \in \K\setminus \{0\}$ mamy $\|y+\lambda u\|= |\lambda|\cdot \left\| u - \frac{-y}{\lambda}\right\|\ge |\lambda| \cdot \dist(u,Y)$.
-		\item $\Rightarrow$. Niech $y_n + \lambda_n u \to z$ wtedy  $(y_n + \lambda_n u )_n $ jest ciągiem Cauchego. 
-			Z~\textit{(i)} wynika, że $(\lambda_n)_n$ też jest ciągiem Cauchego.
+		\item $\Rightarrow$. Niech $y_n + \lambda_n u \to z$ wtedy  $(y_n + \lambda_n u )_n $ jest ciągiem Cauchy'ego. 
+			Z~\textit{(i)} wynika, że $(\lambda_n)_n$ też jest ciągiem Cauchy'ego.
 			($\|(y_n +\lambda_n u ) - (y_m +\lambda_m u)\| = \|(y_n-y_m) - (\lambda_m-\lambda_n)u\| \ge |\lambda_n-\lambda_m| \dist(u,Y)$)
 			Z~zupełności $\K: \lambda_n \to \lambda$.
 			Zatem: $\lambda_n u \to \lambda u$ co oznacza $y_n \to z - \lambda u$. Ponieważ $Y$ jest domkniętą podprzestrzenią to $y = z - \lambda u \in Y$
@@ -143,8 +143,8 @@ W~unormowanej przestrzeni $(X,\|\cdot\|)$ odległość wektora $x\in X$ i~zbioru
 \begin{twr}
 	$(X,\|\cdot\|)$ -- przestrzeń unormowana nad ciałem $\K$.
 	\begin{enumerate}[(i)]
-		\item Jeśli $Y\subset X$ - domknięta, linowa, $Z\subset X$ skończenie wymiarowa to $Y+ Z$ jest domknieta.
-		\item Jeśli $X$ jest $n$-wymiarowa, to $(X,\|\cdot\|)$ jest linowo\dywiz homeomorficzna z~$(\K^n, \|\cdot\|_{max})$.
+		\item Jeśli $Y\subset X$ - domknięta, linowa, $Z\subset X$ skończenie wymiarowa to $Y+ Z$ jest domknięta.
+		\item Jeśli $X$ jest $n$-wymiarowa, to $(X,\|\cdot\|)$ jest liniowo\dywiz homeomorficzna z~$(\K^n, \|\cdot\|_{max})$.
 			
 	\end{enumerate}
 \end{twr}
@@ -196,7 +196,7 @@ Twierdzenie Hahna\dywiz Banacha mówi o~przedłużaniu ciągłych funkcji liniow
 	Wiemy, że $\exists y_0 \in \ker f, x_0 \in \K$ takie, że $y_n \to y_0$, $\lambda_n \to \lambda_0$ i
 	$x_0= y_0 +\lambda_0 u$ wtedy  $f(x_n) = \lambda_n\to \lambda_0 = f(x_0)$ co pokazuje, ze $f$ jest ciągła.
 \end{proof}
-\textit{Przypominienie definicji:}
+\textit{Przypomnienie definicji:}
 $(X,\|\cdot\|)$ - przestrzeń unormowana. Zbiór  $C\subset X$ jest wypukły  wtedy i~tylko wtedy gdy 
 $\forall x_1,\ldots, x_n \in C$, $t_1, \ldots t_n \in [0,1]$ takich, że $\sum_i t_i = 1$ to $\sum_i t_i x_i \in C$
 \begin{uw}
@@ -287,7 +287,7 @@ Dla ułatwienia skupimy się teraz na $[a,b]=[0,1]$
 	%	\texttt{rysunek} \\ tu miał być rysunek  f jako funkcji schodkowej.
 			Niech $G\colon[0,F(1)] \to [0,1]$ będzie funkcją zdefiniowaną wzorem: $G(y) = \inf\{x: F(x) \ge y\}$.
 			Jak łatwo zauważyć funkcja $G$ jest niemalejąca oraz  $[0,F_l(t)) \subset G^{-1}[0,t)\subset [0,F_l(t)]$.
-			Zdefiniujmy $\mu$ na $[0,1]$ przez $\mu(A) = \lambda(G^{-1}(A))$ gdzie $\lambda$ jest miarą Lebesgua.
+			Zdefiniujmy $\mu$ na $[0,1]$ przez $\mu(A) = \lambda(G^{-1}(A))$ gdzie $\lambda$ jest miarą Lebesgue'a.
 
 \end{proof}
 \begin{uw}
