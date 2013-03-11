@@ -293,7 +293,7 @@ Dla ułatwienia skupimy się teraz na $[a,b]=[0,1]$
 \begin{uw}
 	Niech $I=[0,1]$, $\psi: l_\infty (I,\R)\to \R$ liniowy, nieujemny  funkcjonał. 
 	Istnieje wtedy  przeliczalny zbiór $J\subset I$ i~miara Borelowska $\mu$ na $I$ taka, że $\psi\left(\chi_{[0,t)} \right) = \mu[0,t)$ 
-	$\psi \left( \chi_{[s,t)}  \right)  = \mu[s,t)$ i~$\psi(\chi_{[0,1]} = \psi(1) = \mu(0,1)$
+	$\psi \left( \chi_{[s,t)}  \right)  = \mu[s,t)$ i~$\psi(\chi_{[0,1]}) = \psi(1) = \mu(0,1)$
 \end{uw}
 \begin{proof}
 	Niech $F(t) = \psi\left( \chi_{[0,t)} \right)$ dla $t<1$ i~$F(1) = \psi(1)$.
@@ -307,23 +307,31 @@ Dla ułatwienia skupimy się teraz na $[a,b]=[0,1]$
 \end{uw}
 \begin{proof}
 	Każdą funkcję $u \in C[0,1]$ można przedstawić jako różnicę $u=u^+-u^-$ nieujemnych funkcji ciągłych $u^+ = \max(u,0)$ i~$u^- = \max(-u,0)$.
-	Dlatego, jeśli $\varphi\not = 0$ istnieje $v\ge 0$ dla którego $\varphi(v)>0$.
+	Dlatego, jeśli $\varphi\not = 0$ to istnieje $v\ge 0$ dla którego $\varphi(v)>0$.
 	Weźmy $f>0$ gdzie $\inf f = \delta >0$. Mamy $\frac{\delta}{\|v\|}v\le f$. Z~liniowości $\varphi$ mamy $\varphi(f)\ge \frac{\delta}{\|v\|}\varphi(v)>0$
 \end{proof}
 \begin{proof}[Dowód twierdzenia Riesza]
-	$\varphi: C[0,1] \to \R$, nieujemny, linowy funkcjonał.
-	$\left( C[0,1],\norm_\infty \right) \subset\left( l_\infty (I,\R),\norm_\infty \right)$
-	$C=\{ u\in l_\infty (I,\R): \inf_{t \in I} u(t) >0$ -- zbiór wypukły i~otwarty. 
-	$C\cap C[0,1] = \{ f \in C[0,1]: f>0\}$.\par
-	$\varphi:C[0,1] \to \R$ liniowy nieujemny wtedy $\varphi$ jest dodatnie na $C\cap C[0,1]$. Z~Uwagi 1.3.6.
-	istnieje ciągłe liniowe rozszerzenie $\psi:\l_\infty(I,\R) \to R$ dodatni na C. \par
-	\emph{Zauważmy: jeśli $v\ge 0$ $(v \in l_\infty (I,\R)$  wtedy $\psi(v)>0$. Niech $\mu$ będzie miarą jak w~Lemacie 1.4.3.}\par
+	Niech $\varphi: C[0,1] \to \R$ będzie  nieujemnym funkcjonałem linowym.
+	Rozważmy $\left( C[0,1],\norm_\infty \right)$ jako liniową podprzestrzeń $\left( l_\infty (I,\R),\norm_\infty \right)$
+	Niech $C=\{ u\in l_\infty (I,\R): \inf_{t \in I} u(t) >0\}$. Wtedy $C$ jest otwartym wypukłym zbiorem w~$l_\infty(I,\R)$. \par
+%	$C\cap C[0,1] = \{ f \in C[0,1]: f>0\}$.\par
+	Z~Uwagi 1.4.4 funkcjonał $\varphi$ jest dodatni na $C \cap C[0,1]$.\par
+	Z~Uwagi 1.3.6.	istnieje ciągły liniowy funkcjonał $\psi:\l_\infty(I,\R) \to R$ taki, że $\psi$ jest dodatni na $C$ i~jest przedłużeniem $\varphi$\par
+	Jeśli $v\ge 0$ dla $v \in l_\infty (I,\R)$ to $u\in \overline{C}$ więc $\psi(v)\ge0$.\par
+	Niech $\mu$ będzie miarą jak w~Uwadze 1.4.3.
 	Musimy sprawdzić dla $f\in C[0,1]$, ze $\varphi(f) = \int_{[0,1]}f \dd \mu$.
-	Ustalmy $\varepsilon>0$. Dopóki $f$ jest jednostajnie ciągła możemy zastąpić $[0,1]$ przez punkty $0<t_1<\ldots<t_n<1$\texttt{[\dots]}\par
-	$g$  jest funkcją schodkową 
+	Ustalmy $\varepsilon>0$. Dopóki $f$ jest jednostajnie ciągła możemy zastąpić $[0,1]$ przez punkty $0<t_1<\ldots<t_n<1$
+	takie, że oscylacja $f$ na przedziałach $[0,t_1),\ldots [t_{n-1},t_{n}), [t_n 1]$ jest mniejsza niż $\varepsilon$\par
+	Niech $g$  będzie funkcją schodkową zdefiniowaną: 
 	$$g= f(0)\cdot \chi_{[0,t_1)} + \sum_{i=1}^{n-1}f(t_i) \chi_{[t_i,t_{i+1}} + f(t_n) \chi_{[t_n,1]}$$
-	Wtedy $\left|\varphi(f) - \int_{[0,1]} f \dd \mu\right| = \left| \psi(f) - \psi(g) +\psi(g) - \int_{[0,1]} \right|
-	\le \left| \psi(f-g)\right| + \left| \int_{[0,1]} g \dd \mu - \int_{[0,1]}\right|$ \texttt{\dots}
+	Wtedy $\|f-g\|_\infty<\varepsilon$
+ 	\begin{multline}
+	\left|\varphi(f) - \int_{[0,1]} f \dd \mu\right| = \left| \psi(f) - \psi(g) +\psi(g) - \int_{[0,1]} f \dd \mu \right|
+	\le \left| \psi(f-g)\right| + \int_{[0,1]} \left| g - f \right| \dd\mu
+	\nonumber
+  \end{multline}
+  Ale oba elementy z~prawej można oszacować przez $\varepsilon\varphi(\mathbf{1})$ więc $\left|\varphi(f) - \int_{[0,1]} f \dd \mu\right|<2\varepsilon\varphi(\mathbf{1})$.
+  Co z~dowolności wyboru $\varepsilon$ kończy dowód.
 \end{proof}
 
 \subsection{Ograniczone operatory liniowe}
