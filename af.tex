@@ -17,7 +17,7 @@
 \usepackage[pdftex]{hyperref}
 \hypersetup{colorlinks}
 \setlength{\parindent}{0pt}
-\geometry{verbose,a4paper,tmargin=3.5cm,bmargin=3.5cm,lmargin=3.0cm,rmargin=3.0cm}
+\geometry{verbose,a4paper,tmargin=4cm,bmargin=4cm,lmargin=3.0cm,rmargin=3.0cm}
 \newcommand{\zad}[1]{{\par\bf Zadanie #1\par}}
 \renewcommand{\[}{\begin{equation}}
 \renewcommand{\]}{\end{equation}}
@@ -42,8 +42,33 @@
 \newcommand{\ddz}{\mathrm{d}z}
 \newcommand{\vx}{\textbf{\emph{x}}}
 \newcommand{\norm}{\|\cdot\|}
+\makeatletter
+\newcommand{\linia}{\rule{\linewidth}{0.4mm}}
+\renewcommand{\maketitle}{\begin{titlepage}
+	\vspace*{1em}
+	\begin{center}
+		Uniwersytet Warszawski\\
+		Wydział Matematyki, Informatyki i Mechaniki
+	\end{center}
+	\vspace*{3cm}
+	\noindent\linia
+	\begin{center}
+		\LARGE \textsc{\@title}
+	\end{center}
+	\linia
+    \vspace{0.5cm}
+	\begin{flushright}
+    \begin{minipage}{5cm}
+	    \textit{\small Wykładowca:}\\
+	    \normalsize \textsc{\@author} \par
+		\vspace{3em}	
+		\small Notatki Grzegorza Bokoty przy korekcie Sebastiana Lisiewskiego.
+	\end{minipage}
+	\end{flushright}
+\end{titlepage}}
+\makeatother
 \newindex{tw}{twd}{twx}{Twierdzenia i~Lematy}
-\title{Analiza funkcjonalna wykład}
+\title{Analiza funkcjonalna  -- wykład}
 \author{Roman Pol}
 \newtheorem{twr}[subsubsection]{Twierdzenie}%[section]
 \newtheorem{lem}[subsubsection]{Lemat}
@@ -59,10 +84,9 @@
 \begin{document}
 \setlength{\headheight}{15pt}
 \pagestyle{fancy}
-\rhead{Analiza funkcjonalana wykład}
+\rhead{Analiza funkcjonalana -- wykład}
 \lhead{Grzegorz Bokota}
 \maketitle
-\emph{Notatki Grzegorza Bokoty}\\
 Jeśli ktoś uważa, że czegoś brakuje (np rysunków, nie umiem ich szybko texować) to proszę o~informacje. 
 Największą szansę na uwzględnienie mają gotowe kawałki kodu. W~wypadku rysunku wystarczy on w~jakiejś formie. Postaram się wtedy stexować.
 \tableofcontents
