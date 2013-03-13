@@ -141,13 +141,14 @@ $C_b(S,\K)$ jest domknięta w~$l_\infty(S,\K)$. Jeśli $S$ jest przestrzenią zw
 W~unormowanej przestrzeni $(X,\|\cdot\|)$ odległość wektora $x\in X$ i~zbioru $A\subset X$ definiujemy wzorem $\dist(x,A) = \inf \{\|x-y\|: y \in A\}$
 \begin{lem}
   \label{lem1}
-	Niech $(X,\|\cdot\|)$ -- unormowana nad ciałem $\K$. $Y\subset X$ podprzestrzeń liniowa domknięta oraz $u\in X\setminus Y$. 
+	%Niech $(X,\|\cdot\|)$ -- unormowana nad ciałem $\K$. $Y\subset X$ podprzestrzeń liniowa domknięta oraz $u\in X\setminus Y$. 
+  	Niech $Y$ będzie podprzestrzenią liniową unormowanej przestrzeni $(X,\norm)$ nad \K.~Niech $u\in X\setminus Y$. Wtedy:
 	\begin{enumerate}[(i)]
-		\item $\|y+\lambda u \| \ge |\lambda| \cdot \dist(u,Y), \; y\in Y, \lambda \in \K$
+		\item $\|y+\lambda u \| \ge |\lambda| \cdot \dist(u,Y)$ dla $y\in Y, \lambda \in \K$
 		\item $y_n \in Y$, $\lambda_n \in \K$ 
 			$\left(\exists z \in X: y_n + \lambda_n u \to z \right) \Leftrightarrow 
 			\left( \exists y\in Y \exists \lambda \in \K: y_n \to y, \lambda_n \to \lambda  \right)$
-		\item $Y+\K u$ przestrzeń domknięta w~$X$
+		\item $Y+\K u$ podprzestrzeń domknięta w~$X$
 	\end{enumerate}
 
 \end{lem}
@@ -163,16 +164,15 @@ W~unormowanej przestrzeni $(X,\|\cdot\|)$ odległość wektora $x\in X$ i~zbioru
 	\end{enumerate}
 \end{proof}
 \begin{twr}
-	Niech $(X,\|\cdot\|)$ -- przestrzeń unormowana nad ciałem $\K$.
+	Niech $(X,\|\cdot\|)$ będzie przestrzenią unormowana nad ciałem $\K$. Wtedy:
 	\begin{enumerate}[(i)]
-		\item Jeśli $Y\subset X$ - domknięta, linowa, $Z\subset X$ skończenie wymiarowa to $Y+ Z$ jest domknięta.
-		\item Jeśli $X$ jest $n$-wymiarowa, to $(X,\|\cdot\|)$ jest liniowo\dywiz homeomorficzna z~$(\K^n, \|\cdot\|_{max})$.
-			
+		\item Jeśli $Y\subset X$  domknięta, linowa podprzestrzeń, oraz  $Z\subset X$ podprzestrzeń skończenie wymiarowa to podprzestrzeń $Y+ Z$ jest domknięta.
+		\item Jeśli $X$ jest $n$\dywiz wymiarowa, to $(X,\|\cdot\|)$ jest liniowo\dywiz homeomorficzna z~$(\K^n, \|\cdot\|_{max})$.			
 	\end{enumerate}
 \end{twr}
 \begin{proof}
 	\begin{enumerate}[(i)]
-	  \item $Z= \K u_1 + \ldots + K u_n$, $Y+Z = (Y+\K u_1) +(\K _u2 \ldots + \K u_n)$ wynika przez indukcję z~lematu~\ref{lem1}.  
+	  \item $Z= \K u_1 + \ldots + K u_n$, $Y+Z = (Y+\K u_1) +(\K u_2 \ldots + \K u_n)$ wynika przez indukcję z~lematu~\ref{lem1}.  
 		\item $u_1 , \ldots, u_n$ -- baza w~przestrzeni linowej $X$, $X_i = \lin\{ u_1, \ldots, u_i\}$ \\
 			$X_i+\K u_{i+1}$, to korzystamy z~Lematu; jeśli $y_n \in X_i$ to 
 			$ y_n + \lambda_n u_{i+1}  \to z \Leftrightarrow y_n \to y_0, \lambda_n \to \lambda_0$
@@ -184,8 +184,8 @@ W~unormowanej przestrzeni $(X,\|\cdot\|)$ odległość wektora $x\in X$ i~zbioru
 	\end{enumerate}
 \end{proof}
 \begin{twr}[Lemat Riesza]
-	$Y$ -- domknięta podprzestrzeń przestrzeni unormowanej $(X,\|\cdot\|)$ $Y \not = X$, $\varepsilon>0$. 
-	Wówczas istnieje $x\in S_X$ taki, że $\dist(x,Y)\ge 1 -\varepsilon$
+	Niech $Y$ będzie domkniętą podprzestrzeń przestrzeni unormowanej $(X,\|\cdot\|)$ różną od $X$. Weźmy $\varepsilon>0$, 
+	wówczas istnieje $x\in S_X$ taki, że $\dist(x,Y)\ge 1 -\varepsilon$
 \end{twr}
 \begin{proof}
 	Niech $u \in X\setminus Y$. $dist(u,Y) = \delta>0$. Ustalmy $\varepsilon\in (0,1)$ i wybierzmy $\eta>0$ takie, że 
@@ -208,7 +208,7 @@ W~unormowanej przestrzeni $(X,\|\cdot\|)$ odległość wektora $x\in X$ i~zbioru
 Twierdzenie Hahna\dywiz Banacha mówi o~przedłużaniu ciągłych funkcji liniowych z~podprzestrzeni na całe przestrzenie.
 %Twierdzenie które mówi, że jeśli mamy przestrzeń unormowaną i~\ldots
 \begin{twr}
-	$(X,\|\cdot\|)$ -- przestrzeń unormowana nad \K.~Funkcjonał liniowy $f:X\to\K$ jest ciągły wtedy i~tylko wtedy, gdy
+	Niech $(X,\|\cdot\|)$ będzie przestrzenią unormowana nad \K.~Funkcjonał liniowy $f:X\to\K$ jest ciągły wtedy i~tylko wtedy, gdy
 	$\ker f$ jest domkniętą podprzestrzenią $X$.
 \end{twr}
 \begin{proof}
