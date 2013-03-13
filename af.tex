@@ -103,7 +103,7 @@ Niech $g: X_\R \to \R $ to funkcjonał liniowy. Wówczas $f: X \to \C$, $f(x) =g
 Wówczas $\textrm{Ker}f = \textrm{Ker} g \cap i \textrm{Ker}g$
 
 \subsection{Przestrzenie unormowane}
-$X$ -- przestrzeń liniowa nad $\K$. Normą nazywamy funkcję  $\|\cdot \| : X \to [0, +\infty )$ taką, że:
+$X$ -- przestrzeń liniowa nad $\K$. Normą nazywamy funkcję  $\|\cdot \| : X \to [0, +\infty )$ spełniającą następujące warunki:
 	\begin{enumerate}[i.]
 	\item $\|x\| = 0 \Leftrightarrow x=0$ 
 	\item $\|\alpha x \| = |\alpha| \| x\|$, $\alpha \in \K$,$x\in X$ 
@@ -113,20 +113,20 @@ $(X,\|\cdot\|)$ -- przestrzeń unormowana to przestrzeń liniowa nad $X$ z~norm�
 \subsubsection{Przykłady przestrzeni unormowanych} 
 %\begin{enumerate}[(A)]
 \begin{description}
- 	 \item[$( l_\infty(S,K), \|\cdot \|_\infty)$] -- Niech $S$ będzie zbiorem. Wtedy $l_\infty (S,K)$ jest zbiorem funkcji ograniczonych $X:S\to K$ 
-		z~dodawaniem i~mnożeniem przez skalary po współrzędnych.\\
-		Niech $\|X\|_\infty = \sup \{|x(s)\colon s\in S\} < \infty$.\\
+ 	 \item[$( l_\infty(S,K), \|\cdot \|_\infty)$] -- Niech $S$ będzie zbiorem. Wtedy przez $l_\infty (S,K)$ oznaczamy zbiór funkcji ograniczonych $X\colon S\to K$ 
+		z~dodawaniem i~mnożeniem przez skalary po współrzędnych.
+		Niech\\ $\|X\|_\infty = \sup \{|x(s)|\colon s\in S\}$. Ponieważ rozpatrujemy jedynie funkcje ograniczone, jest to popranie określona funkcja $l_\infty (S,K)\to [0,\infty)$ .
 		Przyjmujemy $(l_\infty, \|\cdot\|_\infty) = ( l_\infty(\N,\C), \|\cdot\|_\infty )$ 
 		-- przestrzeń ciągów zespolonych z~normą ,,supremum''.
 	  \item[$(c_0, \|\cdot\|)$] -- podprzestrzeń $(l_\infty, \|\cdot \|_\infty )$ złożona z~ciągów zespolonych zbieżnych do zera.
-	  \item[$(l_1, \|\cdot\|_1)$] -- przestrzeń ciągów zespolonych $x= (x_1,x_2,\ldots)$, że szereg $\sum_n x _n$ jest zbieżny  
+	  \item[$(l_1, \|\cdot\|_1)$] -- przestrzeń ciągów zespolonych $x= (x_1,x_2,\ldots)$ takich, że szereg $\sum_n x _n$ jest zbieżny  
 		bezwzględnie. $\|x\| _1 = \sum_n |x_n|$
 \end{description}
 %\end{enumerate}
  \subsubsection{Metryka generowana przez normę }
- Niech  $(X,\|\cdot\|)$ będzie przestrzenią z~normą. Metrykę w~tej przestrzeni definiujemy  wzorem: $d(x,y) = \|x-y\|$.\\
-Mówiąc o~topologii w~$(X,\|\cdot\|)$ mamy na myśli topologię wyznaczoną przez metrykę.\\
-Zdefiniujmy dwa przydatne oznaczenia:
+ Niech  $(X,\|\cdot\|)$ będzie przestrzenią z~normą. Metrykę w~tej przestrzeni definiujemy  wzorem: $d(x,y) = \|x-y\|$.
+Mówiąc o~topologii w~$(X,\|\cdot\|)$ mamy na myśli topologię wyznaczoną przez metrykę.
+Zdefiniujmy dwa poręczne oznaczenia:
 \begin{description}
   \item[$B_X = \{ x\in X: \|x\|\le 1\} $] -- kula jednostkowa domknięta
   \item[$S_X = \{ x \in X : \|x\| = 1 \}$] -- sfera jednostkowa 
@@ -136,14 +136,12 @@ $x+rB_X = \{ y \in X: d(x,y) \le r\}$ jest domkniętą kulą o~promieniu $r$ i~�
 %$B_X = \{ x\in : \|x\|\le 1\} $ -- Kula jednostkowa domknięta\\
 %$S_X = \{ x \in X : \|x\| \}$ -- Sfera jednostkowa\\ 
 \subsubsection{Przestrzeń funkcji ciągłych}
-$(C_b (S, \K), \|\cdot\|_\infty )$ \\
-Niech $S$ będzie przestrzenią topologiczną, $C_b(S,\K) = \{ x \in l_\infty(S,\K): x\textrm{ jest ciągła}\}$\\
-$C_b(S,\K)$ jest domknięta w~$l_\infty(S,\K)$. Jeśli $S$ zwarta, to $(C(S), \|\cdot\|_\infty) := (C_b (S,\R) , \|\cdot\|_\infty)$
-
-W~unormowanej przestrzeni $(X,\|\cdot\|)$ odległość wektora $x\in X$ i~zbioru $A\subset X$ dana jest wzorem $\dist(x,A) = \inf \{\|x-y\|: y \in A\}$
+Niech $S$ będzie przestrzenią topologiczną. Przez $(C_b (S, \K), \|\cdot\|_\infty )$ będziemy oznaczać przestrzeń wszystkich funkcji $S\to\K$ ciągłych i ograniczonych.
+$C_b(S,\K)$ jest domknięta w~$l_\infty(S,\K)$. Jeśli $S$ jest przestrzenią zwartą to mamy $(C(S), \|\cdot\|_\infty) := (C_b (S,\R) , \|\cdot\|_\infty)$.
+W~unormowanej przestrzeni $(X,\|\cdot\|)$ odległość wektora $x\in X$ i~zbioru $A\subset X$ definiujemy wzorem $\dist(x,A) = \inf \{\|x-y\|: y \in A\}$
 \begin{lem}
   \label{lem1}
-	$(X,\|\cdot\|)$ -- unormowana nad ciałem $\K$. $Y\subset X$ podprzestrzeń liniowa domknięta oraz $u\in X\setminus Y$. 
+	Niech $(X,\|\cdot\|)$ -- unormowana nad ciałem $\K$. $Y\subset X$ podprzestrzeń liniowa domknięta oraz $u\in X\setminus Y$. 
 	\begin{enumerate}[(i)]
 		\item $\|y+\lambda u \| \ge |\lambda| \cdot \dist(u,Y), \; y\in Y, \lambda \in \K$
 		\item $y_n \in Y$, $\lambda_n \in \K$ 
@@ -156,16 +154,16 @@ W~unormowanej przestrzeni $(X,\|\cdot\|)$ odległość wektora $x\in X$ i~zbioru
 \begin{proof}
 	\begin{enumerate}[(i)]
 	  \item $y\in Y$ i~$\lambda \in \K\setminus \{0\}$ mamy $\|y+\lambda u\|= |\lambda|\cdot \left\| u - \frac{-y}{\lambda}\right\|\ge |\lambda| \cdot \dist(u,Y)$.
-		\item $\Rightarrow$. Niech $y_n + \lambda_n u \to z$ wtedy  $(y_n + \lambda_n u )_n $ jest ciągiem Cauchy'ego. 
-			Z~\textit{(i)} wynika, że $(\lambda_n)_n$ też jest ciągiem Cauchy'ego.
-			($\|(y_n +\lambda_n u ) - (y_m +\lambda_m u)\| = \|(y_n-y_m) - (\lambda_m-\lambda_n)u\| \ge |\lambda_n-\lambda_m| \dist(u,Y)$)
+		\item $\Rightarrow$ Niech $y_n + \lambda_n u \to z$. Wtedy  $(y_n + \lambda_n u )_n $ jest ciągiem Cauchy'ego. 
+			Z~\textit{(i)} wynika, że $(\lambda_n)_n$ też jest ciągiem Cauchy'ego
+			($\|(y_n +\lambda_n u ) - (y_m +\lambda_m u)\| = \|(y_n-y_m) - (\lambda_m-\lambda_n)u\| \ge |\lambda_n-\lambda_m| \dist(u,Y)$).
 			Z~zupełności $\K: \lambda_n \to \lambda$.
-			Zatem: $\lambda_n u \to \lambda u$ co oznacza $y_n \to z - \lambda u$. Ponieważ $Y$ jest domkniętą podprzestrzenią to $y = z - \lambda u \in Y$
+			Zatem $\lambda_n u \to \lambda u$, dzięki czemu mamy $y_n \to z - \lambda u$. Ponieważ $Y$ jest domkniętą podprzestrzenią, to $y = z - \lambda u \in Y$
 		\item Wynika natychmiast z~\textit{(ii)}. 
 	\end{enumerate}
 \end{proof}
 \begin{twr}
-	$(X,\|\cdot\|)$ -- przestrzeń unormowana nad ciałem $\K$.
+	Niech $(X,\|\cdot\|)$ -- przestrzeń unormowana nad ciałem $\K$.
 	\begin{enumerate}[(i)]
 		\item Jeśli $Y\subset X$ - domknięta, linowa, $Z\subset X$ skończenie wymiarowa to $Y+ Z$ jest domknięta.
 		\item Jeśli $X$ jest $n$-wymiarowa, to $(X,\|\cdot\|)$ jest liniowo\dywiz homeomorficzna z~$(\K^n, \|\cdot\|_{max})$.
@@ -176,13 +174,13 @@ W~unormowanej przestrzeni $(X,\|\cdot\|)$ odległość wektora $x\in X$ i~zbioru
 	\begin{enumerate}[(i)]
 	  \item $Z= \K u_1 + \ldots + K u_n$, $Y+Z = (Y+\K u_1) +(\K _u2 \ldots + \K u_n)$ wynika przez indukcję z~lematu~\ref{lem1}.  
 		\item $u_1 , \ldots, u_n$ -- baza w~przestrzeni linowej $X$, $X_i = \lin\{ u_1, \ldots, u_i\}$ \\
-			$X_i+\K u_{i+1}$, to z~Lematu: jeśli $y_n \in X_i$ to 
+			$X_i+\K u_{i+1}$, to korzystamy z~Lematu; jeśli $y_n \in X_i$ to 
 			$ y_n + \lambda_n u_{i+1}  \to z \Leftrightarrow y_n \to y_0, \lambda_n \to \lambda_0$
-			Zatem przez indukcję (po $m$ - to są indeksy) 
-			$(\lambda_1^m u_1 + \ldots + \lambda_k^m u_k\to z \textrm{ w } X_k) \Leftrightarrow \Lambda_j^m \to \lambda_j,\forall j \le k$\\
-			Zatem: jeśli $T:X  \to \K^n$ jest izomorfizmem 
-			$T\left( \lambda_1 u_1 + \ldots + \lambda_n u_n  \right) = \left( \lambda_1,\ldots,\lambda_n \right)$
-			to $T$ jest homeomorfizmem.
+			Dzięki indukcji po $m$ otrzymujemy 
+			$(\lambda_1^m u_1 + \ldots + \lambda_k^m u_k\to z \textrm{ w } X_k) \Leftrightarrow \lambda_j^m \to \lambda_j,\forall j \le k$.
+			Zatem jeśli $T:X  \to \K^n$ jest izomorfizmem 
+			$T\left( \lambda_1 u_1 + \ldots + \lambda_n u_n  \right) = \left( \lambda_1,\ldots,\lambda_n \right)$,
+			to jest także homeomorfizmem.
 	\end{enumerate}
 \end{proof}
 \begin{twr}[Lemat Riesza]
@@ -190,21 +188,21 @@ W~unormowanej przestrzeni $(X,\|\cdot\|)$ odległość wektora $x\in X$ i~zbioru
 	Wówczas istnieje $x\in S_X$ taki, że $\dist(x,Y)\ge 1 -\varepsilon$
 \end{twr}
 \begin{proof}
-	Niech $u \in X\setminus Y$. $dist(u,Y) = \delta>0$. $\varepsilon>0$ ustalony, $\varepsilon\in (0,1)$, wybieramy $\eta>0$ takie, że 
-	$\dfrac{\delta}{\delta+\eta}=1- \varepsilon$. Istnieje $v\in Y$ takie, że:
+	Niech $u \in X\setminus Y$. $dist(u,Y) = \delta>0$. Ustalmy $\varepsilon\in (0,1)$ i wybierzmy $\eta>0$ takie, że 
+	$\dfrac{\delta}{\delta+\eta}=1- \varepsilon$. Wówczas istnieje $v\in Y$ takie, że
 	$\delta\le \|u-v\| \le \delta+\eta$.
-	Niech $x= \dfrac{u-v}{\|u-v\|} \in S_X$ 
-	Niech $y\in Y$, $\|x-y\|= \left\|\dfrac{u-v}{\|u-v\|} - y\right\|= \dfrac{1}{\|u-v\|} \left\|u-v-\left\|u-v\right\|y\right\|= 
-	\dfrac{1}{\|u-v\|} \left\|u- \left( v+ \|u-v\| y \right)\right\| \ge \dfrac{\dist(u,Y)}{\|u-v\|} \ge \dfrac{\delta}{\delta+\eta} = 1 -\varepsilon$
+	Oznaczmy $x= \dfrac{u-v}{\|u-v\|} \in S_X$ 
+	oraz niech $y\in Y$. Wtedy $\|x-y\|= \left\|\dfrac{u-v}{\|u-v\|} - y\right\|= \dfrac{1}{\|u-v\|} \left\|u-v-\left\|u-v\right\|y\right\|= 
+	\dfrac{1}{\|u-v\|} \left\|u- \left( v+ \|u-v\| y \right)\right\| \ge \dfrac{\dist(u,Y)}{\|u-v\|} \ge \dfrac{\delta}{\delta+\eta} = 1 -\varepsilon$ co kończy dowód.
 \end{proof}
 \begin{wn}
   W~każdej nieskończenie wymiarowej przestrzeni unormowanej $(X,\|\cdot\|)$ istnieją wektory $x_1, x_2, \ldots  \in S_X$ 
   takie, że $\|x_i-x_j\|\ge \frac{1}{2}$ dla $i\not= j$.
 \end{wn}
 \begin{proof}
-	Niech $y_1, y_2, \ldots$ będą  liniowo niezależne. Wtedy $Y_i = \lin\{y_1,\ldots, y_i \}$ są domknięte.
-	Z~lematu Riesza istnieje $x_{i+1}  \in Y_{i+1} \cap S_X$ takie, że $\dist (x_{i+1}, Y_i) \ge \frac{1}{2}$. Jednocześnie $Y_i \subset Y_{i+1}$
-	Czyli dla $x_1, x_2, \ldots $ mamy $\|x_i-x_j\|\ge \frac{1}{2}$ gdy $ j<i$
+	Niech $y_1, y_2, \ldots$ będą  liniowo niezależne. Wtedy podprzestrzenie $Y_i = \lin\{y_1,\ldots, y_i \}$ są domknięte.
+	Z~lematu Riesza istnieje $x_{i+1}  \in Y_{i+1} \cap S_X$ takie, że $\dist (x_{i+1}, Y_i) \ge \frac{1}{2}$. Jednocześnie $Y_i \subset Y_{i+1}$,
+	czyli dla $x_1, x_2, \ldots $ oraz $j\neq i$ mamy $\|x_i-x_j\|\ge \frac{1}{2}$.
 \end{proof}
 \subsection{Twierdzenie Hahna\dywiz Banacha} 
 Twierdzenie Hahna\dywiz Banacha mówi o~przedłużaniu ciągłych funkcji liniowych z~podprzestrzeni na całe przestrzenie.
