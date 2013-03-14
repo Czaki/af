@@ -71,19 +71,18 @@
 \tableofcontents
 \addtocontents{toc}{\protect\pdfbookmark[1]{Spis treści}{Tableofcont}}
 Jeśli ktoś uważa, że czegoś brakuje (np rysunków, nie umiem ich szybko texować) to proszę o~informacje. 
-Największą szansę na uwzględnienie mają gotowe kawałki kodu. W~wypadku rysunku wystarczy on w~jakiejś formie. Postaram się wtedy stexować.
+Największą szansę na uwzględnienie mają gotowe kawałki kodu. W~wypadku rysunku wystarczy on w~jakiejś formie. Postaram się wtedy z\LaTeX ować.
 \chapter{Przestrzenie Banacha i~ograniczone operatory liniowe}
 \section{Rzeczywiste i~zespolone przestrzenie liniowe}
-Niech $\K$ oznacza ciało liczb rzeczywistych $\R$ lub $\C$ liczb zespolonych,\par
-$X$ przestrzenią liniowa nad $\R$ lub $\C$ oraz niech $A,B \subset  X$, $s,t \in K$ wtedy:
-$$sA+tB = \{su + tv: u \in A, v\in B\}$$
-$u_1,\ldots ,u_n \in X $. $\lin\{u_1,\ldots, u_n\} = \K u_1 + \ldots + \K u_n $ gdzie $\K u = \{ t u: t \in \K\} $ 
+Niech $\K$ będzie ciałem (na tym kursie rozpatrujemy jedynie ciała $\R$ oraz $\C$) liczb zespolonych,
+$X$ przestrzenią liniowa nad $\R$ lub $\C$ oraz niech $A,B \subset  X$, $s,t \in K$. Definiujemy wtedy
+$$sA+tB = \{su + tv\colon u \in A, v\in B\}$$
+Niech $u_1,\ldots ,u_n \in X $. Przestrzeń liniową rozpiętą na tych wektorach oznaczamy $\lin\{u_1,\ldots, u_n\} = \K u_1 + \ldots + \K u_n $, gdzie $\K u = \{ t u\colon t \in \K\}$. 
 
-Niech $g: X_\R \to \R $ to funkcjonał liniowy. Wówczas $f: X \to \C$, $f(x) =g(x) - ig(ix)$, $f$ jest liniowe ($f(\alpha x) = \alpha f(x)$). 
-Wówczas $\textrm{Ker}f = \textrm{Ker} g \cap i \textrm{Ker}g$
+Niech $g: X_\R \to \R $ będzie funkcjonałem liniowym. Wówczas przekształcenie $f(x) =g(x) - ig(ix)$ jest liniowe nad $\C$. Ponadto mamy $\textrm{Ker}f = \textrm{Ker} g \cap i \textrm{Ker}g$.
 
 \section{Przestrzenie unormowane}
-$X$ -- przestrzeń liniowa nad $\K$. Normą nazywamy funkcję  $\|\cdot \| : X \to [0, +\infty )$ spełniającą następujące warunki:
+$X$ -- przestrzeń liniowa nad $\K$. Normą nazywamy funkcję  $\|\cdot \|\colon X \to [0, +\infty )$ spełniającą następujące warunki:
 	\begin{enumerate}[i.]
 	\item $\|x\| = 0 \Leftrightarrow x=0$ 
 	\item $\|\alpha x \| = |\alpha| \| x\|$, $\alpha \in \K$,$x\in X$ 
@@ -146,7 +145,7 @@ W~unormowanej przestrzeni $(X,\|\cdot\|)$ odległość wektora $x\in X$ i~zbioru
 \begin{twr}
 	Niech $(X,\|\cdot\|)$ będzie przestrzenią unormowana nad ciałem $\K$. Wtedy:
 	\begin{enumerate}[(i)]
-		\item Jeśli $Y\subset X$  domknięta, linowa podprzestrzeń, oraz  $Z\subset X$ podprzestrzeń skończenie wymiarowa to podprzestrzeń $Y+ Z$ jest domknięta.
+		\item Jeśli $Y\subset X$  domknięta podprzestrzeń liniowa oraz  $Z\subset X$ podprzestrzeń skończenie wymiarowa to podprzestrzeń $Y+ Z$ jest domknięta.
 		\item Jeśli $X$ jest $n$\dywiz wymiarowa, to $(X,\|\cdot\|)$ jest liniowo\dywiz homeomorficzna z~$(\K^n, \|\cdot\|_{max})$.			
 	\end{enumerate}
 \end{twr}
@@ -164,7 +163,7 @@ W~unormowanej przestrzeni $(X,\|\cdot\|)$ odległość wektora $x\in X$ i~zbioru
 	\end{enumerate}
 \end{proof}
 \begin{twr}[Lemat Riesza]
-	Niech $Y$ będzie domkniętą podprzestrzeń przestrzeni unormowanej $(X,\|\cdot\|)$ różną od $X$. Weźmy $\varepsilon>0$, 
+	Niech $Y$ będzie domkniętą podprzestrzenią przestrzeni unormowanej $(X,\|\cdot\|)$ różną od $X$. Weźmy $\varepsilon>0$, 
 	wówczas istnieje $x\in S_X$ taki, że $\dist(x,Y)\ge 1 -\varepsilon$
 \end{twr}
 \begin{proof}
@@ -200,17 +199,17 @@ Twierdzenie Hahna\dywiz Banacha mówi o~przedłużaniu ciągłych funkcji liniow
 \end{proof}
 \textit{Przypomnienie definicji:}
 $(X,\|\cdot\|)$ - przestrzeń unormowana. Zbiór  $C\subset X$ jest wypukły  wtedy i~tylko wtedy gdy 
-$\forall x_1,\ldots, x_n \in C$, $t_1, \ldots t_n \in [0,1]$ takich, że $\sum_i t_i = 1$ to $\sum_i t_i x_i \in C$
+$\forall x_1,\ldots, x_n \in C$, $t_1, \ldots t_n \in [0,1]$ takich, że $\sum_i t_i = 1$ zachodzi $\sum_i t_i x_i \in C$
 \begin{uw}
   \label{uw1_r}
 	$(\R^2,\|\cdot\|_{max})$. Niech $B\subset \R^2$ -- otwarty, wypukły zbiór taki, że zero nie należy do $B$.
-	Wtedy, w~$\R^2$ istnieje prosta przechodząca przez zero i~omijająca $B$
+	Wtedy istnieje prosta przechodząca przez zero i~rozłączna z~$B$.
 \end{uw}
 \begin{proof}
-	Rzeczywiście. Niech $S= \{ (t_1, t_2) \in \R^2; t_1^2+t_2^2=1\}$ \\
+	Rzeczywiście, niech $S= \{ (t_1, t_2) \in \R^2; t_1^2+t_2^2=1\}$ \\
 	$p:\R^2\setminus\{0\} \to S$ $p(t_1,t_2) = \frac{(t_1,t_2)}{\sqrt{t_1^2+t_2^2}}$:
-	$p(B)$ -- jest zbiorem otwartym, spójny zbiór w~$S$ otwarty łuk bez żadnych punktów antypodalnych.
-Niech $z$ będzie na brzegu $p(B)$ wtedy prosta $\R z$ jest rozłączna z~$B$.\\
+	$p(B)$ -- jest otwartym zbiorem spójnym w~$S$ - musi być to zatem otwarty łuk bez punktów antypodalnych.
+Wybierzmy $z \in \operatorname{fr} p(B)$ -- wtedy prosta $\R z$ jest rozłączna z~$B$.\\
 \begin{figure}[h]
   \centering
   \includegraphics[scale=.7]{rys1}
@@ -219,16 +218,15 @@ Niech $z$ będzie na brzegu $p(B)$ wtedy prosta $\R z$ jest rozłączna z~$B$.\\
 \end{figure}
 \end{proof}
 \begin{uw}
-  Hiperpłaszczyzna $\left(\textrm{\textit{ang.} hyper\Plane}\right)$ $H$ w~przestrzeni unormowanej $(X,\|\cdot\|)$ jest zbiorem $H= x+Y$. Gdzie $Y$ jest podprzestrzenią liniową $X$ kowymiaru 1.
-	Jeśli $Y$ jest linowe, to $\overline{Y}$ też. Zatem $H$ jest domknięta lub gęsta w~$X$. 
-	Skoro $\overline{H}=x+\overline{Y}$ i kowymiar $Y=1$, to albo $\overline{Y} = Y$ albo $\overline{Y} = X$.
+  Hiperpłaszczyzna $\left(\textrm{\textit{ang.} hyper\Plane}\right)$ $H$ w~przestrzeni unormowanej $(X,\|\cdot\|)$ jest zbiorem $H= x+Y$, gdzie $Y$ jest podprzestrzenią liniową $X$ kowymiaru 1.
+	Jeśli $Y$ jest linowe, to $\overline{Y}$ też. Skoro $\overline{H}=x+\overline{Y}$ i kowymiar $Y=1$, to $\overline{Y} = Y$ albo $\overline{Y} = X$. Z tego wynika, że hiperpłaszczyzna musi być domknięta lub gęsta w $X$.
 \end{uw}
 \begin{twr}[S.~Mazur]
   \label{maz}
-	Niech $(X,\|\cdot\|)$ przestrzeń unormowana. $L\subset X$ -- podprzestrzeń liniowa. 
-	$C\subset X$ otwarty wypukły zbiór w~$X$ rozdzielny z~$L$. Wtedy istnieje zamknięta hiperpłaszczyzna $H$ zawierająca $L$ rozdzielna z~$C$.
+	Niech $(X,\|\cdot\|)$ będzie przestrzenią unormowaną. Ponadto niech $L\subset X$ będzie podprzestrzenią liniową oraz $C\subset X$ otwartym zbiorem wypukłym w~$X$ rozłącznym z~$L$. Wtedy istnieje domknięta hiperpłaszczyzna $H$ zawierająca $L$ oraz rozłączna z~$C$.
 \end{twr}
 %	\emph{W~$(\mathcal{L},\subseteq)$  jest  porządek częściowy, więc działa lemat Kuratowskiego--Zorna}
+% SEBLIS - koniec korekty
 \begin{proof}
 	Niech $\mathcal{L}$ będzie rodziną wszystkich podprzestrzeni liniowych $X$ zawierających $L$ i~rozłącznych z~$C$.
 	Wtedy $L \in \mathcal{L}$. Jeśli $\varphi \subset \mathcal{L}$ jest łańcuchem w~$(\mathcal{L},\subseteq)$, wtedy $\bigcup \varphi\in \mathcal{L}$.
