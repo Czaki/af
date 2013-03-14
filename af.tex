@@ -1,4 +1,5 @@
-\documentclass[11pt]{article}
+\documentclass[11pt]{mwrep}
+\usepackage{titlepage}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -42,39 +43,42 @@
 \newcommand{\ddz}{\mathrm{d}z}
 \newcommand{\vx}{\textbf{\emph{x}}}
 \newcommand{\norm}{\|\cdot\|}
-\makeatletter
-\newcommand{\linia}{\rule{\linewidth}{0.4mm}}
-\renewcommand{\maketitle}{\begin{titlepage}
-	\vspace*{1em}
-	\begin{center}
-		Uniwersytet Warszawski\\
-		Wydział Matematyki, Informatyki i Mechaniki
-	\end{center}
-	\vspace*{3cm}
-	\noindent\linia
-	\begin{center}
-		\LARGE \textsc{\@title}
-	\end{center}
-	\linia
-    \vspace{0.5cm}
-	\begin{flushright}
-    \begin{minipage}{5cm}
-	    \textit{\small Wykładowca:}\\
-	    \normalsize \textsc{\@author} \par
-		\vspace{3em}	
-		\small Notatki Grzegorza Bokoty przy korekcie Sebastiana Lisiewskiego.
-	\end{minipage}
-	\end{flushright}
-\end{titlepage}}
-\makeatother
+%\makeatletter
+%\newcommand{\linia}{\rule{\linewidth}{0.4mm}}
+%\renewcommand{\maketitle}{\begin{titlepage}
+%	\vspace*{1em}
+%	\begin{center}
+%		Uniwersytet Warszawski\\
+%		Wydział Matematyki, Informatyki i Mechaniki
+%	\end{center}
+%	\vspace*{3cm}
+%	\noindent\linia
+%	\begin{center}
+%		\LARGE \textsc{\@title}
+%	\end{center}
+%	\linia
+ %   \vspace{0.5cm}
+%	\begin{flushright}
+ %   \begin{minipage}{5.5cm}
+%	    \textit{\small Wykładowca:}\\
+%	    \normalsize \textsc{\@author} \par
+%		\vspace{3em}	
+%		\small Notatki Grzegorza Bokoty przy korekcie Sebastiana Lisiewskiego.
+%	\end{minipage}
+%	\end{flushright}
+%\end{titlepage}}
+%\makeatother
 \newindex{tw}{twd}{twx}{Twierdzenia i~Lematy}
 \title{Analiza funkcjonalna  -- wykład}
-\author{Roman Pol}
-\newtheorem{twr}[subsubsection]{Twierdzenie}%[section]
-\newtheorem{lem}[subsubsection]{Lemat}
-\newtheorem{wn}[subsubsection]{Wniosek}
-\newtheorem{uw}[subsubsection]{Uwaga}
-\newtheorem{de}[subsubsection]{Definicja}
+\profesor{Roman Pol}
+\author{Grzegorz Bokota \and \normalsize  Sebastian Lisiewski}
+\wydzial{Uniwersytet Warszawski \\ Wydział Matematyki, Informatyki i Mechaniki}
+\newtheorem{twr}[subsection]{Twierdzenie}%[section]
+\newtheorem{lem}[subsection]{Lemat}
+\newtheorem{wn}[subsection]{Wniosek}
+\newtheorem{uw}[subsection]{Uwaga}
+\newtheorem{de}[subsection]{Definicja}
+\newtheorem{ex}[subsection]{Przykład}
 \newcounter{numer}
 \setcounter{numer}{1}
 \newenvironment{tresc}[1]
@@ -87,13 +91,12 @@
 \rhead{Analiza funkcjonalana -- wykład}
 \lhead{Grzegorz Bokota}
 \maketitle
-Jeśli ktoś uważa, że czegoś brakuje (np rysunków, nie umiem ich szybko texować) to proszę o~informacje. 
-Największą szansę na uwzględnienie mają gotowe kawałki kodu. W~wypadku rysunku wystarczy on w~jakiejś formie. Postaram się wtedy stexować.
 \tableofcontents
 \addtocontents{toc}{\protect\pdfbookmark[1]{Spis treści}{Tableofcont}}
-\newpage
-\section{Przestrzenie Banacha i~ograniczone operatory liniowe}
-\subsection{Rzeczywiste i~zespolone przestrzenie liniowe}
+Jeśli ktoś uważa, że czegoś brakuje (np rysunków, nie umiem ich szybko texować) to proszę o~informacje. 
+Największą szansę na uwzględnienie mają gotowe kawałki kodu. W~wypadku rysunku wystarczy on w~jakiejś formie. Postaram się wtedy stexować.
+\chapter{Przestrzenie Banacha i~ograniczone operatory liniowe}
+\section{Rzeczywiste i~zespolone przestrzenie liniowe}
 Niech $\K$ oznacza ciało liczb rzeczywistych $\R$ lub $\C$ liczb zespolonych,\par
 $X$ przestrzenią liniowa nad $\R$ lub $\C$ oraz niech $A,B \subset  X$, $s,t \in K$ wtedy:
 $$sA+tB = \{su + tv: u \in A, v\in B\}$$
@@ -102,7 +105,7 @@ $u_1,\ldots ,u_n \in X $. $\lin\{u_1,\ldots, u_n\} = \K u_1 + \ldots + \K u_n $ 
 Niech $g: X_\R \to \R $ to funkcjonał liniowy. Wówczas $f: X \to \C$, $f(x) =g(x) - ig(ix)$, $f$ jest liniowe ($f(\alpha x) = \alpha f(x)$). 
 Wówczas $\textrm{Ker}f = \textrm{Ker} g \cap i \textrm{Ker}g$
 
-\subsection{Przestrzenie unormowane}
+\section{Przestrzenie unormowane}
 $X$ -- przestrzeń liniowa nad $\K$. Normą nazywamy funkcję  $\|\cdot \| : X \to [0, +\infty )$ spełniającą następujące warunki:
 	\begin{enumerate}[i.]
 	\item $\|x\| = 0 \Leftrightarrow x=0$ 
@@ -110,7 +113,7 @@ $X$ -- przestrzeń liniowa nad $\K$. Normą nazywamy funkcję  $\|\cdot \| : X \
 	\item $\|x+y\| \le \|x\| + \|y\|$  
 \end{enumerate}
 $(X,\|\cdot\|)$ -- przestrzeń unormowana to przestrzeń liniowa nad $X$ z~normą $\|\cdot\|$\\
-\subsubsection{Przykłady przestrzeni unormowanych} 
+\subsection{Przykłady przestrzeni unormowanych} 
 %\begin{enumerate}[(A)]
 \begin{description}
  	 \item[$( l_\infty(S,K), \|\cdot \|_\infty)$] -- Niech $S$ będzie zbiorem. Wtedy przez $l_\infty (S,K)$ oznaczamy zbiór funkcji ograniczonych $X\colon S\to K$ 
@@ -123,7 +126,7 @@ $(X,\|\cdot\|)$ -- przestrzeń unormowana to przestrzeń liniowa nad $X$ z~norm�
 		bezwzględnie. $\|x\| _1 = \sum_n |x_n|$
 \end{description}
 %\end{enumerate}
- \subsubsection{Metryka generowana przez normę }
+ \subsection{Metryka generowana przez normę }
  Niech  $(X,\|\cdot\|)$ będzie przestrzenią z~normą. Metrykę w~tej przestrzeni definiujemy  wzorem: $d(x,y) = \|x-y\|$.
 Mówiąc o~topologii w~$(X,\|\cdot\|)$ mamy na myśli topologię wyznaczoną przez metrykę.
 Zdefiniujmy dwa poręczne oznaczenia:
@@ -135,7 +138,7 @@ Oczywiście można przesuwać je w~przestrzeni. Dla $x\in X$ i~$r\in \K$
 $x+rB_X = \{ y \in X: d(x,y) \le r\}$ jest domkniętą kulą o~promieniu $r$ i~środku w~$x$. 
 %$B_X = \{ x\in : \|x\|\le 1\} $ -- Kula jednostkowa domknięta\\
 %$S_X = \{ x \in X : \|x\| \}$ -- Sfera jednostkowa\\ 
-\subsubsection{Przestrzeń funkcji ciągłych}
+\subsection{Przestrzeń funkcji ciągłych}
 Niech $S$ będzie przestrzenią topologiczną. Przez $(C_b (S, \K), \|\cdot\|_\infty )$ będziemy oznaczać przestrzeń wszystkich funkcji $S\to\K$ ciągłych i ograniczonych.
 $C_b(S,\K)$ jest domknięta w~$l_\infty(S,\K)$. Jeśli $S$ jest przestrzenią zwartą to mamy $(C(S), \|\cdot\|_\infty) := (C_b (S,\R) , \|\cdot\|_\infty)$.
 W~unormowanej przestrzeni $(X,\|\cdot\|)$ odległość wektora $x\in X$ i~zbioru $A\subset X$ definiujemy wzorem $\dist(x,A) = \inf \{\|x-y\|: y \in A\}$
@@ -204,7 +207,7 @@ W~unormowanej przestrzeni $(X,\|\cdot\|)$ odległość wektora $x\in X$ i~zbioru
 	Z~lematu Riesza istnieje $x_{i+1}  \in Y_{i+1} \cap S_X$ takie, że $\dist (x_{i+1}, Y_i) \ge \frac{1}{2}$. Jednocześnie $Y_i \subset Y_{i+1}$,
 	czyli dla $x_1, x_2, \ldots $ oraz $j\neq i$ mamy $\|x_i-x_j\|\ge \frac{1}{2}$.
 \end{proof}
-\subsection{Twierdzenie Hahna\dywiz Banacha} 
+\section{Twierdzenie Hahna\dywiz Banacha} 
 Twierdzenie Hahna\dywiz Banacha mówi o~przedłużaniu ciągłych funkcji liniowych z~podprzestrzeni na całe przestrzenie.
 %Twierdzenie które mówi, że jeśli mamy przestrzeń unormowaną i~\ldots
 \begin{twr}
@@ -293,7 +296,7 @@ Niech $z$ będzie na brzegu $p(B)$ wtedy prosta $\R z$ jest rozłączna z~$B$.\\
 	Zdefiniujmy $\tilde{f} = (h+\lambda u) = \lambda f(u)$. I~jest dobrze. 
 \end{proof}
 % Ja nie wiem jakie tu powinien być dokładnie tytuł.
-\subsection{Twierdzenie o~reprezentacji  Riesza dla nieujemnych funkcjonałów liniowych na C[a,b]}
+\section{Twierdzenie o~reprezentacji  Riesza dla nieujemnych funkcjonałów liniowych na C[a,b]}
 $C[a,b]$ -- przestrzeń funkcji ciągłych na $[a,b]$ w~$\R$.\par
 Liniowy funkcjonał $\varphi:C[a,b]\to \R$ jest nieujemny jeśli $\varphi(f)\ge 0$ dla $f \ge 0)$
 \begin{twr}[F.~Riesz]
@@ -359,11 +362,100 @@ Dla ułatwienia skupimy się teraz na $[a,b]=[0,1]$.
   Co z~dowolności wyboru $\varepsilon$ kończy dowód.
 \end{proof}
 
-\subsection{Ograniczone operatory liniowe}
+\section{Ograniczone operatory liniowe}
 \begin{de}
-Niech $(X,\norm)$ i~$(Y,\norm)$ będą unormowanymi przestrzeniami liniowymi nad tym samym ciałem.
-\end{de}
+Niech $(X,\norm)$ i~$(Y,\norm)$ będą unormowanymi przestrzeniami liniowymi nad tym samym ciałem \K.
+Odwzorowanie liniowe (operator liniowy) $T\colon X \to Y$ jest ograniczony jeśli:
+$$\| T\| = \sup \|T(x)\|\colon x \in B_x\} < \infty$$
 
-\section{Zadania od Toruńczyka i~ich rozwiązania}
+Oznaczmy przez $B(X,Y)$ przestrzeń liniowa wszystkich ograniczonych operatorów z~$X$ do $Y$.
+
+$(B(X,Y) \norm)$ -- przestrzeń unormowana \\
+$(B(X,K), \norm)$ przestrzeń dualna do $(X,\norm)$ oznaczana przez $(X^*,\norm)$
+\end{de}
+\begin{uw}
+	\begin{enumerate}[(A)]
+		\item Niech $T\in B(X,Y)$ wtedy $\forall x\in X: \|T(x)\| \le \|T\| \cdot \|x\|$. 
+			Norma operatora to najmniejsze takie $M$, że $\|T(x)\| \le M \cdot \|x\|$ dla każdego $x\in X$.
+		\item Odwzorowanie liniowe $T\colon X \to Y$ jest ciągłe wtedy i~tylko wtedy gdy jest ograniczone.\\
+			$\Rightarrow$ $\|Tx-Ty\| = \|T(x-y)\| \le \|T\| \cdot \|x - y\|$ wiec $T$ jest jednostajnie ciągła.\\
+			$\Leftarrow$ Jeśli $T$ jest ciągła w~punkcie 0. Weźmy $\varepsilon=1$ wtedy istnieje $\delta>0$ taka, że $\|x\|\le \delta$.
+			wtedy $\|Tx\|\le 1$.
+			Dla $x\not =  0$ $\left\|T\left( \delta \frac{x}{\|x\|} \right)\right\|\le 1$, czyli $\|T(x)\|\le \frac{1}{\delta}\|x\|$.
+
+	\end{enumerate}
+\end{uw}
+\begin{ex}	
+%	\begin{enumerate}[(A)]
+%		\item $(C_0)^* = l_1$
+%		\item $(l_1)^* = l_\infty$
+%\end{enumerate}
+	\textup{(A)} $(c_0)^* = l_1$ i~\textup{(B)}$(l_1)^* = l_\infty$
+\end{ex}
+\begin{proof}
+	\begin{enumerate}[(A)]
+		\item Pokażemy, że sstnieje liniowa izometia $S\colon(C_0)^* \to l_1$. Taka, że dla $\varphi \in (c_0)^*$ zachodzi $\|S(x)\| = \|x\|$.
+			Dla każdego $x= (x_1,x_2,\ldots) \in c_0$ $\varphi(x) = \sum_i x_i c_i$
+			Wtedy $S(\varphi) = (c_1,c_2,\ldots) \in l_1$.\\
+			Niech $e_n =(0,0,\ldots,0, \underset{n}{1},0 \ldots) \in c_0$ wtedy $x_1 e_1 + \ldots+ x_n e_n = (x_1,\ldots,x_n,0, \ldots)$.
+			Niech $s(\varphi) = (\varphi(e_1), \varphi(e_2), \ldots)$.
+			Pozostaje pokazać, ze (1) $S(\varphi) \in l_1$ i~(2) $\|\varphi\| = \|S(\varphi)\|_1$\\
+			Aby sprawdzić pierwszy warunek: Niech $S(\varphi) = (c_1, c_1, \ldots)$ gdzie $c_i = \varphi(e_i)$.
+			Niech $v_n = \frac{\overline{c_1}}{|c_1|}e_1 + \ldots+ \frac{\overline{c_n}}{|c_n|}e_n \in c_0.$ wtedy $\|v_n\|_\infty =1$.
+			Więc $|\varphi(v_n)| \le \|\varphi\|\cdot \|v_n\|_\infty = \|\varphi\|$ 
+			gdzie $\varphi(v_n) = \frac{\overline{c_1} c_1}{|c_1|}+\ldots+\frac{\overline{c_n} c_n}{|c_n|}= |c_1| +\ldots+|c_n|$.\par
+			Przy okazji udowodniliśmy nierówność $\le$ dla drugiego warunku \par
+			Dla nierówności $\|\varphi\| \le \|S(\varphi\|_1$. 
+			Niech $x= (x_1,x_2, \ldots) \in c_0$. Ciąg $x_1e_1 + \ldots + x_n e_n \longrightarrow x$ w~$c_0$. 
+			Wiec $\varphi(x_1e_1 + \ldots + x_n e_n) \to x$ bo $\sum x_n c_n = \varphi(x)$ \\
+			Jeśli $\|x\|_\infty \le 1$ wtedy $\|S(\varphi)\|_1 = \sum |c_n| \ge |\varphi(x)|$ 
+			Finalnie $S$ jest na. 
+
+			\texttt{Do przeczytania i~korekty}
+		\item Nie ma.
+	\end{enumerate}
+\end{proof}
+\begin{uw}
+	Dla każdego $\varphi\in (C[ab])^*$ istnieją skończone miary Borelowskie $\mu, \nu$ takie, że 
+	$\varphi(f) = \int_{[a,b]} f \dd\mu - \int_{[a,b]} f \dd \nu$ i~$\|\varphi\| = \mu[a,b]+ \nu[a,b]$
+\end{uw}
+\begin{uw}[konsekwencje twierdzenia Hahna\dywiz Banacha ]
+	Niech $Y$ będzie liniową podprzestrzenią przestrzeni unormowanej $(X,\norm)$.
+	Niech $\varphi\in Y^*$ wtedy istnieje $\psi \in X^*$ takie, że $\psi|_Y = \varphi$ i $\|\psi\| = \|\varphi\|$.
+	
+\end{uw}
+\begin{proof}
+	Weźmy $f= \frac{1}{\|\varphi\|} \varphi$ wtedy 
+	$|f(x)| = \frac{1}{\|\varphi\|}|\varphi(x)| \le \frac{1}{\|\varphi\|}\|\varphi\|\cdot \|x\| = \|x\|$.
+	Wtedy istnieje $\tilde{f} \colon X \to K$ taki, że $\tilde{f}|_Y = f$ i~$ |\tilde{f}(x) | \le \|x\| $
+\end{proof}
+\section{Przestrzenie Banacha}
+\begin{de}
+	Przestrzeń unormowana $(X\norm )$ która jest zupełna w~metryce $d(x,y) = \|x- y\|$ jest przestrzenią Banacha.
+\end{de}
+\begin{ex}
+	\begin{enumerate}[(A)]
+		\item Dla dowolnego zbioru $S$ $\left( l_\infty(S,\K),\norm_\infty \right)$ jest przestrzenią Banacha. 
+		\item Dla przestrzeni unormowanej  $(X,\norm)$ i~przestrzeni Banacha $(Y,\norm)$ przestrzeń $\left( B(X,Y), \norm \right)$ 
+			jest przestrzenią Banacha.
+		\item Przestrzeń $(c_0, \norm_\infty)$ jest przestrzenią Banacha. Więc $(l_1,\norm_1)= (c_0)^*$ jest Banacha  z~(B).
+	\end{enumerate}
+\end{ex}
+\begin{uw}
+	Jeśli $(X,\norm)$ jest przestrzenią Banacha i~dla wektorów $x_n \in X$ zachodzi $\sum_n \|x_n\| < +\infty$ wtedy 
+	$\sum_n x_n$ jest zbieżny i~do tego dla każdej permutacji $\sigma\colon \N\to\N$ zachodzi $\sum_n x_{\sigma(n)} = \sum_n x_n$
+\end{uw}
+\subsection{Przestrzenie $(B(X),\norm)$ ograniczonych endomorfizmów przestrzeni Banacha}
+Niech $S,T \in B(X)$ wtedy $S\circ T\| \le \|S\| \cdot \|T\|$ bo 
+$\|S\circ T (X) \|= \| S(T(x))\| \le \|S\|\cdot \|T(x)\| \le \|S\| \cdot \|T\| \cdot \|x\|$ .
+
+\begin{twr}
+	Niech $(X,\norm)$ będzie przestrzenią Banacha i~niech $T\in B(X)$ taki, że $\|T\| <1$. Wtedy $I_x - T$ jest odwracalny i~
+	$\left( I_X - T  \right)^{-1} = \sum_{n=1}^\infty T^n$.
+\end{twr}
+\begin{proof}
+	ZA TYDZIEŃ
+\end{proof}
+\chapter{Zadania od Toruńczyka i~ich rozwiązania}
 Być może coś się tu pojawi.
 \end{document}
