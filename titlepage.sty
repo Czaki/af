@@ -1,0 +1,34 @@
+\def\profesor#1{\gdef\@profesor{#1}}
+\def\@profesor{ ???\ClassError{titlepage}{Nie podano wykładowcy}\@ehc} 
+\def\wydzial#1{\gdef\@wydzial{#1}}
+\def\@wydzial{ ???\ClassError{titlepage}{Nie podano wydzialu}\@ehc} 
+\newcommand{\linia}{\rule{\linewidth}{0.4mm}}
+\renewcommand{\maketitle}{\begin{titlepage}
+	\vspace*{1em}
+	\begin{center}
+		%Uniwersytet Warszawski\\
+		%Wydział Matematyki, Informatyki i Mechaniki
+		\@wydzial
+	\end{center}
+	\vspace*{3cm}
+	\noindent\linia
+	\begin{center}
+		\LARGE \textsc{\@title}
+	\end{center}
+	\linia
+    \vspace{0.5cm}
+	\begin{flushright}
+    \begin{minipage}{5.5cm}
+		\textit{\small Wyk\l{}adowca:}\\
+	    \normalsize \textsc{\@profesor} \par
+		\vspace{3em}	
+		\textit{\small Notatki przygotowali:}\\
+		{\normalsize \@author}\par
+	\end{minipage}
+	\vspace{10em}
+	\begin{center}
+		\@date
+	\end{center}
+	\end{flushright}
+\end{titlepage}}
+
