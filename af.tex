@@ -43,36 +43,13 @@
 \newcommand{\ddz}{\mathrm{d}z}
 \newcommand{\vx}{\textbf{\emph{x}}}
 \newcommand{\norm}{\|\cdot\|}
-%\makeatletter
-%\newcommand{\linia}{\rule{\linewidth}{0.4mm}}
-%\renewcommand{\maketitle}{\begin{titlepage}
-%	\vspace*{1em}
-%	\begin{center}
-%		Uniwersytet Warszawski\\
-%		Wydział Matematyki, Informatyki i Mechaniki
-%	\end{center}
-%	\vspace*{3cm}
-%	\noindent\linia
-%	\begin{center}
-%		\LARGE \textsc{\@title}
-%	\end{center}
-%	\linia
- %   \vspace{0.5cm}
-%	\begin{flushright}
- %   \begin{minipage}{5.5cm}
-%	    \textit{\small Wykładowca:}\\
-%	    \normalsize \textsc{\@author} \par
-%		\vspace{3em}	
-%		\small Notatki Grzegorza Bokoty przy korekcie Sebastiana Lisiewskiego.
-%	\end{minipage}
-%	\end{flushright}
-%\end{titlepage}}
-%\makeatother
+
 \newindex{tw}{twd}{twx}{Twierdzenia i~Lematy}
 \title{Analiza funkcjonalna  -- wykład}
 \profesor{Roman Pol}
 \author{Grzegorz Bokota \and \normalsize  Sebastian Lisiewski}
 \wydzial{Uniwersytet Warszawski \\ Wydział Matematyki, Informatyki i Mechaniki}
+\date{\today}
 \newtheorem{twr}[subsection]{Twierdzenie}%[section]
 \newtheorem{lem}[subsection]{Lemat}
 \newtheorem{wn}[subsection]{Wniosek}
@@ -305,7 +282,7 @@ Istnieje wtedy miara Borelowska $\mu$ na $[a,b]$ taka, że $\varphi(f) = \int_{[
 \end{twr}
 Dla ułatwienia skupimy się teraz na $[a,b]=[0,1]$.
 \begin{lem} \label{lem:Riesz1}
-  Niech $F\colon[0,1]\to [0,+\infty)$ będzie funkcją niemalejącą. Niech $F_l(t) = \lim_{s\to t^-} F(s)$ dla $t\in[0,1]$. 
+  Niech $F\colon[0,1]\to [0,+\infty)$ będzie funkcją niemalejącą. Niech $F_l(t) = \lim\limits_{s\to t^-} F(s)$ dla $t\in[0,1]$. 
   Istnieje wtedy miara Borelowska $\mu$ na $[0,1]$
   taka, że $\mu\left( [0,t) \right) = F_{l}(t)$ i $\mu\left( [0,1) \right) = F(1)$.
 \end{lem}
@@ -366,7 +343,7 @@ Dla ułatwienia skupimy się teraz na $[a,b]=[0,1]$.
 \begin{de}
 Niech $(X,\norm)$ i~$(Y,\norm)$ będą unormowanymi przestrzeniami liniowymi nad tym samym ciałem \K.
 Odwzorowanie liniowe (operator liniowy) $T\colon X \to Y$ jest ograniczony jeśli:
-$$\| T\| = \sup \|T(x)\|\colon x \in B_x\} < \infty$$
+$$\| T\| = \sup \{\|T(x)\|\colon x \in B_x\} < \infty$$
 
 Oznaczmy przez $B(X,Y)$ przestrzeń liniowa wszystkich ograniczonych operatorów z~$X$ do $Y$.
 
@@ -446,8 +423,8 @@ $(B(X,K), \norm)$ przestrzeń dualna do $(X,\norm)$ oznaczana przez $(X^*,\norm)
 	$\sum_n x_n$ jest zbieżny i~do tego dla każdej permutacji $\sigma\colon \N\to\N$ zachodzi $\sum_n x_{\sigma(n)} = \sum_n x_n$
 \end{uw}
 \subsection{Przestrzenie $(B(X),\norm)$ ograniczonych endomorfizmów przestrzeni Banacha}
-Niech $S,T \in B(X)$ wtedy $S\circ T\| \le \|S\| \cdot \|T\|$ bo 
-$\|S\circ T (X) \|= \| S(T(x))\| \le \|S\|\cdot \|T(x)\| \le \|S\| \cdot \|T\| \cdot \|x\|$ .
+Niech $S,T \in B(X)$ wtedy $\|S\circ T\| \le \|S\| \cdot \|T\|$ bo 
+$\|S\circ T (X) \|= \| S(T(x))\| \le \|S\|\cdot \|T(x)\| \le \|S\| \cdot \|T\| \cdot \|x\|$.
 
 \begin{twr}
 	Niech $(X,\norm)$ będzie przestrzenią Banacha i~niech $T\in B(X)$ taki, że $\|T\| <1$. Wtedy $I_X - T$ jest odwracalny i~
