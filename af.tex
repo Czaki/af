@@ -1,5 +1,4 @@
 \documentclass[11pt]{mwrep}
-\usepackage{titlepage}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -12,7 +11,9 @@
 \usepackage{multicol}
 \usepackage{enumerate}
 \usepackage{stackrel}
+%\usepackage{makeidx}
 \usepackage{index}
+\usepackage{titlepage}
 \usepackage{bbding}
 \usepackage[pdftex]{graphicx}
 \usepackage[pdftex]{hyperref}
@@ -43,8 +44,8 @@
 \newcommand{\ddz}{\mathrm{d}z}
 \newcommand{\vx}{\textbf{\emph{x}}}
 \newcommand{\norm}{\|\cdot\|}
-
-\newindex{tw}{twd}{twx}{Twierdzenia i~Lematy}
+\makeindex
+\newindex{tw}{twx}{twd}{Twierdzenia i~Lematy}
 \title{Analiza funkcjonalna  -- wykład}
 \profesor{Roman Pol}
 \author{Grzegorz Bokota \and \normalsize  Sebastian Lisiewski}
@@ -163,6 +164,7 @@ W~unormowanej przestrzeni $(X,\|\cdot\|)$ odległość wektora $x\in X$ i~zbioru
 	\end{enumerate}
 \end{proof}
 \begin{twr}[Lemat Riesza]
+  	\index{Lemat!Riesza}
 	Niech $Y$ będzie domkniętą podprzestrzenią przestrzeni unormowanej $(X,\|\cdot\|)$ różną od $X$. Weźmy $\varepsilon>0$, 
 	wówczas istnieje $x\in S_X$ taki, że $\dist(x,Y)\ge 1 -\varepsilon$
 \end{twr}
@@ -183,7 +185,7 @@ W~unormowanej przestrzeni $(X,\|\cdot\|)$ odległość wektora $x\in X$ i~zbioru
 	Z~lematu Riesza istnieje $x_{i+1}  \in Y_{i+1} \cap S_X$ takie, że $\dist (x_{i+1}, Y_i) \ge \frac{1}{2}$. Jednocześnie $Y_i \subset Y_{i+1}$,
 	czyli dla $x_1, x_2, \ldots $ oraz $j\neq i$ mamy $\|x_i-x_j\|\ge \frac{1}{2}$.
 \end{proof}
-\section{Twierdzenie Hahna\dywiz Banacha} 
+\section{Twierdzenie Hahna\dywiz Banacha}
 Twierdzenie Hahna\dywiz Banacha mówi o~przedłużaniu ciągłych funkcji liniowych z~podprzestrzeni na całe przestrzenie.
 %Twierdzenie które mówi, że jeśli mamy przestrzeń unormowaną i~\ldots
 \begin{twr}
@@ -222,6 +224,7 @@ Wybierzmy $z \in \operatorname{fr} p(B)$ -- wtedy prosta $\R z$ jest rozłączna
 	Jeśli $Y$ jest linowe, to $\overline{Y}$ też. Skoro $\overline{H}=x+\overline{Y}$ i kowymiar $Y=1$, to $\overline{Y} = Y$ albo $\overline{Y} = X$. Z tego wynika, że hiperpłaszczyzna musi być domknięta lub gęsta w $X$.
 \end{uw}
 \begin{twr}[S.~Mazur]
+  \index{Twierdzenie!Mazura}
   \label{maz}
 	Niech $(X,\|\cdot\|)$ będzie przestrzenią unormowaną. Ponadto niech $L\subset X$ będzie podprzestrzenią liniową oraz $C\subset X$ otwartym zbiorem wypukłym w~$X$ rozłącznym z~$L$. Wtedy istnieje domknięta hiperpłaszczyzna $H$ zawierająca $L$ oraz rozłączna z~$C$.
 \end{twr}
@@ -245,6 +248,7 @@ Wybierzmy $z \in \operatorname{fr} p(B)$ -- wtedy prosta $\R z$ jest rozłączna
 	\end{enumerate}
 \end{proof}
 \begin{twr}[Hahn--Banach]
+  	\index{Twierdzenie!Hahna--Banacha}
 	$(X,\norm)$ -- przestrzeń unormowana nad \K.~Niech $Y\subset X$ będzie podprzestrzenią liniową i 
 	$f:Y\to \K$ będzie odwzorowaniem liniowym takim, że $|f(y)| \le \|y\|$ dla $y\in Y$.
 	Wtedy istnieje funkcjonał liniowy $\tilde{f} :X \to \K$ taki, że $\tilde{f}|_Y = f$ i~$|\tilde{f}(x)|\le \|x\|$
@@ -275,6 +279,7 @@ Wybierzmy $z \in \operatorname{fr} p(B)$ -- wtedy prosta $\R z$ jest rozłączna
 $C[a,b]$ -- przestrzeń funkcji ciągłych na $[a,b]$ w~$\R$.\par
 Liniowy funkcjonał $\varphi:C[a,b]\to \R$ jest nieujemny jeśli $\varphi(f)\ge 0$ dla $f \ge 0)$
 \begin{twr}[F.~Riesz]
+  \index{Twierdzenie!Riesza}
 Niech $\varphi:C[a,b]\to \R$ liniowy, nieujemny  funkcjonał.
 Istnieje wtedy miara Borelowska $\mu$ na $[a,b]$ taka, że $\varphi(f) = \int_{[a,b]} f \dd \mu$ dla $f\in C[a,b]$.
 \end{twr}
@@ -371,10 +376,28 @@ $(B(X,K), \norm)$ przestrzeń dualna do $(X,\norm)$ oznaczana przez $(X^*,\norm)
   Chcemy zdefiniować liniową izometrię $S\colon (c_o)^* \overset{\textrm{na}}{\longrightarrow} l_1$.
 	Oznaczmy przez $e_n = (0,0,\ldots,0,1,0,\ldots)$ gdzie jedynka jest na $n$-tym miejscu.\par
 
-	Niech $S(\varphi) = \left( \varphi(e_1), \varphi(e_2),\ldots \right)$ dla $\varphi\in (c_0)^*$ 
-	Chcemy pokazać, że $S\colon (c_0)^* \to l_1$ jest liniową suriekcją oraz jeśli $\varphi(x) = \sum_i x_i c_i$  gdzie $x=(x_1, x_2, \ldots)$ to $S(\varphi) = (c_1,c_2,\ldots)$.\par
-	Niech $\varphi \in (c_0)^*$ i~$\varphi(e_i) = c_i$. 
-	Wtedy $v_n = \frac{\overline{c_1}}{|c_1|}e_1 + \ldots+ \frac{\overline{c_n}}{|c_n|}e_n \in c_0.$ i $\|v_n\|_\infty =1$.
+	Niech $S(\varphi) = \left( \varphi(e_1), \varphi(e_2),\ldots \right)$ dla $\varphi\in (c_0)^*$. 
+	Chcemy pokazać, że $S(\varphi)\in l_1$ oraz, że $S$ jest izometrią. \par
+	Zaczniemy od pokazania pierwszego warunku.
+	Niech $\varphi\in (c_0)^*, \varphi(e_i) = c_i$ i~ $v_n = \frac{\overline{c_1}}{|c_1|}e_1 + \ldots+ \frac{\overline{c_n}}{|c_n|}e_n \in c_0$ wtedy $\|v_n\|_\infty=1$. Więc:
+	$$|\varphi(v_n)| = \left| \frac{\overline{c_1} c_1}{|c_1|}+\ldots+\frac{\overline{c_n} c_n}{|c_n|} \right|= |c_1| +\ldots + |c_n| \le \|\varphi\|\cdot \|v_n\|_\infty = \|\varphi\|$$
+	Ponieważ $\|\varphi\|$ jest skończone to stąd dostajemy, że $S(\varphi) \in l_1$.\\
+	
+	Od razu dostaliśmy, że $\|S(\varphi)\|_1 \le \|\varphi\|$, więc wystarczy pokazać  nierówność w~drugą stronę, aby wykazać, że $S$ jest izometrią.
+	Weźmy dowolny ciąg $x=(x_1,x_2,\ldots)\in c_0$ taki, że $\|x\|_\infty$. Wtedy $x_1e_1+\ldots+ x_n e_n  \to x$ w~$c_0$, więc $\lim\limits_n( x_1\varphi(e_1)+ \ldots +x_n\varphi(e_n)) = \varphi(x)$
+	Dlatego:
+	$$|\varphi(x)|\le \sum_{n=1}^\infty |\varphi(e_n)| =\|S(\varphi)\|_1$$
+	A~ponieważ zachodzi to dla dowolnego $\|x\|_\infty \le 1$ to dostajemy nierówność $\|\varphi\| \le \|S(\varphi)\|_1$.
+	
+	Tak więc wiemy, że $S$ jest liniową izometrią. Trzeba jeszcze wykazać, ze jest surjekcją. Ale każdy ciąg $y= (c_1,c_2,\ldots)\in l_1$ definiuje funkcjonał liniowy $\varphi$ wzorem
+	$\varphi(x) = \sum c_i x_i$. 
+
+%	$\varphi(x) = \sum_i x_i c_i$  gdzie $x=(x_1, x_2, \ldots)$ to $S(\varphi) = (c_1,c_2,\ldots)$.\par
+%	Niech $\varphi \in (c_0)^*$ i~$\varphi(e_i) = c_i$. 
+%	Niech $v_n = \frac{\overline{c_1}}{|c_1|}e_1 + \ldots+ \frac{\overline{c_n}}{|c_n|}e_n \in c_0$ wtedy $\|v_n\|_\infty =1$.	Więc: 
+%	$$|\varphi(v_n)| = \left| \frac{\overline{c_1} c_1}{|c_1|}+\ldots+\frac{\overline{c_n} c_n}{|c_n|} \right|= |c_1| +\ldots + |c_n| \le \|\varphi\|\cdot \|v_n\|_\infty = \|\varphi\|$$
+%	Stąd dostajemy, że $S(\varphi) \in l_1$ i~$\|S(\varphi)\|_1 \le \|\varphi\|$.
+
 %		\item Pokażemy, że sstnieje liniowa izometia $S\colon(C_0)^* \to l_1$. Taka, że dla $\varphi \in (c_0)^*$ zachodzi $\|S(x)\| = \|x\|$.
 %			Dla każdego $x= (x_1,x_2,\ldots) \in c_0$ $\varphi(x) = \sum_i x_i c_i$
 %			Wtedy $S(\varphi) = (c_1,c_2,\ldots) \in l_1$.\\
@@ -437,5 +460,8 @@ $\|S\circ T (X) \|= \| S(T(x))\| \le \|S\|\cdot \|T(x)\| \le \|S\| \cdot \|T\| \
 	ZA TYDZIEŃ
 \end{proof}
 \chapter{Zadania od Toruńczyka i~ich rozwiązania}
-Być może coś się tu pojawi.
+Być może coś się tu pojawi. Zapraszam chętnych. 
+
+
+\printindex
 \end{document}
