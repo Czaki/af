@@ -31,4 +31,21 @@
 		\@date
 	\end{center}
 \end{titlepage}}
-
+\renewenvironment{theindex}
+               {\if@twocolumn
+                  \@restonecolfalse
+                \else
+                  \@restonecoltrue
+                \fi
+                \columnseprule \z@
+                \columnsep 35\p@
+                \twocolumn
+               \chapter*{\indexname}%
+                \@mkboth{\indexname}{\indexname}%
+                \thispagestyle{opening}\parindent\z@
+                \parskip\z@ \@plus .3\p@\relax
+                \let\item\@idxitem
+        \secondarysize}
+               {\if@restonecol\onecolumn\else
+        \clearpage
+                \fi}
