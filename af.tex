@@ -229,24 +229,25 @@ Wybierzmy $z \in \operatorname{fr} p(B)$ -- wtedy prosta $\R z$ jest rozłączna
 	Niech $(X,\|\cdot\|)$ będzie przestrzenią unormowaną. Ponadto niech $L\subset X$ będzie podprzestrzenią liniową oraz $C\subset X$ otwartym zbiorem wypukłym w~$X$ rozłącznym z~$L$. Wtedy istnieje domknięta hiperpłaszczyzna $H$ zawierająca $L$ oraz rozłączna z~$C$.
 \end{twr}
 %	\emph{W~$(\mathcal{L},\subseteq)$  jest  porządek częściowy, więc działa lemat Kuratowskiego--Zorna}
-% SEBLIS - koniec korekty
 \begin{proof}
 	Niech $\mathcal{L}$ będzie rodziną wszystkich podprzestrzeni liniowych $X$ zawierających $L$ i~rozłącznych z~$C$.
 	Wtedy $L \in \mathcal{L}$. Jeśli $\varphi \subset \mathcal{L}$ jest łańcuchem w~$(\mathcal{L},\subseteq)$, wtedy $\bigcup \varphi\in \mathcal{L}$.
 	Z Lematu Kuratowskiego--Zorna istnieje element maksymalny $M$ w~$(\mathcal{L}, \subseteq)$.
 	\begin{enumerate}[(A)]
-		\item Jeśli $(X,\|\cdot\|)$ jest nad \R. Wtedy $M$ jest domkniętą hiperpłaszczyzną.
-			Domkniętość $M$: $M\in \mathcal{L}$ więc $\overline{M} \in \mathcal{L}$ więc z maksymalności $M=\overline{M}$.
-			Kowymiar $M=1$ przypuśćmy przeciwnie. Wówczas istnieje przestrzeń liniowa $E\subset X$ taka, że $\dim E =2$ i~$E\cap M=\{0\}$
+		\item $(X,\|\cdot\|)$ jest przestrzenią liniową nad \R.
+		
+$M\in \mathcal{L}$ więc $\overline{M} \in \mathcal{L}$ więc z maksymalności $M=\overline{M}$, czyli $M$ jest domknięta.
+			Pokażemy ponadto, że kowymiar $M=1$. Przypuśćmy przeciwnie -- wówczas istnieje przestrzeń liniowa $E\subset X$ taka, że $\dim E =2$ i~$E\cap M=\{0\}$.
 			Wtedy $B=(C+M)\cap E$ nie zawiera 0.
 			$B$ jest zbiorem wypukłym i~otwartym w~$E$ (z~konstrukcji $B$ w~powyższym wierszu).
 			Więc istnieje $F\subset E$ -- jednowymiarowa podprzestrzeń taka, że $B\cap F = \emptyset$.
 			Wtedy $(M+F)\cap C= \emptyset $ ($m+f=c$, $c-m=f$, $c-m \in M+C$ nie możliwe).
-			Zatem $M+F \in \mathcal{L}$ i~$M+F$ jest ściśle większe od $M$ w~sensie inkluzji.
+			Zatem $M+F \in \mathcal{L}$ i~$M+F$ jest ściśle większe od $M$ w~sensie inkluzji, co daje sprzeczność.
 		\item $(X,\norm)$ jest nad \C.~Rozważmy $X_\R$ opisaną w~(A), wtedy $M$ jest hiperpłaszczyzną w~$X_{\R}$.
 			Zatem $H=M\cap iM$ jest hiperpłaszczyzną w~$X$, rozdzielną z~$C$. $L\subset H$ ponieważ $iL=L$.
 	\end{enumerate}
 \end{proof}
+% SEBLIS - koniec korekty
 \begin{twr}[Hahn--Banach]
   	\index{Twierdzenie!Hahna--Banacha}
 	$(X,\norm)$ -- przestrzeń unormowana nad \K.~Niech $Y\subset X$ będzie podprzestrzenią liniową i 
