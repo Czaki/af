@@ -503,7 +503,7 @@ $\|S\circ T (X) \|= \| S(T(x))\| \le \|S\|\cdot \|T(x)\| \le \|S\| \cdot \|T\| \
 \begin{de}
 	Niech \spac będzie przestrzenią Banacha nad \K.~Niech $T \in B(x)$.
 	\begin{enumerate}
-		\item Widmem nazwiemy $\sigma(T) = sp(T) = \{ \lambda \in \K : T -\lambda I_X \textrm{jest nieodwracalny}\}$ 
+		\item Widmem nazwiemy $\sigma(T) = sp(T) = \{ \lambda \in \K : T -\lambda I_X \textrm{ jest nieodwracalny}\}$ 
 		\item $\lambda\in K$ jest wartością własną $T$ jeśli istnieje $x\not  =0$ taki, że $Tx = \lambda x$. 
 			$X$ jest wektorem  własnym zwiazanym z~$\lambda$
 	\end{enumerate}
@@ -519,7 +519,7 @@ $\|S\circ T (X) \|= \| S(T(x))\| \le \|S\|\cdot \|T(x)\| \le \|S\| \cdot \|T\| \
 \end{ex}
 \begin{proof}
 	Ustalmy $\lambda \in [0,1]$ Pokażemy, że $T -\lambda I$ jest nieodwracalne. Wystarczy, że sprawdzimy, że $\delta(T-\lambda I) =0$.
-	Dla ustalonego $\lambda$ bierzemy ciąg funkcji $u_n$ taki że 
+	Dla ustalonego $\lambda$ bierzemy ciąg funkcji $u_n$ taki że (od pewnego, odpowiednio dużego $n$):
 	$$u_n(t) = \left\{
 		\begin{array}[]{ll}
 		 	0 & \textrm{dla } t \in \left[0,\lambda-\frac{1}{n}\right] \cup \left[ \lambda+\frac{1}{n}, 1 \right]\\
@@ -533,9 +533,12 @@ $\|S\circ T (X) \|= \| S(T(x))\| \le \|S\|\cdot \|T(x)\| \le \|S\| \cdot \|T\| \
 	  \caption{wykres funkcji $u_n$}
 	\end{figure}
 
-	Wtedy $\|u_n\|=1$. Weźmy $|(T- \lambda I u_n(t)| = |tu_n(t) - \lambda u_n(t)| = |t-\lambda| |u_n(t)| \le \frac{1}{n}$.
-	Wiec $\delta(T-\lambda I)  = \inf \{ \|T-\lambda I )u \|_\infty : \|u\|_\infty =1\} = 0$ 
-	\texttt{tu czegoś brakuje,ale zostało szybko starte :(}
+	Wtedy $\|u_n\|_\infty=1$. Weźmy $|(T- \lambda I) u_n(t)| = |tu_n(t) - \lambda u_n(t)| = |t-\lambda| |u_n(t)| \le \frac{1}{n}$.
+	Więc $\delta(T-\lambda I)  = \inf \{ \|T-\lambda I )u \|_\infty : \|u\|_\infty =1\} = 0$ 
+	%\texttt{tu czegoś brakuje,ale zostało szybko starte :(}
+	Na mocy lematu 1.6.7 (i) $\lambda \in sp(T)$ czyli udowodniliśmy, że $sp(T) = [0,1]$. \par
+	Załóżmy, że $Tu = \lambda u$ dla pewnego $\lambda \in [0,1]$ i~$u \in C[0,1]$.
+	Wtedy $tu(t) = \lambda u(t) $ dla $t\in[0,1]$ więc $u(t) = 0$ dla $t\not = \lambda$. Z~ciągłości $u$ wynik że $u=0$.
 \end{proof}
 \begin{uwaga}
 	Niech \spac będzie przestrzenią Banacha, niech $t\in B(x)$ wtedy $sp (T)$ jest domkniętym zbiorem 
@@ -544,8 +547,8 @@ $\|S\circ T (X) \|= \| S(T(x))\| \le \|S\|\cdot \|T(x)\| \le \|S\| \cdot \|T\| \
 \begin{proof}
 	Obierzmy $|\lambda| >\|T\|$. Wówczas mamy $\left\| \frac{1}{\lambda} T\right\|<1$, więc operator  $I- \frac{1}{\lambda}T$ jest odwracalny, czyli
 	także $T - \lambda I = \lambda\left( I -\frac{1}{\lambda}T \right)$ jest odwracalny, wiec $\lambda\not \in sp(T)$. \\
-	Skoro $GL(X)$ jest otwarty, a odwzorowanie $\lambda \mapsto T - \lambda I$ jest ciągłe, to $sp(T)$, jako 	przeciwobraz domkniętego zbioru $B(X) \setminus GL(X)$, 
-	jest domknięty
+	Skoro $GL(X)$ jest otwarty, a odwzorowanie $\lambda \mapsto T - \lambda I$ jest ciągłe, to $sp(T)$, jako 	przeciw obraz domkniętego zbioru $B(X) \setminus GL(X)$, 
+	jest domknięty.
 \end{proof}
 \section{Zwarte operatory liniowe}
 \begin{de}
