@@ -44,6 +44,8 @@
 \newcommand{\ddz}{\mathrm{d}z}
 \newcommand{\vx}{\textbf{\emph{x}}}
 \newcommand{\norm}{\|\cdot\|}
+\newcommand{\spac}[1][X]{$(#1,\norm)$}
+\newcommand{\im}{\mathrm{im}}
 \makeindex
 \newindex{tw}{twx}{twd}{Twierdzenia i~Lematy}
 \title{Analiza funkcjonalna  -- wykład}
@@ -54,7 +56,7 @@
 \newtheorem{twr}[subsection]{Twierdzenie}%[section]
 \newtheorem{lem}[subsection]{Lemat}
 \newtheorem{wn}[subsection]{Wniosek}
-\newtheorem{uw}[subsection]{Uwaga}
+\newtheorem{uwaga}[subsection]{Uwaga}
 \newtheorem{de}[subsection]{Definicja}
 \newtheorem{ex}[subsection]{Przykład}
 \newcounter{numer}
@@ -83,6 +85,7 @@ Niech $u_1,\ldots ,u_n \in X $. Przestrzeń liniową rozpiętą na tych wektorac
 Niech $g: X_\R \to \R $ będzie funkcjonałem liniowym. Wówczas przekształcenie $f(x) =g(x) - ig(ix)$ jest liniowe nad $\C$. Ponadto mamy $\textrm{Ker}f = \textrm{Ker} g \cap i \textrm{Ker}g$.
 
 \section{Przestrzenie unormowane}
+$$|\varphi(v_n)| = \left| \frac{\overline{c_1} c_1}{|c_1|}+\ldots+\frac{\overline{c_n} c_n}{|c_n|} \right|= |c_1| +\ldots + |c_n| \le \|\varphi\|\cdot \|v_n\|_\infty = \|\varphi\|$$
 $X$ -- przestrzeń liniowa nad $\K$. Normą nazywamy funkcję  $\|\cdot \|\colon X \to [0, +\infty )$ spełniającą następujące warunki:
 	\begin{enumerate}[i.]
 	\item $\|x\| = 0 \Leftrightarrow x=0$ 
@@ -202,11 +205,11 @@ Twierdzenie Hahna\dywiz Banacha mówi o~przedłużaniu ciągłych funkcji liniow
 \textit{Przypomnienie definicji:}
 $(X,\|\cdot\|)$ - przestrzeń unormowana. Zbiór  $C\subset X$ jest wypukły  wtedy i~tylko wtedy gdy 
 $\forall x_1,\ldots, x_n \in C$, $t_1, \ldots t_n \in [0,1]$ takich, że $\sum_i t_i = 1$ zachodzi $\sum_i t_i x_i \in C$
-\begin{uw}
+\begin{uwaga}
   \label{uw1_r}
 	$(\R^2,\|\cdot\|_{max})$. Niech $B\subset \R^2$ -- otwarty, wypukły zbiór taki, że zero nie należy do $B$.
 	Wtedy istnieje prosta przechodząca przez zero i~rozłączna z~$B$.
-\end{uw}
+\end{uwaga}
 \begin{proof}
 	Rzeczywiście, niech $S= \{ (t_1, t_2) \in \R^2; t_1^2+t_2^2=1\}$ \\
 	$p:\R^2\setminus\{0\} \to S$ $p(t_1,t_2) = \frac{(t_1,t_2)}{\sqrt{t_1^2+t_2^2}}$:
@@ -219,10 +222,10 @@ Wybierzmy $z \in \operatorname{fr} p(B)$ -- wtedy prosta $\R z$ jest rozłączna
   \scriptsize{ $p(B)$ jest reprezentowane przez czerwoną przerywaną linię.}
 \end{figure}
 \end{proof}
-\begin{uw}
+\begin{uwaga}
   Hiperpłaszczyzna $\left(\textrm{\textit{ang.} hyper\Plane}\right)$ $H$ w~przestrzeni unormowanej $(X,\|\cdot\|)$ jest zbiorem $H= x+Y$, gdzie $Y$ jest podprzestrzenią liniową $X$ kowymiaru 1.
 	Jeśli $Y$ jest linowe, to $\overline{Y}$ też. Skoro $\overline{H}=x+\overline{Y}$ i kowymiar $Y=1$, to $\overline{Y} = Y$ albo $\overline{Y} = X$. Z tego wynika, że hiperpłaszczyzna musi być domknięta lub gęsta w $X$.
-\end{uw}
+\end{uwaga}
 \begin{twr}[S.~Mazur]
   \index{Twierdzenie!Mazura}
   \label{maz}
@@ -264,11 +267,11 @@ $M\in \mathcal{L}$ więc $\overline{M} \in \mathcal{L}$ więc z maksymalności $
 	Niech $\tilde{f}(x+\lambda u) = \lambda$ dla $x\in H$ i~$\lambda \in \K$. Wtedy $\tilde{f}$ jest  przedłużeniem $f$.\\
 	Ponadto, wiemy, że $\|x +\lambda u\|\ge |\lambda| = |\tilde{f} (x+\lambda u)|$ Co znaczy, że $\|x\| \ge |f(x)|$ dla $x\in X$
 \end{proof}
-\begin{uw}
+\begin{uwaga}
 	Niech $(X,\norm)$ -- unormowana przestrzeń rzeczywista. Niech $Y\subset X$ będzie podprzestrzenią liniową.
 	$C\subset X$ -- otwarty wypukły podzbiór $X$ taki że $C \cap Y \not = \emptyset $ Niech $f:Y\to \R$ funkcjonał liniowy taki, ze  
 	$f$ jest dodatni na $C\cap Y$. Wtedy istnieje $\tilde{f} : X \to \R$ który jest przedłużeniem $f$ i~$\tilde{f}$ jest ściśle dodatni na $C$.
-\end{uw}
+\end{uwaga}
 \begin{proof}
 	Będziemy używać twierdzenia Mazura: Niech $L= Y \cap \ker f$ wtedy $L\cap C = \emptyset$. 
 	Istnieje hiperpłaszczyzna $H$ w~$X$ taka, że $L\subset H$ i~$H\cap C = \emptyset$.
@@ -296,11 +299,11 @@ Dla ułatwienia skupimy się teraz na $[a,b]=[0,1]$.
 			Jak łatwo zauważyć funkcja $G$ jest niemalejąca oraz  $[0,F_l(t)) \subset G^{-1}[0,t)\subset [0,F_l(t)]$.
 			Zdefiniujmy $\mu$ na $[0,1]$ przez $\mu(A) = \lambda(G^{-1}(A))$ gdzie $\lambda$ jest miarą Lebesgue'a.
 \end{proof}
-\begin{uw}
+\begin{uwaga}
 	Niech $I=[0,1]$, $\psi: l_\infty (I,\R)\to \R$ liniowy, nieujemny  funkcjonał. 
 	Istnieje wtedy  przeliczalny zbiór $J\subset I$ i~miara Borelowska $\mu$ na $I$ taka, że $\psi\left(\chi_{[0,t)} \right) = \mu[0,t)$ 
 		$\psi \left( \chi_{[s,t)}  \right)  = \mu[s,t)$ i~$\psi(\chi_{[0,1]}) = \psi(1) = \mu[0,1]$.
-\end{uw}
+\end{uwaga}
 \begin{proof}
 	Niech $F(t) = \psi\left( \chi_{[0,t)} \right)$ dla $t<1$ i~$F(1) = \psi(1)$.
 	Jeśli $s<t$ to $\chi_{[0,s)} \le \chi_{[0,t)}$ więc $\psi\left( \chi_{0,s)} \right) \le \psi \left( \chi_{[0,t)} \right)$
@@ -310,9 +313,9 @@ Dla ułatwienia skupimy się teraz na $[a,b]=[0,1]$.
 	Niech $J= \{t: F_l (t) < F(t)\}$ -- zbiór punktów skoku jest przeliczalny. 
 	Wtedy $\mu$ i $J$ mają takie własności jakie chcieliśmy. 
 \end{proof}
-\begin{uw}
+\begin{uwaga}
 	Niech $\varphi:C[0,1] \to \R$ jest liniowym, nieujemnym funkcjonałem i~$\varphi \not = 0$ wtedy  $\varphi(f) >0 $ dla każdego $f>0$ 
-\end{uw}
+\end{uwaga}
 \begin{proof}
 	Każdą funkcję $u \in C[0,1]$ można przedstawić jako różnicę $u=u^+-u^-$ nieujemnych funkcji ciągłych $u^+ = \max(u,0)$ i~$u^- = \max(-u,0)$.
 	Dlatego, jeśli $\varphi\not = 0$ to istnieje $v\ge 0$ dla którego $\varphi(v)>0$.
@@ -354,7 +357,7 @@ Oznaczmy przez $B(X,Y)$ przestrzeń liniowa wszystkich ograniczonych operatorów
 $(B(X,Y) \norm)$ -- przestrzeń unormowana \\
 $(B(X,K), \norm)$ przestrzeń dualna do $(X,\norm)$ oznaczana przez $(X^*,\norm)$
 \end{de}
-\begin{uw}
+\begin{uwaga}
 	\begin{enumerate}[(A)]
 		\item Niech $T\in B(X,Y)$ wtedy $\forall x\in X: \|T(x)\| \le \|T\| \cdot \|x\|$. 
 			Norma operatora to najmniejsze takie $M$, że $\|T(x)\| \le M \cdot \|x\|$ dla każdego $x\in X$.
@@ -365,7 +368,7 @@ $(B(X,K), \norm)$ przestrzeń dualna do $(X,\norm)$ oznaczana przez $(X^*,\norm)
 			Dla $x\not =  0$ $\left\|T\left( \delta \frac{x}{\|x\|} \right)\right\|\le 1$, czyli $\|T(x)\|\le \frac{1}{\delta}\|x\|$.
 
 	\end{enumerate}
-\end{uw}
+\end{uwaga}
 \begin{ex}	
 %	\begin{enumerate}[(A)]
 %		\item $(C_0)^* = l_1$
@@ -373,7 +376,7 @@ $(B(X,K), \norm)$ przestrzeń dualna do $(X,\norm)$ oznaczana przez $(X^*,\norm)
 %\end{enumerate}
 	\textup{(A)} $(c_0)^* = l_1$ i~\textup{(B)}$(l_1)^* = l_\infty$
 \end{ex}
-\begin{proof}[Dowsód (A)]
+\begin{proof}[Dowód (A)]
   Chcemy zdefiniować liniową izometrię $S\colon (c_o)^* \overset{\textrm{na}}{\longrightarrow} l_1$.
 	Oznaczmy przez $e_n = (0,0,\ldots,0,1,0,\ldots)$ gdzie jedynka jest na $n$-tym miejscu.\par
 
@@ -419,15 +422,15 @@ $(B(X,K), \norm)$ przestrzeń dualna do $(X,\norm)$ oznaczana przez $(X^*,\norm)
 %			\texttt{Do przeczytania i~korekty}
 \end{proof}
 Dowodu (B) nie było na wykładzie.
-\begin{uw}
+\begin{uwaga}
 	Dla każdego $\varphi\in (C[ab])^*$ istnieją skończone miary Borelowskie $\mu, \nu$ takie, że 
 	$\varphi(f) = \int_{[a,b]} f \dd\mu - \int_{[a,b]} f \dd \nu$ i~$\|\varphi\| = \mu[a,b]+ \nu[a,b]$
-\end{uw}
-\begin{uw}[konsekwencje twierdzenia Hahna\dywiz Banacha ]
+\end{uwaga}
+\begin{uwaga}[konsekwencje twierdzenia Hahna\dywiz Banacha ]
 	Niech $Y$ będzie liniową podprzestrzenią przestrzeni unormowanej $(X,\norm)$.
 	Niech $\varphi\in Y^*$ wtedy istnieje $\psi \in X^*$ takie, że $\psi|_Y = \varphi$ i $\|\psi\| = \|\varphi\|$.
 	
-\end{uw}
+\end{uwaga}
 \begin{proof}
 	Weźmy $f= \frac{1}{\|\varphi\|} \varphi$ wtedy 
 	$|f(x)| = \frac{1}{\|\varphi\|}|\varphi(x)| \le \frac{1}{\|\varphi\|}\|\varphi\|\cdot \|x\| = \|x\|$.
@@ -445,10 +448,10 @@ Dowodu (B) nie było na wykładzie.
 		\item Przestrzeń $(c_0, \norm_\infty)$ jest przestrzenią Banacha. Więc $(l_1,\norm_1)= (c_0)^*$ jest Banacha  z~(B).
 	\end{enumerate}
 \end{ex}
-\begin{uw}
+\begin{uwaga}
 	Jeśli $(X,\norm)$ jest przestrzenią Banacha i~dla wektorów $x_n \in X$ zachodzi $\sum_n \|x_n\| < +\infty$ wtedy 
 	$\sum_n x_n$ jest zbieżny i~do tego dla każdej permutacji $\sigma\colon \N\to\N$ zachodzi $\sum_n x_{\sigma(n)} = \sum_n x_n$
-\end{uw}
+\end{uwaga}
 \subsection{Przestrzenie $(B(X),\norm)$ ograniczonych endomorfizmów przestrzeni Banacha}
 Niech $S,T \in B(X)$ wtedy $\|S\circ T\| \le \|S\| \cdot \|T\|$ bo 
 $\|S\circ T (X) \|= \| S(T(x))\| \le \|S\|\cdot \|T(x)\| \le \|S\| \cdot \|T\| \cdot \|x\|$.
@@ -458,8 +461,97 @@ $\|S\circ T (X) \|= \| S(T(x))\| \le \|S\|\cdot \|T(x)\| \le \|S\| \cdot \|T\| \
 	$\left( I_X - T  \right)^{-1} = \sum_{n=1}^\infty T^n$.
 \end{twr}
 \begin{proof}
-	ZA TYDZIEŃ
+	Wiemy, że $\|T^n\|\le \|T\|^n$, wiec $\sum_{n=0}\|T^n\| \le \sum_{n=0} \|T\|^n = \frac{1}{1-\|T\|}$ czyli
+	szereg $\sum_{n=0}^\infty T^n$ jest zbieżny. 
+	Chcemy sprawdzić,że $I_X=(I_X -T)  \left( \sum_{n=0}^\infty T^n \right)= \sum_{n=0}^\infty \left( (I_X-T) T^n \right)=
+	(I_X-T)+(T-T^2)+\ldots=I_X$
 \end{proof}
+\begin{wn}
+	Niech $(X,\norm)$ będzie przestrzenią Banacha. Niech $GL(X)$ będzie zbiorem wszystkich odwracalnych operatorów w~$B(X)$.
+	Wtedy zbiór $GL(X)$ jest otwarty w~$(B(X),\norm)$ 
+\end{wn}
+\begin{proof}
+	Weźmy $T\in GL(X)$ i $r= \frac{1}{\|T^-1\|}$. Niech $S\in B(x)$ takie, że$\|S-T\|<r$.
+	Pokażemy, że $S \in GL(X)$. \\
+	Mamy $\|T^{-1}(S-T)\| \le \|T^{-1}\|\cdot\|S - T\| <1$ więc $I-T^{-1}(S - T)$ jest odwracalny.
+	Ale $S= T(I+T^{-1}(S - T ))\in GL(X)$. 
+\end{proof}
+\begin{lem}
+	Niech $(X,\norm)$ będzie przestrzenią Banacha. Niech $T \in B(X)$.
+	Niech $\delta(T) = \inf\{ \|Tx\|: x \in S_x\}$ 
+	\begin{enumerate}[(i)]
+		\item Jeśli $\delta(T) = 0$ wtedy $t$ jest nieodwracalny.
+		\item $\delta(T) >0$ wtedy $\im T =TX$ jest domknięty w~$X$ oraz $T\colon X \to \im X$ jest homomorfizmem liniowym.
+	\end{enumerate}
+\end{lem}
+\begin{proof}
+	\begin{enumerate}[(i)]
+		\item Jeśli $ \delta(T) =0$ wtedy istnieje ciąg $x_n \in S_x$ taki, że $T_{x_{n}}\to 0$ co jest sprzeczne 
+			z~istnieniem ograniczonego $T^{-1}$.  Ponieważ $ T^{-1 }T x_n = x_n \to T^{-1}o = 0$ dla $x_n \in S_X$ 
+		\item Jeśli $\delta(T)>0$ to $\ker(T) = \{0\}$ wiec $ T\colon X \to \im T$ ma liniową odwrotność
+			$S\colon \im T \to X$ taką, że $T\circ S = I_{\im T}$.
+			Pokażemy teraz ograniczoność $S$. W~tym celu weźmy $x\not = 0$ wtedy $\left\|T\left( \frac{x}{\|x\|} \right)\right\|\ge \delta(T)$
+			Czyli $\|Tx\| \ge \delta(T) \|x\|$ więc wiemy że istnieje $y\in \im T$ takie, że $x=Sy$ i~mamy 
+			$\|y\|\ge \delta(T) \|Sy\|$.
+			Dostajemy stąd ograniczenie $\|Sy\| \le \frac{1}{\delta(T)}\|y\|$ dla $y\in \im T$.\\
+			Sprawdźmy teraz czy $\overline{\im T} = \im T \in X$.
+			Weźmy dowolny ciąg $y_n \in \im T$ taki że $y_n \to x$.  Wtedy $(y_n)_n$ jest ciągiem Cauchego. 
+			$\|S{y_n} - S{y_m}\|=\|S(y_n - y_m)\|\le \|S\| \cdot \|y_n -y_m\|$ wiec ciąg $(S y_n)_{n=1}^\infty$ jest ciągiem Cauchego.
+			Z~zupełności przestrzeni $X$ wynika, że $S y_n \to z$ więc $T S y_n \to T z$ czyli $y_n \to Tz$ 
+	\end{enumerate}
+\end{proof}
+\begin{de}
+	Niech \spac będzie przestrzenią Banacha nad \K.~Niech $T \in B(x)$.
+	\begin{enumerate}
+		\item Widmo $\sigma(T) = sp(T) = \{ \lambda \in \K : T -\lambda I_X \textrm{jest nieodwracalny}\}$ 
+		\item $\lambda\in K$ jest wartością własną $T$ jeśli istnieje $x\not  =0$ taki, że $Tx = \lambda x$. 
+			$X$ jest wektorem  własnym zwiazanym z~$\lambda$
+	\end{enumerate}
+\end{de}
+\begin{uwaga}
+	Niech $T\colon \K^n \to \K^n$ wtedy $sp(T) = \{\lambda: \ker(T-\lambda I) \not 0\} = \{\lambda :\lambda \textrm{ jest wartością własną} \}$
+\end{uwaga}
+%\begin{uwaga}
+	%\texttt{Tu była jakaś notatka}
+%\end{uwaga}
+\begin{ex}
+	Niech $T\colon C[0:1] \to C[0:1]$ taki że $Tf(t) = t\cdot f(t)$ wtedy $sp(T) = [0,1]$ ale $T$ nie ma wartości własnych.
+\end{ex}
+\begin{proof}
+	Ustalmy $\lambda \in [0,1]$ Pokażemy, że $T -\lambda I$ jest nieodwracalne. Wystarczy, że sprawdzimy, że $\delta(T-\lambda I) =0$.
+	Dla ustalonego $\lambda$ bierzemy ciąg funkcji $u_n$ taki że 
+	$$u_n(t) = \left\{
+		\begin{array}[]{ll}
+		 	0 & \textrm{dla } t \in \left[0,\lambda-\frac{1}{n}\right] \cup \left[ \lambda+\frac{1}{n}, 1 \right]\\
+			1 + n(x -\lambda) & \textrm{dla } t \in \left[ \lambda-\frac{1}{n},\lambda \right]
+			%\texttt{dopisać resztę}
+		\end{array}\right.
+	$$
+	Wtedy $\|u_n\|=1$. Weźmy $|(T- \lambda I u_n(t)| = |tu_n(t) - \lambda u_n(t)| = |t-\lambda| |u_n(t)| \le \frac{1}{n}$.
+	Wiec $\delta(T-\lambda I)  = \inf \{ \|T-\lambda I )u \|_\infty : \|u\|_\infty =1\} = 0$ 
+	\texttt{tu czegoś brakuje,ale zostało szybko starte :(}
+\end{proof}
+\begin{uwaga}
+	Niech \spac będzie przestrzenią Banacha, niech $t\in B(x)$ wtedy $sp (T)$ jest domkniętym zbiorem 
+	$\{\lambda : |\lambda| \le \|T\|\}$ więc $sp(T)$ jest zbiorem zwartym.
+\end{uwaga}
+\begin{proof}
+	Niech $|\lambda| >\|T\|$ wtedy $\left\| \frac{1}{\lambda} T\right\|<1$ więc funkcja  $I- \frac{1}{\lambda}T$ jest odwracalna.
+	Czyli $T - \lambda I = \lambda\left( I -\frac{1}{\lambda}T \right)$ jest odwracalna wiec $\lambda\not \in sp(T)$ \\
+	Skoro $GL(X)$ jest otwarte, przekształcenie $\lambda \to T - \lambda I$ jest ciągłe, to $sp(T)$ przeciw obraz $B(X) \setminus GL(X)$ 
+	jest domknięty
+\end{proof}
+\begin{de}
+	Niech $T\colon X\to X$ w~przestrzeni Banacha \spac jest zwarte jeśli $T(B_x)$ jest zwarte
+\end{de}
+\begin{twr}[F.~Riesz, J.~Schauder]
+	Niech $T\colon X \to X$ będzie operatorem zwartym na nieskończenie wymiarowej przestrzeni Banacha \spac. Wtedy:
+	\begin{enumerate}
+		\item $0\in sp(T)$
+		\item Kazdy niezerowy element $sp(T)$ jest wartością własną $T$ 
+	\item dla każdego $\varepsilon>0$ istnieje  skończenie wiele $\lambda \in sp(T)$ takich wiele $|\lambda|\ge\varepsilon$ 
+	\end{enumerate}
+\end{twr}
 \chapter{Zadania od Toruńczyka i~ich rozwiązania}
 Być może coś się tu pojawi. Zapraszam chętnych. 
 
