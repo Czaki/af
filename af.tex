@@ -523,8 +523,8 @@ $\|S\circ T (X) \|= \| S(T(x))\| \le \|S\|\cdot \|T(x)\| \le \|S\| \cdot \|T\| \
 	$$u_n(t) = \left\{
 		\begin{array}[]{ll}
 		 	0 & \textrm{dla } t \in \left[0,\lambda-\frac{1}{n}\right] \cup \left[ \lambda+\frac{1}{n}, 1 \right]\\
-			1 + n(x -\lambda) & \textrm{dla } t \in \left[ \lambda-\frac{1}{n},\lambda \right]
-			%\texttt{dopisać resztę}
+			1 + n(x -\lambda) & \textrm{dla } t \in \left[ \lambda-\frac{1}{n},\lambda \right]\\
+			1+n(\lambda -x)	& \textrm{dla } t \in \left[ \lambda,\lambda+\frac{1}{n} \right]
 		\end{array}\right.
 	$$
 	Wtedy $\|u_n\|=1$. Weźmy $|(T- \lambda I u_n(t)| = |tu_n(t) - \lambda u_n(t)| = |t-\lambda| |u_n(t)| \le \frac{1}{n}$.
