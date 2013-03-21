@@ -44,7 +44,7 @@
 \newcommand{\ddz}{\mathrm{d}z}
 \newcommand{\vx}{\textbf{\emph{x}}}
 \newcommand{\norm}{\|\cdot\|}
-\newcommand{\spac}[1][X]{$(#1,\norm)$}
+\newcommand{\spac}[1][X]{$(#1,\norm)$ }
 \newcommand{\im}{\mathrm{im}}
 \makeindex
 \newindex{tw}{twx}{twd}{Twierdzenia i~Lematy}
@@ -536,14 +536,14 @@ $\|S\circ T (X) \|= \| S(T(x))\| \le \|S\|\cdot \|T(x)\| \le \|S\| \cdot \|T\| \
 	$\{\lambda : |\lambda| \le \|T\|\}$ więc $sp(T)$ jest zbiorem zwartym.
 \end{uwaga}
 \begin{proof}
-	Niech $|\lambda| >\|T\|$ wtedy $\left\| \frac{1}{\lambda} T\right\|<1$ więc funkcja  $I- \frac{1}{\lambda}T$ jest odwracalna.
-	Czyli $T - \lambda I = \lambda\left( I -\frac{1}{\lambda}T \right)$ jest odwracalna wiec $\lambda\not \in sp(T)$ \\
-	Skoro $GL(X)$ jest otwarte, przekształcenie $\lambda \to T - \lambda I$ jest ciągłe, to $sp(T)$ przeciw obraz $B(X) \setminus GL(X)$ 
+	Obierzmy $|\lambda| >\|T\|$. Wówczas mamy $\left\| \frac{1}{\lambda} T\right\|<1$, więc operator  $I- \frac{1}{\lambda}T$ jest odwracalny, czyli
+	także $T - \lambda I = \lambda\left( I -\frac{1}{\lambda}T \right)$ jest odwracalny, wiec $\lambda\not \in sp(T)$. \\
+	Skoro $GL(X)$ jest otwarty, a odwzorowanie $\lambda \mapsto T - \lambda I$ jest ciągłe, to $sp(T)$, jako 	przeciwobraz domkniętego zbioru $B(X) \setminus GL(X)$, 
 	jest domknięty
 \end{proof}
 \section{Zwarte operatory liniowe}
 \begin{de}
-	Niech $T\colon X\to X$ w~przestrzeni Banacha \spac jest zwarte jeśli $T(B_x)$ jest zwarte
+	 Operator $T\colon X\to X$, gdzie \spac jest przestrzenią Banacha, jest zwarty jeśli $T(B_x)$ jest zbiorem zwartym. Wówczas w szczególności jest on ograniczony: $T\in B(X)$.
 \end{de}
 \begin{twr}[F.~Riesz, J.~Schauder]
 	Niech $T\colon X \to X$ będzie operatorem zwartym na nieskończenie wymiarowej przestrzeni Banacha \spac. Wtedy:
