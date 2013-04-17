@@ -86,7 +86,6 @@ Niech $u_1,\ldots ,u_n \in X $. Przestrzeń liniową rozpiętą na tych wektorac
 Niech $g: X_\R \to \R $ będzie funkcjonałem liniowym. Wówczas przekształcenie $f(x) =g(x) - ig(ix)$ jest liniowe nad $\C$. Ponadto mamy $\textrm{Ker}f = \textrm{Ker} g \cap i \textrm{Ker}g$.
 
 \section{Przestrzenie unormowane}
-$$|\varphi(v_n)| = \left| \frac{\overline{c_1} c_1}{|c_1|}+\ldots+\frac{\overline{c_n} c_n}{|c_n|} \right|= |c_1| +\ldots + |c_n| \le \|\varphi\|\cdot \|v_n\|_\infty = \|\varphi\|$$
 $X$ -- przestrzeń liniowa nad $\K$. Normą nazywamy funkcję  $\|\cdot \|\colon X \to [0, +\infty )$ spełniającą następujące warunki:
 	\begin{enumerate}[i.]
 	\item $\|x\| = 0 \Leftrightarrow x=0$ 
@@ -350,7 +349,7 @@ Dla ułatwienia skupimy się teraz na $[a,b]=[0,1]$.
 \section{Ograniczone operatory liniowe}
 \begin{de}
 Niech $(X,\norm)$ i~$(Y,\norm)$ będą unormowanymi przestrzeniami liniowymi nad tym samym ciałem \K.
-Odwzorowanie liniowe (operator liniowy) $T\colon X \to Y$ jest ograniczony jeśli:
+Odwzorowanie liniowe (operator liniowy) $T\colon X \to Y$ jest ograniczone jeśli:
 $$\| T\| = \sup \{\|T(x)\|\colon x \in B_x\} < \infty$$
 
 Oznaczmy przez $B(X,Y)$ przestrzeń liniowa wszystkich ograniczonych operatorów z~$X$ do $Y$.
@@ -427,15 +426,15 @@ Dowodu (B) nie było na wykładzie.
 	Dla każdego $\varphi\in (C[ab])^*$ istnieją skończone miary Borelowskie $\mu, \nu$ takie, że 
 	$\varphi(f) = \int_{[a,b]} f \dd\mu - \int_{[a,b]} f \dd \nu$ i~$\|\varphi\| = \mu[a,b]+ \nu[a,b]$
 \end{uwaga}
-\begin{uwaga}[konsekwencje twierdzenia Hahna\dywiz Banacha ]
+\begin{uwaga}[konsekwencje twierdzenia Hahna\dywiz Banacha]
 	Niech $Y$ będzie liniową podprzestrzenią przestrzeni unormowanej $(X,\norm)$.
 	Niech $\varphi\in Y^*$ wtedy istnieje $\psi \in X^*$ takie, że $\psi|_Y = \varphi$ i $\|\psi\| = \|\varphi\|$.
 	
 \end{uwaga}
 \begin{proof}
-	Weźmy $f= \frac{1}{\|\varphi\|} \varphi$ wtedy 
-	$|f(x)| = \frac{1}{\|\varphi\|}|\varphi(x)| \le \frac{1}{\|\varphi\|}\|\varphi\|\cdot \|x\| = \|x\|$.
-	Wtedy istnieje $\tilde{f} \colon X \to K$ taki, że $\tilde{f}|_Y = f$ i~$ |\tilde{f}(x) | \le \|x\| $
+Weźmy $f= \frac{1}{\|\varphi\|} \varphi$ wtedy 
+$|f(x)| = \frac{1}{\|\varphi\|}|\varphi(x)| \le \frac{1}{\|\varphi\|}\|\varphi\|\cdot \|x\| = \|x\|$.
+Wtedy istnieje $\tilde{f} \colon X \to K$ taki, że $\tilde{f}|_Y = f$ i~$ |\tilde{f}(x) | \le \|x\| $
 \end{proof}
 \section{Przestrzenie Banacha}
 \begin{de}
@@ -481,7 +480,7 @@ $\|S\circ T (X) \|= \| S(T(x))\| \le \|S\|\cdot \|T(x)\| \le \|S\| \cdot \|T\| \
 	Niech $(X,\norm)$ będzie przestrzenią Banacha. Niech $T \in B(X)$.
 	Niech $\delta(T) = \inf\{ \|Tx\|: x \in S_x\}$ 
 	\begin{enumerate}[(i)]
-		\item Jeśli $\delta(T) = 0$ wtedy $t$ jest nieodwracalny.
+		\item Jeśli $\delta(T) = 0$ wtedy $T$ jest nieodwracalny.
 		\item $\delta(T) >0$ wtedy $\im T =TX$ jest domknięty w~$X$ oraz $T\colon X \to \im X$ jest homeomorfizmem liniowym.
 	\end{enumerate}
 \end{lem}
@@ -635,7 +634,7 @@ taki że przestrzeń $X$ jest zupełna w~metryce wyznaczonej przez normę, wyzna
 \end{twr}
 \begin{proof}
 %	\texttt{Tak jakoś zamuliłem, może dopiszę}
-	Dla $y=0$ sytuacja jest oczywista. Weźmy więc $y\not 0$ i~niech $\lambda = -\frac{\langle x,y \rangle}{\langle y,y \rangle}$.
+	Dla $y=0$ sytuacja jest oczywista. Weźmy więc $y\neq 0$ i~niech $\lambda = -\frac{\langle x,y \rangle}{\langle y,y \rangle}$.
 	Wtedy $0\le\langle x+\lambda y,x+\lambda y \rangle = \langle x,x \rangle + |\lambda|^2 \langle y,y \rangle + \lambda\langle y,x \rangle + \overline{\lambda}
 	\langle x,y \rangle = \langle x,x \rangle - \frac{|\langle x,y \rangle|^2}{\langle y,y \rangle}$
 	Co już daje nam nierówność.
