@@ -44,6 +44,7 @@
 \newcommand{\ddz}{\mathrm{d}z}
 \newcommand{\vx}{\textbf{\emph{x}}}
 \newcommand{\norm}{\|\cdot\|}
+\newcommand{\scal}{\langle \cdot,\cdot \rangle}
 \newcommand{\spac}[1][X]{$(#1,\norm)$ }
 \newcommand{\im}{\mathrm{im}}
 \makeindex
@@ -481,7 +482,7 @@ $\|S\circ T (X) \|= \| S(T(x))\| \le \|S\|\cdot \|T(x)\| \le \|S\| \cdot \|T\| \
 	Niech $\delta(T) = \inf\{ \|Tx\|: x \in S_x\}$ 
 	\begin{enumerate}[(i)]
 		\item Jeśli $\delta(T) = 0$ wtedy $t$ jest nieodwracalny.
-		\item $\delta(T) >0$ wtedy $\im T =TX$ jest domknięty w~$X$ oraz $T\colon X \to \im X$ jest homomorfizmem liniowym.
+		\item $\delta(T) >0$ wtedy $\im T =TX$ jest domknięty w~$X$ oraz $T\colon X \to \im X$ jest homeomorfizmem liniowym.
 	\end{enumerate}
 \end{lem}
 \begin{proof}
@@ -515,7 +516,7 @@ $\|S\circ T (X) \|= \| S(T(x))\| \le \|S\|\cdot \|T(x)\| \le \|S\| \cdot \|T\| \
 	%\texttt{Tu była jakaś notatka}
 %\end{uwaga}
 \begin{ex}
-	Niech $T\colon C[0:1] \to C[0:1]$ taki że $Tf(t) = t\cdot f(t)$ wtedy $sp(T) = [0,1]$ ale $T$ nie ma wartości własnych.
+	Niech $T\colon C[0,1] \to C[0,1]$ taki że $Tf(t) = t\cdot f(t)$ wtedy $sp(T) = [0,1]$ ale $T$ nie ma wartości własnych.
 \end{ex}
 \begin{proof}
 	Ustalmy $\lambda \in [0,1]$ Pokażemy, że $T -\lambda I$ jest nieodwracalne. Wystarczy, że sprawdzimy, że $\delta(T-\lambda I) =0$.
@@ -552,19 +553,207 @@ $\|S\circ T (X) \|= \| S(T(x))\| \le \|S\|\cdot \|T(x)\| \le \|S\| \cdot \|T\| \
 \end{proof}
 \section{Zwarte operatory liniowe}
 \begin{de}
-	 Operator $T\colon X\to X$, gdzie \spac jest przestrzenią Banacha, jest zwarty jeśli $T(B_x)$ jest zbiorem zwartym. Wówczas w szczególności jest on ograniczony: $T\in B(X)$.
+	Operator $T\colon X\to X$, gdzie \spac jest przestrzenią Banacha, jest zwarty jeśli $\overline{T(B_X)}$ jest zbiorem zwartym. Wówczas w szczególności jest on ograniczony: $T\in B(X)$.
 \end{de}
 \begin{twr}[F.~Riesz, J.~Schauder]
 	Niech $T\colon X \to X$ będzie operatorem zwartym na nieskończenie wymiarowej przestrzeni Banacha \spac. Wtedy:
 	\begin{enumerate}
 		\item $0\in sp(T)$
-		\item Kazdy niezerowy element $sp(T)$ jest wartością własną $T$ 
+		\item Każdy niezerowy element $sp(T)$ jest wartością własną $T$ 
 	\item dla każdego $\varepsilon>0$ istnieje  skończenie wiele $\lambda \in sp(T)$ takich wiele $|\lambda|\ge\varepsilon$ 
 	\end{enumerate}
 \end{twr}
-\chapter{Zadania od Toruńczyka i~ich rozwiązania}
+\begin{lem}
+	\label{lem:173}
+	Niech $T\in B(X)$ będzie zwartym izomorfizmem. Wtedy operator $T-I_X$ jest odwracalny wtedy i~tylko wtedy gdy $\ker (T-I_X) =\{0\}$ 
+\end{lem}
+\begin{proof}
+	$\Rightarrow$ oczywiste (odwracalny operator ma zerowe jądro).\par
+	Niech $\ker(T-I_X) = \{0\}$. Chcemy $\delta(T-I_X) = \inf \{ \|(T-I_X) x\|: x\in S_X\} >0$\par
+	\underline{Jeśli nie} to istnieją $x_n \in S_X$ taki, że $(T-I_X)x_n \to 0$.
+	Ze zwartości $T$Istnieje podciąg  $n_1<n_2<\ldots$ taki, że $T{x_{n_i}} \to x$ czyli ponieważ $T x_{n_1} - x_{n_i} \to 0$
+	więc $x_{n_i} \to x$ i~$T x_{n_i} \to Tx$ zatem $x=Tx$ i~$(T-I_X)x=0$, a~ponieważ $\|x\| =1$ to $x\not = 0$ i~$x \in \ker(T -I_X)$
+	Czyli sprzeczność\par
+	Zatem $T-I_X\colon X \to \im(T - I)$ jest liniowym homeomorfizmem i~$\overline{ \im(T - I)} =  \im(T - I)$.
+	Pokażemy, ze $ \im(T - I) = X$\par
+	Niech $x_0 = X$ i~$X_{i+1}=(T-I_X)X_i$ wtedy istnieje $i$ takie, że $X_i = X_{i+1}$.\par
+	\underline{Jeśli nie} to z~lematu Riesza wybierzemy $x_i \in X_i\cap S_X$ taki, że $\dist(x_i, X_{i+1}) > \frac{1}{2}$ 
+	Pokażemy, że jeśli $i<j$ to $\|Tx_i - Tx_j\|\ge \frac{1}{2}$.
+	Rzeczywiście : $\|Tx_i - Tx_j\| = \|Tx_i -x_i +x_i -x_j +x_j - T x_j\|=\| x_i -( -\underset{\in X_{i+1}}{(T-I_X)x_i}+ 
+	\underset{\in X_{j+1}}{(T-I_X)x_j}+x_j )\|
+	\ge \frac{1}{2}$
+	Ale $TS_x$ jest zwarte, a~nie ma podciągu zbieżnego.\par
+	Niech $i$ - minimalny indeks taki, że $X_i = X_{i+1}$. Jeśli $i>0$ to wybierzmy $x \in X_{i-1}\setminus X_i$.
+	Wtedy $(T-I_X) x \in X_i = X_{i+1}$. Wiec dla pewnego $y \in X_i$ mamy $ (T-I_x)x = (T-I_X)y$ stąd $x-y \in \ker(T-I_X)$ i~$x-y \not =0$
+\end{proof}
+\begin{proof}[Dowód tw. F.~Riesz, J.~Schauder]
+	\begin{enumerate}[(i)]
+			\item $T(B_X)$ jest zwarty więc brzegowy w~$X$ (Kula nie jest zwarta w~przestrzeni nieskończenie wymiarowej)
+				$T(X) = T\left( \bigcap_n nB_X \right) = \bigcap_n n T(B_x) \not=X$ (na mocy twierdzenia Baire'a) czyli $T$ nie jest odwracalny.
+			\item Niech $\lambda \in spT$ czyli $T-\lambda I$ jest nieodwracalny. 
+				Ale $T-\lambda I = \lambda\left(\frac{1}{\lambda}T - I\right)$.
+				Z~lematu \ref{lem:173} $\left( \frac{1}{\lambda}T - I \right)$ ma niezerowe jądro,
+				więc jądro $\lambda\left( \frac{1}{\lambda}T - I \right)$ również jest niezerowe, czyli $\lambda$ jest wartością własną.
+			\item Załóżmy, że nie. Niech $\lambda_1, \lambda_2,\ldots$ niezerowe wartości własne takie, że $|\lambda_i|>\varepsilon$.
+				Niech $y_i \in S_X$ takie, że $Ty_i = \lambda_i y_i$. Wtedy $y_1, y_2,\ldots$ są liniowo niezależne.
+				Niech $Y_i = \lin \{y_1,\ldots,y_i\}$.
+				Z~lematu Riesza istnieją $x_i \in Y_{i+1} \setminus Y_{i}$, $x_i \in S_X$ i~$\dist(x_i, Y_i) \ge \frac{1}{2}$.
+				Pokażemy, że jeśli $i>j$ to $\|T x_i - Tx_j\|\ge \frac{\varepsilon}{2}$.
+				Wiemy że $x_i = y+ a y_{i+1}$ dla $y\in Y_i$ wtedy 
+				$$Tx_i = Ty + a \lambda_{i+1} y_{i+1} =
+				\lambda_{i+1}\left( \frac{1}{\lambda_{i+1}}Ty +a y_{i+1} \right) = 
+				\lambda_{i+1}\left( \frac{1}{\lambda_{i+1}}Ty +x_i -y) \right)$$
+				$$\|Tx_i - Tx_j\| = |\lambda_{i+1}|\left\| \texttt{\ldots} \right\| \ge \frac{\varepsilon}{2}$$
+		\end{enumerate}
+\end{proof}
+\begin{uwaga}
+	Niech $T\in B(X)$ będzie zwarty i~\spac będzie przestrzenią Banacha to dla $\lambda \in sp(T) \setminus \{0\}$ 
+	$\ker (T - \lambda I)$ jest skończenie wymiarowe. (ze zwartości obrazu kuli)
+\end{uwaga}
+\chapter{Przestrzenie Hilberta}
+Przestrzenią Hilberta nazwiemy przestrzeń liniową $X$ nad $\C$ wyposażoną w iloczyn skalarny 
+$\langle \cdot,\cdot \rangle \colon X \times X \to \C$,
+taki że przestrzeń $X$ jest zupełna w~metryce wyznaczonej przez normę, wyznaczoną przez iloczyn skalarny.
+\section{Iloczyn skalarny}
+\begin{de}
+	Iloczynem skalarnym (lub wewnętrznym)  na zespolonej przestrzeni liniowej jest funkcją $\langle \cdot, \cdot \rangle \colon X\times X \to\C$
+	taka, że:
+	\begin{enumerate}[(1)]
+		\item dla każdego $y\in X$ funkcja $x \to \langle x,y \rangle$ jest liniowa
+		\item $\langle x,y \rangle = \overline{\langle y,x \rangle}$
+		\item $\langle x,x \rangle\ge 0$ i~$\langle x,x \rangle=0$ wtedy i~tylko wtedy gdy $x=0$ 
+	\end{enumerate}
+	Zauważmy, że z~(1) i~(2) wynika, że $\langle x,\lambda y \rangle = \overline{\lambda}\langle x,y \rangle$
+\end{de}
+\begin{ex}
+	\texttt{Tu w~skrypcie są przykłady}
+\end{ex}
+
+%\par\texittt{tu powinno być przypomnienie iloczynu skalarnego nad $\C$}
+\begin{twr}[Nierówność Cauchego\dywiz Schwarza] Dla każdego iloczynu skalarnego na przestrzeni zespolonej:
+	$|\langle x,y \rangle| \le \sqrt{\langle x, x \rangle} \sqrt{\langle y, y \rangle}$
+\end{twr}
+\begin{proof}
+%	\texttt{Tak jakoś zamuliłem, może dopiszę}
+	Dla $y=0$ sytuacja jest oczywista. Weźmy więc $y\not 0$ i~niech $\lambda = -\frac{\langle x,y \rangle}{\langle y,y \rangle}$.
+	Wtedy $0\le\langle x+\lambda y,x+\lambda y \rangle = \langle x,x \rangle + |\lambda|^2 \langle y,y \rangle + \lambda\langle y,x \rangle + \overline{\lambda}
+	\langle x,y \rangle = \langle x,x \rangle - \frac{|\langle x,y \rangle|^2}{\langle y,y \rangle}$
+	Co już daje nam nierówność.
+\end{proof}
+\begin{uwaga}
+	Dla dowolnego iloczynu skalarnego nad liniową przestrzenią  zespoloną $X$ zachodzi:
+	\begin{enumerate}[(A)]
+		\item ``Prawo równoległoboku'' $\|x\|^2+\|y\|^2 = \frac{1}{2}\left( \|x+y\|^2 + \|x-y\|^2 \right)$ 
+		\item $\langle x,y \rangle = \frac{1}{4}\left( \|x+y\|^2 - \|x -  y\|^2  + i \|x+iy\|^2 - i\|x-iy\|^2\right)$
+			Zatem $(X,\langle \cdot,\cdot \rangle_X)$, $(Y,\langle \cdot,\cdot \rangle_Y)$. Niech  $T\colon X\to Y$ będzie przekształceniem liniowym. 
+			$T$ zachowuje produkty skalarne wtedy i~tylko wtedy, gdy $T$ zachowuje normę, wiec $\langle Tx,Ty \rangle_Y = \langle x,y \rangle_X$.
+	\end{enumerate}
+\end{uwaga}
+\begin{ex}
+	Niech $L_2(\mu) = L_2 (\Omega,\mathcal{B},\mu)$. Niech $\mathcal{B}$ będzie $\sigma$ ciało podzbiorów $\Omega$. $\mu$ jest dana miarą.
+	Niech $f\colon \Omega \to \C$. Definiujemy klasę abstrakcji $[f] = \{ g: \Omega \to \C : ??, \mu\{x; f(x) \not = g(x) \} =0\}$.
+	Wtedy $[f]+[g] = [f+g]$ i~$\lambda[f] = [\lambda f]$.\par
+	Niech $L_2 (\Omega,\mathcal{B} ,\mu) = \{[f]: f\textrm{ jest całkowalna z kwadratem}\}$.
+	Wtedy $\langle [f],[g] \rangle = \int_\Omega = f \overline{g} \dd \mu$ i~$\|[f]\|_2 = \left( \int_\Omega |f|^2 \dd\mu \right)^{\frac{1}{2}}$\par
+	Potrzebujemy sprawdzić, że przestrzeń $(L_2 (\mu) ,\norm_2)$ jest zupełna.
+	\begin{enumerate}[(A)]
+		\item Niech $0\le g_1 \le g_2 \le \ldots$, $g_i\colon \Omega \to [0,+\infty)$ mierzalne oraz $\int_\Omega g_i^2 \dd\mu \le M$ 
+			Wtedy dla $t\in \Omega$ $g_i(t) < \infty$ prawie wszędzie i~dla $g = \lim_i g_i $ 
+			(określone prawie wszędzie) i~$\int_\Omega g^2 \dd \mu \le M$. 
+			Używając Twierdzenia Lebesgua o~zbieżności zmajoryzowanej $g_i^2 \to h$ i~$\int_\Omega h \dd \mu \le M$ więc weźmy $g=\sqrt{h}$.
+		\item Niech $([f_n])_{n=1}^\infty$ będzie ciągiem Cauchego w~$L_2(\mu)$ 
+			Istnieją 
+			$$\begin{array}{lll}
+				n_1 & \|f_{n_1} - f_i \|_2 < 1 & \textrm{dla } i\ge n_1\\
+				n_2>n_1 & \|f_{n_2} - f_i  \|_2 < \frac{1}{2} & \textrm{dla } i \ge n_2\\
+				n_{k+1} > n_k & \|f_{n_{k+1}} - f_i \|_2 < \frac{1}{2^k}& \textrm{dla } i\ge n_{k+1}
+			\end{array}$$
+			Niech $g_k = |f_{n_1}| + |f_{n_2} - f_{n_1}| + \ldots+ |f_{n_{k+1}} - f_{n_k}|$.
+			Wtedy $0\le g_1 \le g_2\le\ldots$.
+			Zauważmy, że $\|g_k\|_2 \le \|f_{n_1}\|_2 + \|f_{n_2} - f_{n_1}\|_2+\ldots+\|f_{n_{k+1} - f_{n_k}}\|_2 \le \|f_{n_1}\|_2+2$.\par
+			Z~podpunktu $(A)$: $g_k \nearrow g$ (prawie wszędzie) i~$g$ jest całkowalna z~kwadratem prawie wszędzie. 
+			Ciąg $f_{n_{k+1}}$ jest zbieżny (punktowo), a~więc $f_{n_k} \to f$ prawie wszędzie  jeśli $|f_{n_k}|^2 \to |f|^2$ prawie wszędzie.
+			(ciąg $[f_n])_n$ jest Cauchego i~$\|f_n\|_2$ są wspólnie ograniczone)
+			Ponieważ, $\int_\Omega |f|^2 \dd \mu \le \infty$ to $[f]\in \L_2(\mu)$ \par
+			Sprawdzimy, że w~$L_2(\mu)$ $[f_{n_k}]\to[f]$.
+			Scałkujmy $\sqrt{\int_\Omega |f_{n_k} - f|^2 \dd \mu} = \|f_{n_k}-f\|_2 \le \|f_{n_k}\|_2 + \|f\|_2\le M$
+			i~jeśli $|f_{n_k}|^2  \to 0$ prawie wszędzie to $\|f_{n_k}-f\|_2 \to 0$. \par
+			Jeśli $([f_n])_n$ jest ciągiem Cauchego to $[f_n] \to [f]$ w~$L_2(\mu)$
+	\end{enumerate}
+
+\end{ex}
+\begin{de}
+	Niech $(H,\langle \cdot,\cdot \rangle)$ będzie przestrzenią Hilberta jeśli $\langle \cdot,\cdot \rangle$ jest takim iloczynem skalarnym na $H$, że dla 
+	$\|x\| = \sqrt{\langle x,x \rangle}$, $(H,\norm)$ jest przestrzenią Banacha. 
+\end{de}
+Czyli $(L_2(\mu),\|\cdot\|_2)$ jest przestrzenią Hilberta.
+\begin{ex}
+	Weźmy $(l_2,\norm_2)$ (ciągi sumowalne z~kwadratem). Zdefiniujmy iloczyn skalarny $\langle x,y \rangle = \sum_{i}^{}x_i \overline{y_i}$.
+	Wtedy $\|x\| = \sqrt{\langle x,x \rangle} = \left( \sum_{i}^{}|x_i|^2 \right)^\frac{1}{2}$
+\end{ex}
+\begin{twr}
+	Niech $(H,\scal)$ będzie przestrzenią Hilberta. Niech $C\subset H$ będzie domkniętym, wypukłym zbiorem.
+	Wtedy, dla każdego $x\in H$ istnieje unikalny wektor $P_C(x) \in C$ taki, że $\|x-P_C(x) \| = \dist(x,C)$
+\end{twr}
+\begin{proof}
+	Ustalmy $x$. Dla dowolnych $u,v$ z~reguły równoległoboku: 
+	$$\|x - u\|^2 + \|x - v\|^2 = \frac{1}{2}\left( \|2x - (u+v)\|^2 + \|u-v\|^2 \right)$$.
+	Weźmy $u_n\in C$ takie, że $\|x-u_n\| \to \dist(x,C)$.
+	Musimy sprawdzić, że $(u_n)_{n=1}^\infty$ jest ciągiem Cauchego.
+	$$\|x-u_n\|^2 + \|x-u_m\|^2 = \frac{1}{2}\left( \|2x -(u_n+u_m)\|^2 + \|u_n - u_m\|^2 \right)$$
+	$$\frac{1}{2} \underset{\ge 0}{\|u_n-u_m\|^2} = \underset{\to \dist(x,C)}{\|x-u_n\|^2} + \underset{\to \dist(x,C)}{\|x-u_m\|^2} - 
+	2 \left( \underset{\to \dist(x,C)}{\left\|x-\frac{(u_n-u_m)}{2}\right\|^2} \right) \longrightarrow 0$$
+	Wiec $(u_n)_n$ jest ciągiem Cauchego i~ze zupełności $u_n \to u$, $\overline{C} = C$ i~$u\in C$ 
+	i~$\|x -u\|= \dist(x,C)$. Wynika z~tego ,że $u$ jest jedynym taki wektorem. Ustalmy $u = P_C(x)$.
+\end{proof}
+\chapter{Zadania od Toruńczyka i~inne dodatki}
 Być może coś się tu pojawi. Zapraszam chętnych. 
+%\chapter{Piosenka}
+%Dlaczego? Bo tak:\par\nopagebreak
+\newpage
+\section*{Przestrzenie Liniowe}
+\textit{Autor: YanPL} Na melodie \textit{Hiszpańskich Dziewczyn}  \par\nopagebreak
+%\small
+{\begin{tabular}{ll}
+{Żegnajcie nam dziś, przestrzenie} liniowe,	  &  e C H7 \\ 
+Żegnajcie nam dziś, macierze ich baz				  &  e G D \\ 
+Ku całkom Riemanna już ruszać nam pora				  &  C D e \\ 
+Lecz do tych przestrzeni wrócimy nie raz			  &  C H7 e \vspace{0.8eM}\\ 
 
+		{I smak waszych baz przestrzenie} liniowe		  &  e G D \\ 
+		W noc ciemną i złą nam będzie się śnił		  &  e G D \\ 
+		Leniwie popłyną granice punktowe			  &  C D e \\ 
+		Wspomnienie ciał waszych przysporzy nam sił	  &  C H7e \vspace{0.8eM}\\ 
 
+Niedługo ujrzymy szeregi funkcyjne \\ 
+ekstremów lokalnych w przedziale (a b) \\ 
+Dowody twierdzenia w notatkach z wykładów \\ 
+lecz znów na kolokwium nam wyjdzie to źle \vspace{0.8eM}\\ 
+
+Niedługo poprawek wyniki rozkwitną \\ 
+i każdy się dowie czy w końcu to zdał \\ 
+Bo na analizie niepewny jest człowiek \\ 
+Co pływa myślami wśród rzutów i ciał \vspace{0.8eM}\\ 
+
+Zabłysną nam bielą porządki liniowe \\ 
+I wykład upłynie wśród legend i bajd \\ 
+moc klasy abstrakcji relacji zerowej \\ 
+Po zbiorach niepustych zrobimy znów rajd \vspace{0.8eM}\\ 
+
+Niedługo zbiór liczb naturalnych zabłyśnie \\ 
+Ciągami co nigdy nie zbiegną do zer \\ 
+I moc continuum nad nami zawiśnie \\ 
+Bijekcją nas rzuci rekinom na żer \vspace{0.8eM}\\ 
+
+Zawiniem do portu przy sekcji studenckiej \\ 
+Lecz tam jak w tawernie gdy skończy się rum \\ 
+Najchętniej by mocno Ci dali po gębie \\ 
+Uciekaj więc prędko nim zmiażdży Cię tłum \vspace{0.8eM}\\ 
+
+Więc gdy się zaciągniesz na studia na MIMie \\ 
+By płynąć ku wiedzy przez huk morskich fal \\ 
+Wśród przeszkód i przygód Ci życie upłynie \\ 
+A lekiem na szkorbut okaże się GAL \\ 
+\end{tabular}}
 \printindex
 \end{document}
