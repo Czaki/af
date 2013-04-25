@@ -51,7 +51,7 @@
 \newindex{tw}{twx}{twd}{Twierdzenia i~Lematy}
 \title{Analiza funkcjonalna  -- wykład}
 \profesor{Roman Pol}
-\author{Grzegorz Bokota \and \normalsize  Sebastian Lisiewski \and \normalsize Paweł Siedlecki}
+\author{Grzegorz Bokota \and \normalsize  Sebastian Lisiewski}%\and \normalsize Paweł Siedlecki}
 \wydzial{Uniwersytet Warszawski \\ Wydział Matematyki, Informatyki i Mechaniki}
 \date{\today}
 \newtheorem{twr}[subsection]{Twierdzenie}%[section]
@@ -509,7 +509,7 @@ $\|S\circ T (X) \|= \| S(T(x))\| \le \|S\|\cdot \|T(x)\| \le \|S\| \cdot \|T\| \
 	\end{enumerate}
 \end{de}
 \begin{uwaga}
-	Niech $T\colon \K^n \to \K^n$ wtedy $sp(T) = \{\lambda: \ker(T-\lambda I) \not = 0\} = \{\lambda :\lambda \textrm{ jest wartością własną} \}$
+	Niech $T\colon \K^n \to \K^n$ wtedy $$sp(T) = \{\lambda: \ker(T-\lambda I) \not = 0\} = \{\lambda :\lambda \textrm{ jest wartością własną} \}$$
 \end{uwaga}
 %\begin{uwaga}
 	%\texttt{Tu była jakaś notatka}
@@ -541,7 +541,7 @@ $\|S\circ T (X) \|= \| S(T(x))\| \le \|S\|\cdot \|T(x)\| \le \|S\| \cdot \|T\| \
 	Wtedy $tu(t) = \lambda u(t) $ dla $t\in[0,1]$ więc $u(t) = 0$ dla $t\not = \lambda$. Z~ciągłości $u$ wynik że $u=0$.
 \end{proof}
 \begin{uwaga}
-	Niech \spac będzie przestrzenią Banacha, niech $t\in B(x)$ wtedy $sp (T)$ jest domkniętym zbiorem 
+	Niech \spac będzie przestrzenią Banacha, niech $T\in B(x)$ wtedy $sp (T)$ jest domkniętym zbiorem 
 	$\{\lambda : |\lambda| \le \|T\|\}$ więc $sp(T)$ jest zbiorem zwartym.
 \end{uwaga}
 \begin{proof}
@@ -624,9 +624,10 @@ taki że przestrzeń $X$ jest zupełna w~metryce wyznaczonej przez normę, wyzna
 	\end{enumerate}
 	Zauważmy, że z~(1) i~(2) wynika, że $\langle x,\lambda y \rangle = \overline{\lambda}\langle x,y \rangle$
 \end{de}
-\begin{ex}
-	\texttt{Tu w~skrypcie są przykłady}
-\end{ex}
+%\begin{ex}
+%	\texttt{Tu w~skrypcie są przykłady}
+% 	pojawiły się dalej
+%\end{ex}
 
 %\par\texittt{tu powinno być przypomnienie iloczynu skalarnego nad $\C$}
 \begin{twr}[Nierówność Cauchego\dywiz Schwarza] Dla każdego iloczynu skalarnego na przestrzeni zespolonej:
@@ -681,6 +682,7 @@ taki że przestrzeń $X$ jest zupełna w~metryce wyznaczonej przez normę, wyzna
 	\end{enumerate}
 
 \end{ex}
+\section{Przestrzenie Hilberta}
 \begin{de}
 	Niech $(H,\langle \cdot,\cdot \rangle)$ będzie przestrzenią Hilberta jeśli $\langle \cdot,\cdot \rangle$ jest takim iloczynem skalarnym na $H$, że dla 
 	$\|x\| = \sqrt{\langle x,x \rangle}$, $(H,\norm)$ jest przestrzenią Banacha. 
@@ -690,13 +692,15 @@ Czyli $(L_2(\mu),\|\cdot\|_2)$ jest przestrzenią Hilberta.
 	Weźmy $(l_2,\norm_2)$ (ciągi sumowalne z~kwadratem). Zdefiniujmy iloczyn skalarny $\langle x,y \rangle = \sum_{i}^{}x_i \overline{y_i}$.
 	Wtedy $\|x\| = \sqrt{\langle x,x \rangle} = \left( \sum_{i}^{}|x_i|^2 \right)^\frac{1}{2}$
 \end{ex}
+%\section{Rzuty i~zbiory ortogonalne w~przestrzeniach Hilberta}
+\section{Ortogonalność w~przestrzeniach Hilberta}
 \begin{twr}
 	Niech $(H,\scal)$ będzie przestrzenią Hilberta. Niech $C\subset H$ będzie domkniętym, wypukłym zbiorem.
 	Wtedy, dla każdego $x\in H$ istnieje unikalny wektor $P_C(x) \in C$ taki, że $\|x-P_C(x) \| = \dist(x,C)$
 \end{twr}
 \begin{proof}
 	Ustalmy $x$. Dla dowolnych $u,v$ z~reguły równoległoboku: 
-	$$\|x - u\|^2 + \|x - v\|^2 = \frac{1}{2}\left( \|2x - (u+v)\|^2 + \|u-v\|^2 \right)$$.
+	$$\|x - u\|^2 + \|x - v\|^2 = \frac{1}{2}\left( \|2x - (u+v)\|^2 + \|u-v\|^2 \right)$$
 	Weźmy $u_n\in C$ takie, że $\|x-u_n\| \to \dist(x,C)$.
 	Musimy sprawdzić, że $(u_n)_{n=1}^\infty$ jest ciągiem Cauchego.
 	$$\|x-u_n\|^2 + \|x-u_m\|^2 = \frac{1}{2}\left( \|2x -(u_n+u_m)\|^2 + \|u_n - u_m\|^2 \right)$$
@@ -705,6 +709,141 @@ Czyli $(L_2(\mu),\|\cdot\|_2)$ jest przestrzenią Hilberta.
 	Wiec $(u_n)_n$ jest ciągiem Cauchego i~ze zupełności $u_n \to u$, $\overline{C} = C$ i~$u\in C$ 
 	i~$\|x -u\|= \dist(x,C)$. Wynika z~tego ,że $u$ jest jedynym taki wektorem. Ustalmy $u = P_C(x)$.
 \end{proof}
+\begin{de}
+	Niech $(H,\scal)$ będzie przestrzenią Hilberta.
+	\begin{enumerate}[(A)]
+		\item	Mówimy, że dwa wektory $x,y$ są prostopadłe (ozn. $x\perp y$)  jeśli $\langle x,y \rangle=0$
+			Mówimy, ze dwie podprzestrzenie $V,W$ przestrzeni $H$  są prostopadłe jeśli dla każdego $v \in V$ i~$w \in W$ zachodzi $v\perp w$.
+			$x\perp V$ oznacza $\lin\{x\} \perp W$
+		\item Zbiór niezerowych wektorów $S \subset H\setminus\{0\}$ jest ortogonalny jeśli $x\perp y$ jeśli $x,y$ są różnymi wektorami z~$S$.
+			$S$ jest ortonormalny jeśli jeśli $S$ jest ortogonalnym podzbiorem sfery jednostkowej w~$H$ 
+	\end{enumerate}
+%	\texttt{reszta standardowo}
+\end{de}
+\begin{de}[Ortogonalizacja Grama\dywiz Schmiidta]
+	\texttt{przypomnienie z~galu}\\
+	Niech $(H,\scal)$ będzie przestrzenią Hilberta i~niech wektory $u_1,u_2,\ldots$ będą liniowo niezależne.
+	Definiujemy $v_1,v_2,\ldots$ 
+	Niech $v_1 = u_1$ i~niech $v_{n+1}= u_{n+1} - \sum_{i=1}^n\frac{\langle u_{n+1},v_i \rangle}{\langle v_i,v_i \rangle}v_i$. 
+	Wtedy $v_i \perp v_j$ dla $i\not = j$ oraz $\lin\{v_1,\ldots,v_n\} = \lin\{u_1,\ldots,u_n\} = V_n$ 
+	Dodatkowo mamy wzór na rzut ortogonalny na podprzestrzeń: $P_{V_n}(x) = \sum_{i=1}^n \frac{\langle x,v_i \rangle}{\langle v_i,v_i \rangle}$\\
+	Teraz rozważmy przestrzenie nieskończenie wymiarowe $\overline{\bigcup V_n} = \overline{\lin\{v_1,\ldots\}}$.
+	Pokażemy, ze dla $V= \overline{\lin\{v_1,\ldots\}}$ zachodzi $P_V(x) = \sum_{i=1}^\infty \frac{\langle x,v_i \rangle}{\langle v_i,v_i \rangle}$
+	oraz $x- P_V(x) \perp V$.
+\end{de}
+\begin{proof}
+	\texttt{Dopisać}
+\end{proof}
+
+\begin{uwaga}[Nierówność Bessela]
+	Jeśli układ $v_1, v_2 ,\ldots$ jest ortonormalny to dla każdego $x\in H$ zachodzi:
+	$\sum_{i=1}^{\infty} |\langle x,v_i \rangle|i^2\le \|x\|^2$. Przy czym równość zachodzi dokładnie wtedy, gdy $x\in \lin\{v_1,v_2,\ldots\}$
+\end{uwaga}
+\begin{de}
+	Niech $v$ będzie domkniętą liniową podprzestrzenią w~$(H,\scal)$ 
+	Układ ortonormalny $S \subset V$ jest bazą ortonormalną $V$ jeśli $v=\overline{\lin S}$ 
+\end{de}
+\begin{uwaga}
+	Jeśli $v_1, v_2,\ldots$ jest bazą ortonormalną w~$V$ to dla każdego $x \in V$ 
+	$x = \sum_{i=1}^{\infty}\langle x,v_i \rangle v_i $ oraz $\|x\|^2 = \sum_{i=1}^{\infty}|\langle x,v_i \rangle|^2$ 
+\end{uwaga}
+\begin{ex}[Układ trygonometryczny]
+	$L_2[-\pi,\pi] = L_2([-\pi,\pi], \mathcal{B},\lambda)$ 
+	Zbiór: 
+	$$\frac{1}{\sqrt{2\pi}},\frac{\cos(t)}{\sqrt{\pi}},\frac{\sin(t)}{\sqrt{\pi}}, \frac{\cos(2t)}{\sqrt{\pi}}, \frac{\sin(2t)}{\sqrt{\pi}},\ldots$$
+	Jest bazą ortonormalną w~$L_2 [-\pi,\pi]$ 
+\end{ex}
+\begin{proof}
+	\texttt{Na wykładzie nie było dowodu. Jest w~notatkach profesora Pola}
+\end{proof}
+\begin{twr}
+	Niech $(H,\scal)$ będzie ośrodkową,nieskończenie wymiarową przestrzenią Hilberta, o~ortonormalnej bazie $v_1,v_2, \ldots$. Wówczas $H$ jest liniowo\dywiz izometryczną z~$(l_2,\scal)$ 
+\end{twr}
+\begin{proof}
+	Niech $x_1, x_2, \ldots$ będzie przeliczalnym zbiorem gęstym w $H$. 
+	Wyrzucając wektory liniowo zależne od poprzednich dostajemy liniowo niezależny układ $u_1,u_2, \ldots$ taki, że $\overline{\lin \{u_1,u_2,\ldots\}} = H$.
+	Niech $v_1, v_2, \ldots$ będzie bazą ortogonalna powstającą z~ortogonalizacji Gramma\dywiz Schmidta ciągu $u_1, u_2, \ldots$. \\
+	Wskażemy liniową izometrię z~$l_2$.
+	Niech $T:H\to l_2$ takie, że $T(x) = (\langle x,v_1 \rangle, \langle x,v_2 \rangle,\ldots)$. Wówczas $T$ jest liniowe oraz $\|x\|=\|T(x)\|$ 
+	zatem $T$ jest liniową izometrią.
+\end{proof}
+\begin{de}
+	Niech $V$ będzie domkniętą, liniową  podprzestrzenią w~przestrzeni Hilberta $(H\scal)$.
+	Wówczas $V^\perp = \{x \in H : x\perp V\}$ 
+\end{de}
+\begin{twr}
+	Niech $(H,\scal)$ będzie przestrzenią Hilberta. Niech $V$ będzie domkniętą podprzestrzenią liniową $H$.
+	Wówczas $H = V\oplus V^\perp$ oraz $P_V \colon H \to V$  jest rzutem równoległym do $V^\perp$, czyli $V^\perp = \ker P_V$ i~$V = \im P_V$
+\end{twr}
+\begin{proof}
+	Jeśli $V$ jest ośrodkowa to wynika natychmiast z~istnienia bazy ortonormalnej w~$V$.
+	Dla dowolnych $V$ łatwo to wyprowadzić z~tego przypadku:\\
+	Udowodnimy, że $x-P_V(x) \perp V$. Weźmy dowolny $w \in V$ 
+	Niech $W= \lin\{P_V(x),w)\}$. Wiemy, że $P_V(x) = P_W(x)$, ale  z~definicji $x- P_W(x)  \perp W$, czyli $x-P_V(X) \perp W\in W$, więc $x - P_V(x) \perp V$ 
+\end{proof}
+\section{Ciągłe funkcjonały liniowe i~sprzęganie ograniczonych endomorfizmów na przestrzeniach Hilberta}
+\begin{twr}
+	\label{tw241}
+	Niech $(H, \scal $) będzie przestrzenią Hilberta. Dla każdego ciągłego funkcjonału liniowego funkcjonału $f\colon H \to \C$
+	istnieje jednoznaczny wektor $v_f \in H$ taki, że $f(x) = \langle x,v_f \rangle$. Ponadto $\|v_f\| = \|f\|$ 
+\end{twr}
+\begin{proof}
+	Wiemy, że $\ker f \oplus (\ker f)^\perp  =H$, oraz $(\ker f)^\perp = \lin\{u\}$ dla pewnego $\|u\|=1$.
+	Niech $v_f = \overline{f(u)} u$.
+	Weźmy dowolny $x\in H$ wtedy $x= y+\lambda u$  dla $y\in \ker f$. Wtedy $f(x) = \lambda f(u)$. Rozpatrzmy drugą postać;
+	$\langle x, v_f  \rangle = \langle \lambda u , v_f \rangle = \lambda\langle u, \overline{f(u)} u  \rangle = \lambda f(u) \underset{=1}{\|u\|} = \lambda f(u)$\\
+	Wykażemy teraz zgodność norm:
+	$$\|f\| = \sup_{\|x\|\le 1} |f(x)| = \sup_{\|x\|\le 1} |\langle x,v_f \rangle| \le \|v_f\|\cdot \underset{\le 1}{\|x\|} \le \|v_f\| = 
+	|\overline{f(u)}|\cdot \|u\| = |f(u)| \le \|f\|$$
+	a~stąd $\|f\| = \|v_f\|$
+
+\end{proof}
+\begin{wn}[Twierdzenie Radona-Nikoduma]
+	Niech $\mu, \gamma$ będą skończonymi  miarami na $\sigma$-algebra $\mathcal{B}$ podzbiorów $\Omega$ takimi, że jeśli $\mu(E) = 0$ to $\gamma(E) = 0$
+	Wtedy istnieje $\mu$ mierzalna funkcja $h\colon \Omega\to [0,\infty)$ taka, że $\gamma(E) = \int_E h \dd \mu$ dla $E\in \mathcal{B}$ 
+\end{wn}
+\begin{proof}
+	Weźmy $L_2(\mu+\gamma)$. Niech $\varphi\colon L_2(\mu+\gamma) \to \C$  zdefiniowana $\varphi(f) = \int_\wedge f \dd \gamma$.
+	Wtedy funkcja $\varphi$ jest ograniczona: 
+	$$\left| \int_\Omega f \dd \mu\right| \le \int_\Omega |f| \dd \gamma\le \int_\Omega|f|\dd(\mu+\gamma) \le 
+	\left( \int_\Omega |f| \dd(\mu+\gamma \right)^\frac{1}{2}\cdot \left( (\mu+\gamma)(\Omega) \right)^\frac{1}{2} $$
+	Z~twierdzenia istnieje $g\colon \Omega \to \C$ całkowalna z~kwadratem względem miary $(\mu+\gamma)$ taka, że: 
+	$ \int_\Omega f \dd \gamma = \int_\Omega f \overline{g} \dd (\mu+\gamma)$ dla wszystkich funkcji $f \in L_2(\mu+\gamma)$.\\
+	Chcemy pokazać, że $g(\Omega) \subseteq \R$ i~$0\le g\le 1$.\\
+	Weźmy $f = \chi_E$ dla $E\in \mathcal{B}$. Wtedy $ \gamma(E) = \int_E \overline{g} \dd(\mu+\gamma)$. 
+	% Dowód rzeczywistości do zrobienia
+	Wówczas:
+	$$\int_\Omega f \dd \gamma = \int_\Omega f g \dd (\mu+ \gamma) = \int_\Omega fg \dd \mu + \int_\Omega fg \dd \gamma$$
+	stąd $\int_\Omega f (1-g) \dd \gamma = \int_\Omega fg \dd \mu $ dla $f \in L_2(\mu+\gamma)$.\\
+	Niech $C= \{x: g(x) = 1\}$ wtedy $\mu(C) = \int_\Omega \chi_C g \dd \mu =0$.
+	Wtedy funkcja $h = \dfrac{g}{1-g}$ jest prawie wszędzie mierzalna względem miary $(\mu+\gamma)$. Pokażmy teraz, ze funkcja $h$ spełnia nasze wymagania.
+%%	\\\texttt{[\dots]}\\
+	Niech $E \in \mathcal{B}$. Wtedy 
+	$$\gamma(E) = \int_\Omega \chi_E \dd \gamma = \int_\Omega\frac{\chi_E}{1-g}(1-g)\dd \gamma = \int_\Omega \chi_E \frac{g}{1-g}\dd \mu = 
+	\int_\Omega h \dd \mu$$ %przyjrzeć się bo nie mam zanotowanej definicji h
+\end{proof}
+\begin{wn}
+	Dla każdego ograniczonego endomorfizmu $T\colon H\to H$ na przestrzeni Hilberta $(H, \scal)$ istnieje jednoznaczny ograniczony endomorfizm 
+	$T^*\colon H\to H$ sprzężony do $H$ taki, że $\langle T x ,y  \rangle = \langle x, T^* y \rangle$ oraz $\|T\| = \|T^*\|$
+\end{wn}
+\begin{proof}
+	Ustalmy $y \in H$ i~niech $f_y(x)y = \langle Tx ,y \rangle$ wtedy $f_Y$ jest ograniczonym funkcjonałem liniowym na $H$. 
+	Zatem, z~twierdzenia \ref{tw241}, istnieje $T^*y \in H$ taki, ze $\langle Tx ,y  \rangle=\langle x, T^* y  \rangle$. 
+	Przekształcenie $y \mapsto T^*y $ jest liniowe. 
+	Ponadto 
+	$$\|T^* y\|^2 = |\langle T^* y, T^* y \rangle \| = \|\langle T(T^* y), y \rangle| \le 
+	\|T(T^*y)\|\cdot \|y\|\le \|T\| \cdot \|T^* y\| \cdot \|y\|$$
+	Wówczas $\|T^* y \| \le \|T\|\cdot \|y\|$ więc $\|T^*\|\le\|T\|$
+	Ponieważ $(T^*)^* = T$ bo $\langle T^*x,y  \rangle = \langle y, T*x \rangle = \langle T y , x \rangle = \langle x, T^* y \rangle$
+	to mamy szukaną równość
+
+\end{proof}
+\begin{de}
+	$T$ jest samosprzężony jeśli $T= T^*$ 
+\end{de}
+\begin{uwaga}
+	\texttt{Przypomnienie co oznacza sprzężenie w~wypadku skończenie wymiarowym (Transpozycja i~sprzężenie zespolone)}
+\end{uwaga}
 \chapter{Zadania od Toruńczyka i~inne dodatki}
 Być może coś się tu pojawi. Zapraszam chętnych. 
 %\chapter{Piosenka}
