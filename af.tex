@@ -727,12 +727,16 @@ Czyli $(L_2(\mu),\|\cdot\|_2)$ jest przestrzenią Hilberta.
 	Niech $v_1 = u_1$ i~niech $v_{n+1}= u_{n+1} - \sum_{i=1}^n\frac{\langle u_{n+1},v_i \rangle}{\langle v_i,v_i \rangle}v_i$. 
 	Wtedy $v_i \perp v_j$ dla $i\not = j$ oraz $\lin\{v_1,\ldots,v_n\} = \lin\{u_1,\ldots,u_n\} = V_n$ 
 	Dodatkowo mamy wzór na rzut ortogonalny na podprzestrzeń: $P_{V_n}(x) = \sum_{i=1}^n \frac{\langle x,v_i \rangle}{\langle v_i,v_i \rangle}$\\
-	Teraz rozważmy przestrzenie nieskończenie wymiarowe $\overline{\bigcup V_n} = \overline{\lin\{v_1,\ldots\}}$.
+\end{de}
+	
+\begin{twr}
+	Teraz rozważmy przestrzeń $\overline{\bigcup V_n} = \overline{\lin\{v_1,\ldots\}}$.
 	Pokażemy, ze dla $V= \overline{\lin\{v_1,\ldots\}}$ zachodzi $P_V(x) = \sum_{i=1}^\infty \frac{\langle x,v_i \rangle}{\langle v_i,v_i \rangle}$
 	oraz $x- P_V(x) \perp V$.
-\end{de}
+\end{twr}
+
 \begin{proof}
-	\texttt{Dopisać}
+	Ustalmy $x\in H$. Rozważając rozkład ortogonalny wektora $x$ otrzymujemy nierówność $||P_{V_n}(x)||\leq||x||$, czyli rozważany szereg jest zbieżny, a norma różnicy rzutów $x$ na $V_n,V_m$ jest mniejsza niż ogon tego szeregu, więc ciąg rzutów jest ciągiem Cauchy'ego, a więc jest zbieżny do pewnego wektora $v\in V$ (każda suma częściowa lezy w pewnym składniku sumy $\bigcup V_n$, czyli ich granica leży w domknięciu, czyli w $V$). Dodatkowo dla $n>m$ mamy $x-P_{V_n}(x)\perp V_m$, czyli z ciągłości iloczynu skalarnego jako funkcji ustalonej współrzędnej (będącej konsekwencją nierówności Cauchy-Schawarz'a) mamy $x-v\perp V_m$, czyli $x-v\perp \bigcup\limits_{m\in\mathbb{N}}V_m$, czyli ponownie korzystając z ciągłości mamy $x-v\perp V$. Wówczas na mocy nierówności zapewnionej przez twierdzenie Pitagorasa widzimy, że $v$ realizuje minimum odległości $x$ od $V$, czyli  $P_V(x)=v$.
 \end{proof}
 
 \begin{uwaga}[Nierówność Bessela]
@@ -785,42 +789,43 @@ Czyli $(L_2(\mu),\|\cdot\|_2)$ jest przestrzenią Hilberta.
 \begin{twr}
 	\label{tw241}
 	Niech $(H, \scal $) będzie przestrzenią Hilberta. Dla każdego ciągłego funkcjonału liniowego funkcjonału $f\colon H \to \C$
-	istnieje jednoznaczny wektor $v_f \in H$ taki, że $f(x) = \langle x,v_f \rangle$. Ponadto $\|v_f\| = \|f\|$ 
+	istnieje jednoznacznie wyznaczony wektor $v_f \in H$ taki, że $f(x) = \langle x,v_f \rangle$. Ponadto $\|v_f\| = \|f\|$ 
 \end{twr}
 \begin{proof}
 	Wiemy, że $\ker f \oplus (\ker f)^\perp  =H$, oraz $(\ker f)^\perp = \lin\{u\}$ dla pewnego $\|u\|=1$.
 	Niech $v_f = \overline{f(u)} u$.
-	Weźmy dowolny $x\in H$ wtedy $x= y+\lambda u$  dla $y\in \ker f$. Wtedy $f(x) = \lambda f(u)$. Rozpatrzmy drugą postać;
-	$\langle x, v_f  \rangle = \langle \lambda u , v_f \rangle = \lambda\langle u, \overline{f(u)} u  \rangle = \lambda f(u) \underset{=1}{\|u\|} = \lambda f(u)$\\
-	Wykażemy teraz zgodność norm:
+	Weźmy dowolny $x\in H$ i zapiszmy go jako $x= y+\lambda u$  dla pewnego $y\in \ker f$. Zauważmy, że zachodzi nasteptujący ciąg równości: $\langle x, v_f  \rangle = \langle \lambda u , v_f \rangle = \lambda\langle u, \overline{f(u)} u  \rangle = \lambda f(u) \underset{=1}{\|u\|} = \lambda f(u)=f(x)$\\
+	Wykażemy teraz zależność między normą $f$, a normą rozważanego wektora:
 	$$\|f\| = \sup_{\|x\|\le 1} |f(x)| = \sup_{\|x\|\le 1} |\langle x,v_f \rangle| \le \|v_f\|\cdot \underset{\le 1}{\|x\|} \le \|v_f\| = 
 	|\overline{f(u)}|\cdot \|u\| = |f(u)| \le \|f\|$$
 	a~stąd $\|f\| = \|v_f\|$
 
 \end{proof}
-\begin{wn}[Twierdzenie Radona-Nikoduma]
-	Niech $\mu, \gamma$ będą skończonymi  miarami na $\sigma$-algebra $\mathcal{B}$ podzbiorów $\Omega$ takimi, że jeśli $\mu(E) = 0$ to $\gamma(E) = 0$
-	Wtedy istnieje $\mu$ mierzalna funkcja $h\colon \Omega\to [0,\infty)$ taka, że $\gamma(E) = \int_E h \dd \mu$ dla $E\in \mathcal{B}$ 
+\begin{wn}[Twierdzenie Radona-Nikodyma]
+	Niech $\mu, \gamma$ będą skończonymi  miarami na $\sigma$-ciele $\mathcal{B}$ podzbiorów $\Omega$ takimi, że jeśli $\mu(E) = 0$ to $\gamma(E) = 0$
+	Wtedy istnieje $\mu$-mierzalna funkcja $h\colon \Omega\to [0,\infty)$ taka, że $\gamma(E) = \int_E h \dd \mu$ dla $E\in \mathcal{B}$ 
 \end{wn}
 \begin{proof}
-	Weźmy $L_2(\mu+\gamma)$. Niech $\varphi\colon L_2(\mu+\gamma) \to \C$  zdefiniowana $\varphi(f) = \int_\wedge f \dd \gamma$.
+	Weźmy $L_2(\mu+\gamma)$. Niech $\varphi\colon L_2(\mu+\gamma) \to \C$ będzie zdefiniowana wzorem $\varphi(f) = \int_\Omega f \dd \gamma$.
+	%wtf całka po \wegde?
 	Wtedy funkcja $\varphi$ jest ograniczona: 
 	$$\left| \int_\Omega f \dd \mu\right| \le \int_\Omega |f| \dd \gamma\le \int_\Omega|f|\dd(\mu+\gamma) \le 
 	\left( \int_\Omega |f| \dd(\mu+\gamma \right)^\frac{1}{2}\cdot \left( (\mu+\gamma)(\Omega) \right)^\frac{1}{2} $$
-	Z~twierdzenia istnieje $g\colon \Omega \to \C$ całkowalna z~kwadratem względem miary $(\mu+\gamma)$ taka, że: 
-	$ \int_\Omega f \dd \gamma = \int_\Omega f \overline{g} \dd (\mu+\gamma)$ dla wszystkich funkcji $f \in L_2(\mu+\gamma)$.\\
-	Chcemy pokazać, że $g(\Omega) \subseteq \R$ i~$0\le g\le 1$.\\
-	Weźmy $f = \chi_E$ dla $E\in \mathcal{B}$. Wtedy $ \gamma(E) = \int_E \overline{g} \dd(\mu+\gamma)$. 
+	Na mocy poprzedniego twierdzenia istnieje $g\colon \Omega \to \C$ całkowalna z~kwadratem względem miary $(\mu+\gamma)$, taka że: 
+	$ \int_\Omega f \dd \gamma = \int_\Omega f \overline{g} \dd (\mu+\gamma)$ dla dowolnej funkcji $f \in L_2(\mu+\gamma)$.\\
+	Chcemy pokazać, że $g$ jest rzeczywista i~$0\le g\le 1$.\\
+	Weźmy $f = \chi_E$ dla $E\in \mathcal{B}$. Wtedy $ \gamma(E) = \int_E \overline{g} \dd(\mu+\gamma)$, czyli skroro mamy do czynienia z rzeczywistymi, dodatnimi miarami, to widzimy wobec dowolności zbioru $E$, że część urojona $g$ wynosi $0$, a  wartości $g$ muszą pochodzić z przedziału $[0,1]$. 
 	% Dowód rzeczywistości do zrobienia
+	%napisalem słówko wyjasnienia- formalizacja będzie truda, ale widać że jak weźmiemy E na którym jest źle, to zjebie się poprzedni wzór.
 	Wówczas:
 	$$\int_\Omega f \dd \gamma = \int_\Omega f g \dd (\mu+ \gamma) = \int_\Omega fg \dd \mu + \int_\Omega fg \dd \gamma$$
 	stąd $\int_\Omega f (1-g) \dd \gamma = \int_\Omega fg \dd \mu $ dla $f \in L_2(\mu+\gamma)$.\\
 	Niech $C= \{x: g(x) = 1\}$ wtedy $\mu(C) = \int_\Omega \chi_C g \dd \mu =0$.
-	Wtedy funkcja $h = \dfrac{g}{1-g}$ jest prawie wszędzie mierzalna względem miary $(\mu+\gamma)$. Pokażmy teraz, ze funkcja $h$ spełnia nasze wymagania.
+	Wtedy funkcja $h = \dfrac{g}{1-g}$ jest prawie wszędzie zdefiniowana prawie wszędzie względem miary $(\mu+\gamma)$. Pokażmy teraz, ze funkcja $h$ spełnia nasze wymagania.
 %%	\\\texttt{[\dots]}\\
 	Niech $E \in \mathcal{B}$. Wtedy 
 	$$\gamma(E) = \int_\Omega \chi_E \dd \gamma = \int_\Omega\frac{\chi_E}{1-g}(1-g)\dd \gamma = \int_\Omega \chi_E \frac{g}{1-g}\dd \mu = 
-	\int_\Omega h \dd \mu$$ %przyjrzeć się bo nie mam zanotowanej definicji h
+	\int_\Omega h \dd \mu,$$ o ile można stosować udowodniony wcześniej wzór, czyli jeśli $h$ jest całkowalna z kwadratem. Aby się o tym przekonać, należy liczyć odpowiednie całki po zbiorach $C_n=\{x:\quad g(x)<1-\frac{1}{n}\}$- na nich całki są skończone, czyli na ich sumie także, a o niej wiadomo już że jest pełnej miary. %przyjrzeć się bo nie mam zanotowanej definicji h Edit: jest to oszustwo ale jakoś je wyjasniam
 \end{proof}
 \begin{wn}
 	Dla każdego ograniczonego endomorfizmu $T\colon H\to H$ na przestrzeni Hilberta $(H, \scal)$ istnieje jednoznaczny ograniczony endomorfizm 
