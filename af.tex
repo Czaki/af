@@ -452,7 +452,7 @@ Wtedy istnieje $\tilde{f} \colon X \to K$ taki, że $\tilde{f}|_Y = f$ i~$ |\til
 	Jeśli $(X,\norm)$ jest przestrzenią Banacha i~dla wektorów $x_n \in X$ zachodzi $\sum_n \|x_n\| < +\infty$ wtedy 
 	$\sum_n x_n$ jest zbieżny i~do tego dla każdej permutacji $\sigma\colon \N\to\N$ zachodzi $\sum_n x_{\sigma(n)} = \sum_n x_n$
 \end{uwaga}
-\subsection{Przestrzenie $(B(X),\norm)$ ograniczonych endomorfizmów przestrzeni Banacha}
+\section{Przestrzenie $(B(X),\norm)$ ograniczonych endomorfizmów przestrzeni Banacha}
 Niech $S,T \in B(X)$ wtedy $\|S\circ T\| \le \|S\| \cdot \|T\|$ bo 
 $\|S\circ T (X) \|= \| S(T(x))\| \le \|S\|\cdot \|T(x)\| \le \|S\| \cdot \|T\| \cdot \|x\|$.
 
@@ -477,6 +477,7 @@ $\|S\circ T (X) \|= \| S(T(x))\| \le \|S\|\cdot \|T(x)\| \le \|S\| \cdot \|T\| \
 	Ale $S= T(I+T^{-1}(S - T ))\in GL(X)$. 
 \end{proof}
 \begin{lem}
+\label{deltalem}
 	Niech $(X,\norm)$ będzie przestrzenią Banacha. Niech $T \in B(X)$.
 	Niech $\delta(T) = \inf\{ \|Tx\|: x \in S_x\}$ 
 	\begin{enumerate}[(i)]
@@ -849,6 +850,79 @@ Czyli $(L_2(\mu),\|\cdot\|_2)$ jest przestrzenią Hilberta.
 \begin{uwaga}
 	\texttt{Przypomnienie co oznacza sprzężenie w~wypadku skończenie wymiarowym (Transpozycja i~sprzężenie zespolone)}
 \end{uwaga}
+\subsection{Spektrum operatorów samosprzężonych}
+\begin{lem}
+	Niech $T\in B(H)$ dla przestrzeni Hilberta  $(H,\scal)$ jest operatorem samosprzężonym.
+	\begin{enumerate}[(i)]
+		\item Wszystkie wartości własne operatora $T$ są rzeczywiste
+		\item wektory własne odpowiadające różnym wartością własnym są prostopadłe.
+		\item jeśli $V\subset H$ jest domkniętą podprzestrzenią  i~$TV \subset V$ to $TV^\perp \subset V^\perp$
+	\end{enumerate}
+\end{lem}
+\begin{proof}
+	Mamy $\langle Tx,x \rangle = \langle x,tX \rangle = \overline{\langle Tx,x \rangle}$. Czyli $\langle Tx,x \rangle\in \R$
+	\begin{enumerate}[(i)]
+		\item Niech $Tv = \lambda v$ i~$\|v\|=1$. Wówczas $\langle Tv,v \rangle = \lambda \|v\|^2=\lambda\in R$ 
+		\item Niech $Tv_i = \lambda v_i$ i~$\|v_i\|=1$ oraz $\lambda_1 \not = \lambda_2$. Czy implikuje to $v_1 \perp v_2 $. \texttt{?? - język}\\
+			$(\lambda_1-\lambda_2)\langle v_1,v_2 \rangle = \lambda_1 \langle v_1, v_2 \rangle - \lambda_2\langle v_1,v_2 \rangle=
+			\langle \lambda v_1, v_2  \rangle - \langle v_1, \lambda_2 v_2  \rangle = \langle T v_1, v_2  \rangle - \langle v_1, T v_2 \rangle 
+			=\langle T v_1,v_2 \rangle - \langle T v_1, v_2 \rangle =0$
+		\item Niech $v \in V^\perp$. Czy $Tv \in V^\perp$ to znaczy $\forall x \in V \langle x, Tv  \rangle=0$. 
+			Ale dla $x \in V$ mamy $\langle x,Tv \rangle = \langle T x, v \rangle=0$ bo $Tx \in V$ i~$v \in V^\perp$
+	\end{enumerate}
+\end{proof}
+% dorobić odnośnik do lematu 1.6.7
+\begin{lem}
+ 	Przypomnieć sobie oznaczenia z~lematu \ref{deltalem}.
+	Jeśli operator $T\in B(H)$  na przestrzeni Hilberta $(H,\scal)$ jest samosprzężony to
+	$\delta(T-\lambda I) = 0$ wtedy i~tylko wtedy gdy $T-\lambda I$ jest nieodwracalny, czyli $\lambda \in sp(T)$ 
+\end{lem}
+\begin{proof}
+	$\Rightarrow$ Zachodzi zawsze.\\
+	Niech $\delta(T - \lambda I)>0$, wtedy pokażemy, że operator $T - \lambda I$ jest odwracalny, czyli $\lambda \not \in sp(T)$
+	$T-\lambda I \colon H \to \textrm{Im} (T - \lambda I)$. Wiemy, że $\textrm{Im} (T- \lambda I)$ jest domknięty. 
+	Sprawdzimy, że $\textrm{Im}(T-\lambda I) = H$. Jeśli nie, to mamy $v \in \textrm{Im}^\perp$  $\|v\|=1$.
+	Wtedy $\forall x \in H$ $0= \langle (T - \lambda I) x ,v  \rangle = \langle  x, (T - \lambda I)^* v)  \rangle = \langle x - (T- \overline{\lambda} I) v \rangle$
+	Więc $(T - \overline{\lambda} I) v=0$ więc $v$ jest wektorem własnym powiązanym z~$\overline{\lambda}$. Ale wiemy, że $\lambda=\overline\lambda$
+	więc $(T - \lambda I) v =0$ co stoi w~sprzeczności z~założeniem, że $\delta(T- \lambda I) >0$ 
+
+\end{proof}
+\begin{twr}
+	Niech  $T\in B(H)$ będzie samosprzężonym operatorem na przestrzeni Hilberta $(H,\scal)$. Wtedy 
+	$\sp(T) \subset [-\|T\|, \|T\|]$ oraz $-\|T\|$ lub $\|T\|$ należą do spektrum 
+\end{twr}
+\begin{proof}
+	Niech $\lambda \in sp (T)$ czyli $\delta(T - \lambda I) =0 $. Wtedy istnieje ciąg $x_n \in S_H$ taki, że
+	$(T- \lambda I)x_n \to 0$ wtedy $ \langle (T - \lambda I x_n, x_n  \rangle = \langle Tx_n ,x_n \rangle - \lambda\langle x_n, x_n \rangle
+	= \langle T x_n, x_n  \rangle - \lambda$  więc $\lambda \in \R$\\
+	Załóżmy, ze $\|T\|=1$. Pokażemy, że $1 \in sp(T^2)$. Zrobimy to pokazując, ze $\delta(T^2 - I ) =0$.
+	Ponieważ $\|T\| =1$ mamy ciąg $X_n \in S_n$ taki, że $\|T {x_n}\| \to 1$.
+	$$\|(T^2-i) x_n\|^2 = \langle (T^2-i) x_n, (T^2-i) x_n \rangle = \underset{\le \|T\|^2 =1}{\langle T^2 x_n, T^2 x_n   \rangle} - 
+	\underset{=2\|T x_n\|^2}{ 2 \langle T^2 x_n, x _n \rangle} 
+	+\underset{=1}{\langle x_n, x _n \rangle} \le 2 - 2\underset{\to 1}{\|T x_n \|^2} \to 0$$ 
+	Więc $1 \in sp(T^2)$ więc $\delta(T^2 - I) = 0$ ale $T^2 - I = (T+I)(T - I)$
+	czyli $\delta(T+I) =0 $ lub $\delta(T - I) =0$. Stad wiemy, że $1 \in sp(T)$ lub $-1 \in sp(T)$.
+	Operatory których norma jest różna od 1 dzielimy przez ich normę i~dostajemy operatory o~normie 1. 
+\end{proof}
+\section{Spektralny rozkład zwartych samosprzężonych operatorów}
+\begin{twr}
+	Dla dowolnego zwartego samosprzężonego operatora $T\colon H \to H$ na przestrzeni Hilberta $(H, \scal)$ istnieje ortonormalna baza
+	$H$ złożona z~wektorów własnych $T$ 
+\end{twr}
+\begin{proof}
+	Ponieważ $T$ jest zwarty $sp(T) = \{0\} \cup \{\lambda_i, i= 1,2,\ldots \}$
+	Niech $V(\lambda_i) = \ker (T-\lambda_i I) $ (oznaczmy $\lambda_0 = 0$ )
+	Niech $S(\lambda_i)$ będzie ortonormalną bazą of $V(\lambda_i)$.
+
+	(Dla $\lambda_0 = 0$ jest możliwe, że $V(\lambda_0) = \ker T = \{0\}$ wtedy $S(\lambda_0) = \emptyset$)
+ Niech $S = \bigcup_i S(\lambda_i)$, twierdzimy, że $V = \overline{\lin S}  =H$.
+ Jeśli nie $V^\perp \not = 0$. Ponieważ $TV = V$ mamy $TV^\perp  \in V^\perp$ więc operator 
+ $T|_{V^\perp} \colon V^\perp \to V^\perp$ jest zwarty i~samosprzężony. 
+ $\ker(T|V^\perp) = \ker T \cap V^\perp$. 
+ Zatem $\|T|V^\perp\|>0$ ponieważ $T|V^\perp$ jest samosprzężone oraz ze zwartości albo $\|T|V^\perp\|$ lub $-\|T |V^\perp\|$ jest wartością własną.
+ Sprzeczność
+
+\end{proof}<++>
 \chapter{Zadania od Toruńczyka i~inne dodatki}
 Być może coś się tu pojawi. Zapraszam chętnych. 
 %\chapter{Piosenka}
