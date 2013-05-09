@@ -2,6 +2,9 @@
 \def\@profesor{ ???\ClassError{titlepage}{Nie podano wykładowcy}\@ehc} 
 \def\wydzial#1{\gdef\@wydzial{#1}}
 \def\@wydzial{ ???\ClassError{titlepage}{Nie podano wydzialu}\@ehc} 
+\def\correct#1{\gdef\@correct{#1}}
+\def\@correct{ ???\ClassError{titlepage}{ni epodano poprawiających}\@ehc} 
+
 \newcommand{\linia}{\rule{\linewidth}{0.4mm}}
 \renewcommand{\maketitle}{\begin{titlepage}
 	\vspace*{1em}
@@ -22,8 +25,10 @@
 		\textit{\small Wyk\l{}adowca:}\\
 	    \normalsize \textsc{\@profesor} \par
 		\vspace{3em}	
-		\textit{\small Notatki przygotowali:}\\
+		\textit{\small Notatki spisał:}\\
 		{\normalsize \@author}\par
+		\textit{\small Korekta: }\\
+		{\normalsize \@correct}\par
 	\end{minipage}
 	\end{flushright}
 \vspace{10em}
