@@ -47,6 +47,7 @@
 \newcommand{\scal}{\langle \cdot,\cdot \rangle}
 \newcommand{\spac}[1][X]{$(#1,\norm)$ }
 \newcommand{\im}{\mathrm{im}}
+\newcommand{\gr}{\mathrm{Gr}}
 \makeindex
 \newindex{tw}{twx}{twd}{Twierdzenia i~Lematy}
 \title{Analiza funkcjonalna  -- wykład}
@@ -561,7 +562,7 @@ $\|S\circ T (X) \|= \| S(T(x))\| \le \|S\|\cdot \|T(x)\| \le \|S\| \cdot \|T\| \
 	\begin{enumerate}
 		\item $0\in sp(T)$
 		\item Każdy niezerowy element $sp(T)$ jest wartością własną $T$ 
-	\item dla każdego $\varepsilon>0$ istnieje  skończenie wiele $\lambda \in sp(T)$ takich wiele $|\lambda|\ge\varepsilon$ 
+	\item dla każdego $\varepsilon>0$ istnieje  skończenie wiele $\lambda \in sp(T)$ takich, że $|\lambda|\ge\varepsilon$ 
 	\end{enumerate}
 \end{twr}
 \begin{lem}
@@ -890,7 +891,7 @@ Czyli $(L_2(\mu),\|\cdot\|_2)$ jest przestrzenią Hilberta.
 \end{proof}
 \begin{twr}
 	Niech  $T\in B(H)$ będzie samosprzężonym operatorem na przestrzeni Hilberta $(H,\scal)$. Wtedy 
-	$\sp(T) \subset [-\|T\|, \|T\|]$ oraz $-\|T\|$ lub $\|T\|$ należą do spektrum 
+	$sp(T) \subset [-\|T\|, \|T\|]$ oraz $-\|T\|$ lub $\|T\|$ należą do spektrum 
 \end{twr}
 \begin{proof}
 	Niech $\lambda \in sp (T)$ czyli $\delta(T - \lambda I) =0 $. Wtedy istnieje ciąg $x_n \in S_H$ taki, że
@@ -923,9 +924,144 @@ Czyli $(L_2(\mu),\|\cdot\|_2)$ jest przestrzenią Hilberta.
  Zatem $\|T|V^\perp\|>0$ ponieważ $T|V^\perp$ jest samosprzężone oraz ze zwartości albo $\|T|V^\perp\|$ lub $-\|T |V^\perp\|$ jest wartością własną.
  Sprzeczność
 
-\end{proof}<++>
+\end{proof}
+\begin{twr}
+	Niech $T\colon H \to H$ będzie ograniczonym samosprzężonym operatorem na ośrodkowej przestrzeni Hilberta $(H ,\scal)$.
+	Wtedy istnieją $\sigma$-skończona miara Borelowska na $[-\|T\|, \|T\|]$, ograniczona funkcja Borelowska $u\colon[-\|T\|,\|T\|] \to \R$
+	i~liniowa izometria $U\colon L_2 (\mu) \stackrel{na}{\to} H$ takie, że $U^{-1}TU[f] = [uf]$
+\end{twr}
+	Niech $T\in B(H)$ i~$T^*=T$.
+	Wiemy, że $\lambda \in sp(T)$ wtedy i~tylko wtedy gdy $\delta(T - \lambda I) =0$.
+	Wiemy również, że $sp(T) \subset \left[ -\|T\|, \|T\| \right]$ i~$\|T\|\in sp(T) \lor -\|T\| \in sp(T)$.
+	Jeśli $AB=BA$ to $\delta(AB) =0$ wtedy i~tylko wtedy gdy $\delta(A) =0 $ lub $\delta(B) = 0$.\par
+	$w(t)  = a_0 + a_1 t +\ldots | a_n t^n$ gdzie $a_i \in \R$ 
+	$W(T) = a_0 I + a_1 T +\ldots+ a_n T^n$ i~$w(T)^* = W(T)$
+
+\begin{uwaga}
+	Niech $w(t) = a_0 + a_1 t +\ldots a_n t^n$ i~$a_i\in \R$ wtedy $sp(w(T)) = w (sp(t))$ 
+\end{uwaga}
+\begin{proof}
+	Dla każdego $a$ mamy $w(t) - a = a_n (t - \lambda_1(a) )\ldots(t - \lambda_n(a))$ gdzie $\lambda_i(a)$ to pierwiastki wielomianu $w(t) -a$ 
+	$W(T) - aI = a_n (T -\lambda_1(a)I) \ldots (T-\lambda_n(a) I)$
+	\texttt{dopisać}
+\end{proof}
+\begin{lem}[Kluczowy]
+	Niech $T\colon H \to H$ będzie ograniczonym samosprzężonym operatorem na ośrodkowej przestrzeni Hilberta $(H ,\scal)$.
+	Ustalmy $c\in H$ takie, ze $\|c\| =1$. Wówczas istnieje skończona miara borelowska $\mu$ na przedziale $\left[ -\|T\|, \|T\| \right]$
+	taka, że dla każdego wielomianu rzeczywistego $w(t)$ $$\langle w(T)c, c \rangle = \int_{\left[ -\|T\|, \|T\| \right]} w \dd \mu$$
+\end{lem}
+\begin{proof}
+	Niech $I= \left[ -\|T\|,\|T\| \right]$. Rozpatrzmy przestrzeń $(C(I), \|\cdot\|_\infty)$.
+	Niech $W_\R(I)$ to będą wielomiany rzeczywiste na I.~Wtedy $W_\R(I) \subset C(I)$.
+	Niech $\varphi\colon W_\R(I) \to \R$ $\varphi(w) = \langle w(T)c,c \rangle$. 
+	Wtedy $\varphi$ jest liniowy i~ograniczony. Ograniczoność wynika z~$|\varphi(w) | \le \|w(T)\| = \sup \{ |\lambda|: \lambda \in sp(w(t))\}
+	=\sup\{ |\lambda|: \lambda \in w(sp(T))\}\le \sup_{\lambda \in I}|w(\lambda)| = \|w\|_\infty$ \par
+	Z~tw. Weierstassa wiemy, że $\overline{W_\R (I)}  = C(I)$. Wiec $\varphi$ przedłuża się do liniowego ograniczonego $\tilde{\varphi}\colon C(I) \to \R$.\par
+	Aby zastosować twierdzenie Riesza o~reprezentacji musimy sprawdzić, czy $\tilde{\varphi}$ jest nieujemna.
+	Weźmy $f \in C(I)$ $f\ge0$.
+	Istnieje ciąg $w_n \ in W_\R (I)$ taki, że $\|w_n - \sqrt{f}\|_{\infty}  \to 0$ więc $\|w_n^2 -f \|_{\infty}\to 0$.
+	Z~ciągłości $\tilde{\varphi}$ mamy 
+	$$\tilde{\varphi}(w_n^2)  \to \varphi(f) \ge 0$$
+	$$\varphi(w_n^2) = \langle w_n^2 (T) c ,c \rangle = \langle w_n (T) c , w_n(T) c \rangle = \|w_n(T) c\|i \ge 0$$
+	Z~twierdzenia Riesza istnieje borelowska skończona miara na $I$ taka, że $\tilde{\varphi}(f) = \int_I f \dd \mu$ 
+	wiec dla $w \in W_\R (I)$ zachodzi $\langle w(T) c ,c  \rangle = \varphi(w) = \widetilde{\varphi}(w) = \int_I w \dd \mu$
+\end{proof}
+\begin{proof}[Dowód twierdzenia spektralnego]%\mbox{}
+	Niech $I = \left[ -\|T\|, \|T\| \right]$
+	\begin{enumerate}[(A)]
+		\item Załóżmy, że $H$ ma wektor cykliczny $c$ dla $T$ ($\|c\|=1$). To znaczy $\lin\{c, Tc, T^2c,\ldots\} = H$.
+			Istnieje wówczas miara borelowska, skończona $\mu$ na $\left[ -\|T\|, \|T\| \right]$ oraz izometria liniowa
+			$U \colon L_2 (\mu) \stackrel{na}{\to}H$ taka, że $U^{-1}TU[f] = [id\, f]$.\par
+			Z~lematu mamy $\mu$ miarę borelowską skończoną na $\left[ -\|T\|, \|T\| \right]$ taką, że dla wielomianów rzeczywistych 
+			$\langle w(T)c,c \rangle= \int_I w \dd \mu$\par
+			wiemy, że 
+			$L_2(\mu) \supset W(I) \supset W_R(I)$ gdzie $W(I)$ jest podprzestrzenią wielomianów zespolonych. \par
+			Określamy $U\colon W(I) \to H$ tak, ze $UW = W(T)c$ i~otrzymujemy przekształcenie liniowe.
+			Rzeczywiście. Dla $w_1, w_2 \in W_\R(I)$ to 
+			$$\langle Uw_1, Uw_2 \rangle= \langle w_1 (T) c, w_2(T) c \rangle = \langle w_1(T)w_2(T)c,c  \rangle = 
+			\langle (w_1w_2)(T) c,c \rangle = \int_I w_1 w_2 \dd \mu = \langle w_1, w_2  \rangle_{L_2(\mu)} $$
+			\texttt{Dla wielomianów zespolonych obliczeń nie było na wykładzie, są w~skrypcie profesora Pola}\par
+
+			Z~gęstości $W(I)$  w~$L_2(\mu)$ istnieje przedłużenie $U$ do izometrii liniowej.
+			$\widetilde{U} \colon L_2 (\mu) \to H $
+			Ponieważ $TU[w]  = TW(T) c = (id\, w) (T) c$ i $U^{-1}TU[w]= \left( id\,w \right)$
+			to dla $\widetilde{U}$ mamy to samo, czyli $\widetilde{U}^{-1}T \widetilde{U} [f] = [id\, f]$ \par
+			Ponieważ dla $w(t) = t^n$ mamy  $Uw = T^n c$ to $\widetilde{U}$ jest na
+		\item %\texttt {na następnym wykładzie}
+			Wybierzmy domknięte liniowe podprzestrzenie $H_1, H_2$ w~$H$ cykliczne dla $T$ takie, że $H_i \perp H_j$ dla $i\not = j$ oraz 
+			$\lin \bigcup_{i=1}^\infty H_i = H$. Dla $x\in H$ mamy rozbicie $x$ na~$x_i = p_{H_i}(x)$. Wtedy $x =\sum_{i=1}^\infty x_i$ i~
+			$\|x\|^2 = \sum_{i=1}^\infty \|x_i\|^2$. Dodatkowo $H$ jest suma prostą $H_i$\par
+			Niech $x_1, x_2,\ldots$ będzie zbiorem gęstym w~$H$ i~$x_i \not = 0$. 
+			Niech $c_1  = \frac{x_1 }{\|x\|}$. Niech $h_1 = \overline{\lin\left\{ c_1, Tc_a, t^2 c_1,\ldots \right\}}$.
+			Mamy wtedy, że $TH_1 \subset H_1$ więc $TH_1^\perp \subset H_1^\perp$. Weźmy pierwszy $x_k \not \in H_1$ wtedy 
+			$x_k = P_{H_1}(x_k)+ P_{H_1^\perp}(x_k)$. Niech $c_2 = \frac{P_{H_1^\perp}(x_k)}{\|P_{H_1^\perp}(x_k)\|}$
+			i~$H_2= \overline{\lin\left\{ c_2, Tc_2, T^2c_2,\ldots \right\}}$. Z~konstrukcji wiemy, że $H_1 \perp H_2$. 
+			Dalej postępujemy analogicznie, aż wszystkie elementy ciągu $(x_i)_{i=1}^\infty$ będą należały do powłoki liniowej rozpinanej przez $H_i$ \par
+		\item Korzystając z~punktów $(A)$ i~$(B)$. Dla każdej podprzestrzeni $H_i$ bierzemy przedział $I_i = [a_i, b_i]$, taki, że $b_i -a_i = 2\|T\|$.
+			Przedziały są parami rozłączne. Mamy wtedy skończone miary $\mu_i$ na $I_1$ i~izometrię $U_i \colon L_2(\mu_i) \overset{na}{\to} H_i$.
+			\texttt{uzupełnić}
+		\item $H = H_1 \oplus H_2 \oplus \ldots$
+			Niech $\mu$ będzie miarą taką, że na $I_k = \mu_k$ 
+			Niech $u\colon \R \to \R$ będzie funkcją tak, że $u|I_k = u_k$ i poza tymi przedziałami jest zerem.
+			Niech dla $f \in L_2(\mu)$  $Uf = \sum_i U_i (f|I_i)$ wtedy $ U^{-1 }T U [f] = [uf]$.
+	\end{enumerate}
+	
+\end{proof}
+\chapter{Fundamentalne twierdzenia o~operatorach na przestrzeniach Banacha}
+\section{Zasada jednostajnej ograniczoności}
+\begin{twr}[Banacha\dywiz Steinhausa - zasada jednostajnej ograniczoności]
+	Niech $X,Y$ będą przestrzeniami Banacha. Niech $\mathcal{F} \subset B(X,Y)$ będzie rodziną operatorów ograniczonych z~$X$ w~$Y$.
+	Wówczas jeśli dla każdego $x \in X$ $sup \{\|Tx\|: T \in \mathcal{F}\} < + \infty$ to $\sup \{ \|T\|: T \in \mathcal{F} \} < +\infty$
+\end{twr}
+\begin{proof}
+	Niech $C_n = \left\{ x : \sup\left\{ \|Tx\|: T\in \mathcal{F} \right\}\le n \right\} = \bigcap_{T \in \mathcal{F}}\left\{ x : \|Tx\|\le n \right\}$.
+	Wiemy, ze $C_n$ domknięty wypukły i symetryczny, więc możemy zastosować twierdzenie Baire. 
+	Wiemy, że $C_n = X$. Z twierdzenie Baire istnieje $C_n$ o niepustym wnętrzu. To znaczy istnieje $u \in X$ i $\delta>0$ takie, że 
+	$u + \delta B_X \subset C_n$.
+	$$\frac{1}{2}\left( (u +\delta B_X) - (u + \delta B_x)  \right) \subset \frac{1}{2}(C_n - C_n) = \frac{1}{2}(C_n + C_n) \subset C_n$$
+	Zatem $\delta B_x \subset C_n$. To znaczy jeśli $x \in B_X$ i $T \in \mathcal{F}$ to $\delta x \in \delta B_X \subset C_n$ 
+	i $\|T(\delta x)\| \le n$  $\|Tx\| \le \frac{n}{\delta}$ $\|T\| \le \frac{n}{\delta}$ 
+\end{proof}
+
+\section{Zasad o~odwzorowaniu otwarym}
+\begin{twr}[Banacha o~odwzorowaniu otwartym]
+	Każdy ograniczony operator $T \colon X \to Y$ z~przestrzeni Banacha $X$ na przestrzeń Banacha $Y$
+	przekształca zbiory otwarte w~$X$  na zbiory otwarte w~$Y$ (równoważnie)
+\end{twr}
+\begin{proof}
+	Wystarczy pokazać, że $0 \in \mathrm{Int} TB_X$.
+	Pokażemy, że istniej $\delta >0$ takie, $\delta B_Y \subset \overline{TB_{X}}$ \par
+	Istotnie. Wiemy, że $X = \bigcup n B_X $ wiec $Y =TX = \bigcup_n n T(B_X) = \bigcup_n n \overline{TB_X}$.
+	Z twierdzenia Baire $u + \delta' B_Y \subset n \overline{TB_X}$
+	\texttt{Analogicznie jak wyżej}
+	zatem $\delta`B_y \subset n \overline{T B_X}$ niech $\delta  = \frac{\delta`}{n}$\par
+	Teraz pokażemy, że $\frac{\delta}{2}B_Y \subset TB_X$ .
+	W tym celu wybierzemy dowolne $y \in \frac{\delta}{2} B_Y$ wówczas $2y \in \delta B_Y$ więc istnieje $y_1 \in TB_X$ takie, ze 
+	$\|2y - y_1 \| < \frac{\delta}{2}$. Ponieważ $2y - y_1 \in \frac{\delta}{2} B_Y$ wiec $2(2y - y_1) \in \delta B_Y$.\par
+	Powtarzając to rozumowanie wybieramy wektory $y_n \in TB_X$ mamy 
+	$\|2^n y - 2^{n-1}y_{1} - 2^{n-2}y_2 - \ldots -y_n \| \le \frac{\delta}{2}$
+	Zatem $\left\| y - \sum \frac{y_i}{2^i}\right\| < \frac{\delta}{2^{n+1}}$ więc 
+	$y = \sum_{i=1}^\infty 2^{-n}y_n$ gdzie $y_n = T x_n $ dla pewnego $x_n \in B_X$.
+	Ponieważ $\sum_n \|2^{-n} x_n\| \le 1$ to istnieje $x \in B_X$ takie, że $x= \sum_{n=1}^\infty 2^{-n}x_n$. 
+	Mamy $T(X) = \sum_n 2^{-n}T(x_n) = y$ więc $y\in TB_X$
+\end{proof}
+\section{Twierdzenie o~domkniętości wykresu}
+\begin{twr}[Banacha o~wykresie domkniętym]
+	Niech $(X,\norm)$, $(Y, \norm)$ będą przestrzeniami Banacha. 
+	Niech $T\colon X \to Y$ będzie operatorem liniowym. Jeśli wykres $\mathrm{Gr}T\{(x,Tx): x\in X\}$ jest domknięty w~iloczynie kartezjańskim  $X \times Y$ 
+	to $T$ jest operatorem ograniczonym.	
+\end{twr}
+\begin{proof}
+	Rozpatrzmy przestrzeń $(X\times Y, \|\cdot\|_{X\times Y})$ gdzie $\|(x,y)\|_{X\times Y} = \|x\|_X + \|y\|_Y$ 
+	Wtedy $\gr T$ jest podprzestrzenią Banacha w~$x\times Y$.\\
+	Niech $\pi(x,y) = x$. Wtedy $\pi|\gr|T\colon \gr T \stackrel[1-1]{na}{\to} X$.
+	Z~twierdzenia Banacha $\pi|\gr T$ jest otwarte wiec $\pi |\gr T$ jest homeomorfizmem $T= P_Y (\pi |\gr T)^{-1}$ więc jest ciągłe. 
+\end{proof}
+
 \chapter{Zadania od Toruńczyka i~inne dodatki}
-Być może coś się tu pojawi. Zapraszam chętnych. 
+Być może coś się tu pojawi. Zapraszam chętnych. \\
+\setlength{\unitlength}{4cm}
+
 %\chapter{Piosenka}
 %Dlaczego? Bo tak:\par\nopagebreak
 \newpage
