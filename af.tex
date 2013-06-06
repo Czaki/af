@@ -1054,9 +1054,87 @@ Czyli $(L_2(\mu),\|\cdot\|_2)$ jest przestrzenią Hilberta.
 \begin{proof}
 	Rozpatrzmy przestrzeń $(X\times Y, \|\cdot\|_{X\times Y})$ gdzie $\|(x,y)\|_{X\times Y} = \|x\|_X + \|y\|_Y$ 
 	Wtedy $\gr T$ jest podprzestrzenią Banacha w~$x\times Y$.\\
-	Niech $\pi(x,y) = x$. Wtedy $\pi|\gr|T\colon \gr T \stackrel[1-1]{na}{\to} X$.
+	Niech $\pi(x,y) = x$. Wtedy $\pi|\gr T\colon \gr T \stackrel[1-1]{na}{\to} X$.
 	Z~twierdzenia Banacha $\pi|\gr T$ jest otwarte wiec $\pi |\gr T$ jest homeomorfizmem $T= P_Y (\pi |\gr T)^{-1}$ więc jest ciągłe. 
 \end{proof}
+
+\chapter{Przestrzenie $L_p$}
+\section{Przypomnienie i~definicja pojęć}
+Niech $\mu$ będzie miarą $\sigma$-skończona na $\sigma$-algebrze $\mathcal{B}$ podzbiorów zbioru $\Omega$.\\
+Jeśli funkcja $f\colon\Omega \to \C$ jest $\mathcal{B}$ mierzalna to  $[f] \{ g: g-\mathcal{B}\mathrm{-mierzalna}, f=g \; pw\}$.\\
+Dla $1\le p <\infty$ oznaczamy $L_p(\mu)=\left\{ [f]: |f|^p \textrm{ jest sumowalna } \right\}$\\
+Dla $[f] \in L_p(\mu)$ wprowadzamy normę daną wzorem $\|[f]\|_p = \left( \int_\Omega |f|^p \dd \mu \right)^{\frac{1}{p}}$\\
+\begin{twr}[Nierówność Holdera]\mbox{}\\
+	$\|g \cdot g \|_1 \le \|f\|_p\cdot \|g\|_{q}$ dla $f \in L_p (\mu)$, $g \in L_q(\mu)$ i~$\frac{1}{p}+\frac{1}{q}=1$.
+\end{twr}
+\begin{de}
+	$$L_\infty(\mu) = \left\{ [f] : \exists_M |f| \le M\; p.w. \right\}$$
+	$$\|[f]\|_\infty = \inf \left\{ M: |f| \le M \; p.w. \right\}$$
+\end{de}
+\section{Przestrzenie $L_p$}
+\begin{twr}
+	$L_p(\mu)$ są przestrzeniami Banacha dla $1\le p \le\infty$
+\end{twr}
+\begin{proof}
+	Podobny do dowodu dla $L_2$ jeśli $1\le p < \infty$. Dla $p =+ \infty$ dowód jest łatwy. 
+\end{proof}
+\begin{ex}
+	$(l_p, \|\cdot\|_p)$ jeśli $\mu$ jest miarą na $\N$ taką, że $\mu(A) = |A|$ 
+\end{ex}
+\begin{twr}
+	Niech $p \in [1, +\infty)$ i~$q \in (1+\infty]$ takie, że $\frac{1}{p}+\frac{1}{q} = 1$. Wówczas $L_p(\mu)^* \equiv L_q(\mu)$.
+	\emph{Dokładniej}: Każdemu funkcjonałowi $\varphi \in L_p(\mu)^*$ odpowiada dokładnie jedna $g \in L_q (\mu)$ takie, że 
+	$\varphi(f) = \int_\Omega f\cdot g\dd\mu$ dla każdego $f \in L_p(\mu)$. Ponadto $\|\varphi\| = \|g\|_q$
+\end{twr}
+\begin{lem}[Nierównaość Hannera]
+	Niech $f,g \in L_p$. Wówczas jeśli $1 \le p \le 2$ to zachodzi nierówność: 
+	$$\left( \|f+g\|_p + \|f-g\|_p \right)^p + \left| \|f+g\|_p - \|f-g\|_p \right)^p \le 2^p \left( \|f\|_p^p + \|g\|_p^p  \right)$$
+	Jeśli $1 \le p < \infty$ to nierówność jest przeciwna. Dla $p=2$ mamy regułę równoległoboku. 
+\end{lem}
+\begin{lem}
+	Niech $f,v \in L_p(\mu)$ dla $1 < p <\infty$. 
+	Wówczas funkcja  $\gamma(t) = \left( \|f + t\cdot v \|_p  \right)^p$ jest różniczkowalna oraz 
+	$$\gamma'(0) =  \frac{p}{2}\int_\Omega |f|^{p-2}\left(\overline{f} v + f \overline{v}\right) \dd \mu$$
+	\emph{intuicja}: $\lim_{t \to 0} \frac{|z_1 + tz_2|^p - |z_1|^p}{t} = 
+	\frac{p}{2}\left( |z_1|^{p-2}\left( \overline{z_1}z_2 + z_1 \overline{z_2} \right)\right)$
+\end{lem}
+\begin{lem}
+	Niech $u \in L_p (\mu)$. Niech $V$ będzie domkniętą podprzestrzenią liniową $L_p(\mu)$ i~$1<p<\infty$. 
+	Wówczas istnieje dokładnie jedno $h \in V$ takie, że $\|u - h\| = \dist(u,V)$. 
+	Ponadto $\int_\Omega |u-h|^{p - 2} \left( \overline{u- h} \right)v \dd \mu =0 $ dla każdego $v \in V$
+\end{lem}
+\begin{proof}
+	Niech $h_n \in V$ będzie ciągiem takim, że $\|u - h_n \| \to \dist(u,V) $.
+	Korzystając z~nierówności Hannera pokazuje się, że $(h_n)_{n=1}^\infty$ to ciąg Cauchego więc $\lim_{n \to \infty} h_n =h \in V$\par
+	Ustalmy dowolne $v \in V$ mamy 
+	$\gamma_v(t) = \|(u-h) + t(v)\|_p^p = \|u - (h-tv) \|_p^p \ge \|u-h\|_p^p = \gamma_v(0) $.
+	Zatem w~$\gamma_v(0)$ mamy minimum, więc $\gamma_v'(0) =0$, tak więc
+	$$\int_\Omega |u-h|^{p - 2} \left( \left(\overline{u-h}\right) v + \left( u-h \right)\overline{v} \right) \dd \mu =0 $$
+	Biorąc $iv$ otrzymujemy 
+	$$\int_\Omega |u-h|^{p - 2} \left( \left(\overline{u-h}\right) v - \left( u-h \right)\overline{v} \right) \dd \mu =0 $$
+	Po dodaniu stronami otrzymujemy to co chcieliśmy.
+\end{proof}
+\begin{proof}[Dowód Twierdzenia 4.2.3]\mbox{}
+	\begin{enumerate}[(A)]
+		\item Najpierw będziemy dowodzić dla $1 < p <+\infty$. Niech $\varphi \in L_p(\mu)^*$. Pominiemy trywialny przypadek $\varphi =0$.
+			Niech $V = \ker \varphi$ niech $u \in \L_p(\mu) \setminus V$. Niech $h \in V$ będzie takie jak w~lemacie 4.2.6. \\
+			\emph{Przyjmujemy:} $g= |u-h|^{p-2}(\overline{u - h})$.
+			Pokażemy, że $g \in L_q(\mu)$. $$|g|^q = |u-h|^{(p-1)q} = |u-h|^p$$
+			Niech $\displaystyle\varphi_g(f) = \int_\Omega fg \dd \mu$. Dla $f \in L_p(\mu)$ jest to funkcjonał ograniczony (nierówność Holdera).
+			Ponadto $\ker \varphi_g \supset V = \ker \varphi$.
+			Wiemy, że $\varphi_q \not = 0$ bo 
+			$$\varphi_g (u-h) = \int_\Omega |u-h|^p \dd \mu  = \|u-h\|_p^p \not =0$$
+			Stąd $\varphi = c \varphi_g = \varphi_{cg}$ 
+		\item Dla $p=1$ i~$\varphi \in L_1 (\mu)^*$ mamy znaleźć $g \in L_\infty(\mu)$ takie, że $\varphi(f) = \int_\Omega fg\dd\mu$ 
+			Najpierw zakłada się, że  miara $\mu$ jest skończona. Wtedy $L_p (\mu) \subset L_1(\mu)$ dla $p>1$ 
+			(\emph{Było na ćwiczeniach. Można zrobić z~nierówności Holdera}).
+			Wiemy, ze $\varphi|L_p(\mu) \in L_p(\mu)^*$. \texttt{nie przepisałem uzasadnienia}.
+			Zatem $\varphi(f)  = \int_\Omega f \cdot g_p \dd \mu$ dla $g_p \in L_q(\mu)$ gdzie $\frac{1}{p}+\frac{1}{q} = 1$ i~$f \in L_p (\mu)$.
+			Ponieważ $g_p$ nie zależy od $p$ to $g_p = g$ p.w. gdzie $g \in L_\infty(\mu)$ 
+
+	\end{enumerate}
+\end{proof}
+
 
 \chapter{Zadania od Toruńczyka i~inne dodatki}
 Być może coś się tu pojawi. Zapraszam chętnych. \\
